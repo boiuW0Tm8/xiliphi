@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`overflow-x-hidden ${xiliphiFont.className}`}>
-        <nav className="px-4 sm:px-6 py-1 border-b border-neutral-200">
+        <nav className="px-4 sm:px-6 py-1 bg-white border-b border-neutral-200">
           <div className="max-w-6xl mx-auto flex items-center justify-between">
 
             {/* Logo */}
@@ -95,7 +95,8 @@ export default function RootLayout({
         {/* Mobile dropdown (animated) */}
         <div
           className={`
-    md:hidden overflow-hidden bg-white border-b border-neutral-200 transition-[max-height,opacity] duration-500 ease-in-out
+    md:hidden overflow-hidden bg-white/95 backdrop-blur-sm
+ border-b border-neutral-200 transition-[max-height,opacity] duration-500 ease-in-out
     ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
   `}
         >
