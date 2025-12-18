@@ -109,51 +109,50 @@ export default function RootLayout({
         </nav>
 
         {/* MOBILE MENU OVERLAY */}
-        <div
-          className={`
-            md:hidden fixed inset-0 z-40
-            transition-opacity duration-300 ease-in-out
-            ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
-          `}
+<div
+  className={`
+    md:hidden fixed inset-0 z-40
+    transition-opacity duration-300 ease-in-out
+    ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+  `}
+>
+  {/* Backdrop */}
+  <div
+    className="absolute inset-0 bg-black/30"
+    onClick={() => setMenuOpen(false)}
+  />
+
+  {/* Menu container */}
+  <div
+    className={`
+      relative z-10
+      mt-[56px]
+      h-[calc(100svh-56px)]
+      bg-white
+      overflow-y-auto
+      transform transition-transform duration-300 ease-in-out
+      ${menuOpen ? "translate-y-0" : "-translate-y-4"}
+    `}
+  >
+    <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black pb-[env(safe-area-inset-bottom)]">
+      {["About", "Products", "Contact", "Where to buy"].map((label) => (
+        <Link
+          key={label}
+          href={
+            label === "Where to buy"
+              ? "/wheretobuy"
+              : `/${label.toLowerCase()}`
+          }
+          onClick={() => setMenuOpen(false)}
+          className="hover:text-neutral-700 transition-colors"
         >
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/30"
-            onClick={() => setMenuOpen(false)}
-          />
+          {label}
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
 
-          {/* Menu panel */}
-          <div
-            className={`
-              absolute left-0 right-0
-              top-[56px]
-              h-[calc(100dvh-56px)]
-              bg-white border-b border-neutral-200
-              overflow-y-auto
-              transform transition-transform duration-300 ease-in-out
-              ${menuOpen ? "translate-y-0" : "-translate-y-4"}
-            `}
-          >
-
-
-            <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
-              {["About", "Products", "Contact", "Where to buy"].map((label) => (
-                <Link
-                  key={label}
-                  href={
-                    label === "Where to buy"
-                      ? "/wheretobuy"
-                      : `/${label.toLowerCase()}`
-                  }
-                  onClick={() => setMenuOpen(false)}
-                  className="hover:text-neutral-700 transition-colors"
-                >
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* PAGE CONTENT */}
         <main className="pt-[56px]">
