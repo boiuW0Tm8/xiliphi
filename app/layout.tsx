@@ -4,7 +4,7 @@ import Link from "next/link";
 import "./globals.css";
 import localFont from "next/font/local";
 import { useState } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+//import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 const xiliphiFont = localFont({
