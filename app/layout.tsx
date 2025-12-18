@@ -108,50 +108,52 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* MOBILE MENU OVERLAY */}
+        {/* MOBILE FULLSCREEN MENU */}
 <div
   className={`
-    md:hidden fixed inset-0 z-40
-    transition-opacity duration-300 ease-in-out
+    md:hidden fixed inset-0 z-[100]
+    bg-white
+    transition-opacity duration-300
     ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
   `}
 >
-  {/* Backdrop */}
-  <div
-    className="absolute inset-0 bg-black/30"
-    onClick={() => setMenuOpen(false)}
-  />
+  {/* Header inside menu */}
+  <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-200">
+    <Image
+      src="/logo.png"
+      alt="Xiliphi logo"
+      width={120}
+      height={32}
+    />
 
-  {/* Menu container */}
-  <div
-    className={`
-      relative z-10
-      mt-[56px]
-      h-[calc(100svh-56px)]
-      bg-white
-      overflow-y-auto
-      transform transition-transform duration-300 ease-in-out
-      ${menuOpen ? "translate-y-0" : "-translate-y-4"}
-    `}
-  >
-    <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black pb-[env(safe-area-inset-bottom)]">
-      {["About", "Products", "Contact", "Where to buy"].map((label) => (
-        <Link
-          key={label}
-          href={
-            label === "Where to buy"
-              ? "/wheretobuy"
-              : `/${label.toLowerCase()}`
-          }
-          onClick={() => setMenuOpen(false)}
-          className="hover:text-neutral-700 transition-colors"
-        >
-          {label}
-        </Link>
-      ))}
-    </div>
+    <button
+      onClick={() => setMenuOpen(false)}
+      aria-label="Close menu"
+      className="text-2xl leading-none"
+    >
+      ✕
+    </button>
+  </div>
+
+  {/* Menu links */}
+  <div className="flex flex-col gap-6 px-6 py-8 text-sm tracking-wide text-black overflow-y-auto h-full">
+    {["About", "Products", "Contact", "Where to buy"].map((label) => (
+      <Link
+        key={label}
+        href={
+          label === "Where to buy"
+            ? "/wheretobuy"
+            : `/${label.toLowerCase()}`
+        }
+        onClick={() => setMenuOpen(false)}
+        className="hover:text-neutral-700 transition-colors"
+      >
+        {label}
+      </Link>
+    ))}
   </div>
 </div>
+
 
 
         {/* PAGE CONTENT */}
