@@ -95,26 +95,46 @@ export default function RootLayout({
         {/* Mobile dropdown (animated) */}
         <div
           className={`
-    md:hidden overflow-hidden bg-white/95 backdrop-blur-sm
- border-b border-neutral-200 transition-[max-height,opacity] duration-500 ease-in-out
+    md:hidden overflow-hidden bg-white
+    border-b border-neutral-200
+    transition-[max-height,opacity] duration-500 ease-in-out
     ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
   `}
         >
+
           <div
-            className={`px-6 py-6 flex flex-col gap-4 text-sm tracking-wide ${xiliphiFont.className}`}
+            className={`px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black ${xiliphiFont.className}`}
           >
-            <Link href="/about" onClick={() => setMenuOpen(false)}>
+
+            <Link
+              href="/about"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
               About
             </Link>
-            <Link href="/products" onClick={() => setMenuOpen(false)}>
+            <Link
+              href="/products"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
               Products
             </Link>
-            <Link href="/contact" onClick={() => setMenuOpen(false)}>
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
               Contact
             </Link>
-            <Link href="/contact" onClick={() => setMenuOpen(false)}>
+            <Link
+              href="/wheretobuy"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
               Where to buy
             </Link>
+
           </div>
         </div>
 
