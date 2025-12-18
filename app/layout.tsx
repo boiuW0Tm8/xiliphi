@@ -98,10 +98,11 @@ export default function RootLayout({
           className={`
     md:hidden overflow-hidden bg-white
     border-b border-neutral-200
-    transition-[max-height,opacity] duration-500 ease-in-out
-    ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+    transition-[max-height] duration-500 ease-in-out
+    ${menuOpen ? "max-h-96" : "max-h-0"}
   `}
         >
+
 
           <div
             className={`px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black ${xiliphiFont.className}`}
