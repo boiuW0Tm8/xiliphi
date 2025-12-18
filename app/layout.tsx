@@ -12,6 +12,13 @@ const xiliphiFont = localFont({
   display: "swap",
 });
 
+export const metadata = {
+  title: "Xiliphi",
+  icons: {
+    icon: "/icon.png",
+  },
+};
+
 
 export default function RootLayout({
   children,
