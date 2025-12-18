@@ -125,13 +125,16 @@ export default function RootLayout({
           {/* Menu panel */}
           <div
             className={`
-              absolute top-[56px] left-0 right-0 bottom-0
+              absolute left-0 right-0
+              top-[56px]
+              h-[calc(100dvh-56px)]
               bg-white border-b border-neutral-200
               overflow-y-auto
               transform transition-transform duration-300 ease-in-out
               ${menuOpen ? "translate-y-0" : "-translate-y-4"}
             `}
           >
+
 
             <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
               {["About", "Products", "Contact", "Where to buy"].map((label) => (
