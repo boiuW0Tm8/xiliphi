@@ -15,7 +15,7 @@ export default function Home() {
         {/* CTA */}
         <div className="flex justify-center">
           <button className="px-10 py-4 rounded-full bg-black text-white text-sm tracking-wide uppercase hover:bg-neutral-800 transition">
-            Coming Soon
+            Coming Soon...
           </button>
         </div>
 
