@@ -42,7 +42,7 @@ export default function RootLayout({
             <div
               className={`hidden md:flex gap-4 md:gap-8 text-sm tracking-wide text-neutral-700 ${xiliphiFont.className}`}
             >
-              {["About", "Products", "Contact", "Where to buy"].map((label) => (
+              {["Aboutt", "Products", "Contact", "Where to buy"].map((label) => (
                 <Link
                   key={label}
                   href={label === "Where to buy" ? "/contact" : `/${label.toLowerCase()}`}
