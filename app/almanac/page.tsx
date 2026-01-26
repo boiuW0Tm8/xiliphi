@@ -48,13 +48,16 @@ export default function AlmanacPage() {
                 sm:grid-cols-2
                 md:grid-cols-3
                 lg:grid-cols-4
+                items-stretch
               ">
                 {groupedIngredients[letter].map((ingredient) => (
                   <li key={ingredient.slug}>
                     <Link
                       href={`/almanac/${ingredient.slug}`}
                       className="
-                        block p-4 border border-neutral-200 rounded-lg
+                        block w-full h-full
+                        p-5
+                        border border-neutral-200 rounded-lg
                         hover:border-black transition-colors
                       "
                     >
