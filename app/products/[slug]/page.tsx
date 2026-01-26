@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ingredients } from "../../../lib/ingredients";
 import { products } from "../../../lib/products";
+
+const ingredientMap = new Map(
+  ingredients.map((i) => [i.slug, i])
+);
 
 export default async function ProductPage({
   params,
@@ -23,44 +28,53 @@ export default async function ProductPage({
       </h1>
 
       {/* Ingredients */}
-            <section>
+      <section>
         <h2 className="text-xl font-medium mb-4">
           Ingredients
         </h2>
 
-        {/* Mobile: single column list */}
+        {/* Mobile: single column */}
         <ul className="space-y-2 md:hidden">
-          {product.ingredients.map((ingredient) => (
-            <li key={ingredient}>
-              <Link
-                href={`/almanac/${ingredient}`}
-                className="hover:underline"
-              >
-                {ingredient
-                  .replace(/-/g, " ")
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
-              </Link>
-            </li>
-          ))}
+          {product.ingredients.map((slug) => {
+            const ingredient = ingredientMap.get(slug);
+
+            if (!ingredient) return null;
+
+            return (
+              <li key={slug}>
+                <Link
+                  href={`/almanac/${slug}`}
+                  className="hover:underline"
+                >
+                  {ingredient.inci}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
-        {/* Desktop: paragraph-style list */}
+        {/* Desktop: paragraph */}
         <p className="hidden md:block leading-relaxed text-neutral-800">
-          {product.ingredients.map((ingredient, index) => (
-            <span key={ingredient}>
-              <Link
-                href={`/almanac/${ingredient}`}
-                className="hover:underline"
-              >
-                {ingredient
-                  .replace(/-/g, " ")
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
-              </Link>
-              {index < product.ingredients.length - 1 && ", "}
-            </span>
-          ))}
+          {product.ingredients.map((slug, index) => {
+            const ingredient = ingredientMap.get(slug);
+
+            if (!ingredient) return null;
+
+            return (
+              <span key={slug}>
+                <Link
+                  href={`/almanac/${slug}`}
+                  className="hover:underline"
+                >
+                  {ingredient.inci}
+                </Link>
+                {index < product.ingredients.length - 1 && ", "}
+              </span>
+            );
+          })}
         </p>
       </section>
+
     </main>
   );
 }

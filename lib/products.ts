@@ -96,6 +96,7 @@ export const products = [
       "simmondsia-chinensis-seed-oil",
       "prunus-amygdalus-dulcis-oil",
       "argania-spinosa-kernel-oil",
+      "butyrospermum-parkii-butter",
       "tocopherol",
       "hyaluronic-acid",
       "cera-alba-beeswax",
