@@ -1,37 +1,47 @@
 export const ingredients = [
   {
+    inci: "Allantoin",
+    slug: "allantoin",
+  },
+
+  {
     inci: "Aloe Barbadensis Leaf Extract",
     common: "Aloe Vera",
     slug: "aloe-barbadensis-leaf-extract",
   },
+
   {
     inci: "Amethyst Powder",
     slug: "amethyst-powder",
   },
+
+  {
+    inci: "Argania Spinosa Kernel Oil",
+    common: "Argan Oil",
+    slug: "argania-spinosa-kernel-oil",
+  },
+
   {
     inci: "Arginine",
     slug: "arginine",
   },
+
   {
     inci: "Ascorbic Acid",
     common: "Vitamin C",
     slug: "ascorbic-acid",
   },
-  {
-    inci: "Avena Sativa Extract",
-    common: "Oat",
-    slug: "avena-sativa-oat-extract",
-  },
 
   {
     inci: "Butyrospermum Parkii Butter",
     common: "Shea Butter",
-    slug: "shea-butter",
+    slug: "butyrospermum-parkii-butter",
   },
+
   {
     inci: "Butyrospermum Parkii Extract",
     common: "Shea Extract",
-    slug: "shea-extract",
+    slug: "butyrospermum-parkii-extract",
   },
 
   {
@@ -39,38 +49,59 @@ export const ingredients = [
     common: "Centella / Cica",
     slug: "centella-asiatica-extract",
   },
+
   {
     inci: "Cera Alba",
     common: "Beeswax",
     slug: "cera-alba-beeswax",
   },
+
+  {
+    inci: "Citric Acid",
+    slug: "citric-acid",
+  },
+
   {
     inci: "Citrus Aurantium Dulcis Peel Oil",
     common: "Orange Peel Oil",
-    slug: "orange-peel-oil",
+    slug: "citrus-aurantium-dulcis-peel-oil",
   },
+
   {
     inci: "Cocos Nucifera Oil",
     common: "Coconut Oil",
-    slug: "coconut-oil",
+    slug: "cocos-nucifera-oil",
   },
-  {
-    inci: "Collagen",
-    slug: "collagen",
-  },
+
   {
     inci: "Curcuma Longa Root Extract",
     common: "Turmeric",
-    slug: "turmeric-root-extract",
+    slug: "curcuma-longa-root-extract",
+  },
+
+  {
+    inci: "Curcumin",
+    slug: "curcumin",
+  },
+
+  {
+    inci: "Dipotassium Glycyrrhizate",
+    slug: "dipotassium-glycyrrhizate",
+  },
+
+  {
+    inci: "Glutamic Acid",
+    slug: "glutamic-acid",
   },
 
   {
     inci: "Glycerin",
     slug: "glycerin",
   },
+
   {
-    inci: "Glycoside",
-    slug: "glycoside",
+    inci: "Hydrolyzed Collagen",
+    slug: "hydrolyzed-collagen",
   },
 
   {
@@ -79,19 +110,30 @@ export const ingredients = [
   },
 
   {
+    inci: "Inulin",
+    slug: "inulin",
+  },
+
+  {
     inci: "Lactobacillus Ferment",
     slug: "lactobacillus-ferment",
   },
+
+  {
+    inci: "Lauryl Hydroxysultaine",
+    slug: "lauryl-hydroxysultaine",
+  },
+
   {
     inci: "Lavandula Angustifolia Extract",
     common: "Lavender",
-    slug: "lavender-extract",
+    slug: "lavandula-angustifolia-extract",
   },
 
   {
     inci: "Mangifera Indica Fruit Extract",
     common: "Mango",
-    slug: "mango-fruit-extract",
+    slug: "mangifera-indica-fruit-extract",
   },
 
   {
@@ -99,6 +141,7 @@ export const ingredients = [
     common: "Vitamin B3",
     slug: "niacinamide",
   },
+
   {
     inci: "Nonapeptide",
     slug: "nonapeptide",
@@ -107,7 +150,7 @@ export const ingredients = [
   {
     inci: "Olea Europaea Fruit Oil",
     common: "Olive Oil",
-    slug: "olive-fruit-oil",
+    slug: "olea-europaea-fruit-oil",
   },
 
   {
@@ -115,41 +158,57 @@ export const ingredients = [
     common: "Pro-Vitamin B5",
     slug: "panthenol",
   },
+
   {
     inci: "Persea Gratissima Oil",
     common: "Avocado Oil",
-    slug: "avocado-oil",
+    slug: "persea-gratissima-oil",
   },
+
   {
     inci: "Prunus Amygdalus Dulcis Oil",
     common: "Sweet Almond Oil",
-    slug: "sweet-almond-oil",
+    slug: "prunus-amygdalus-dulcis-oil",
   },
+
   {
     inci: "Prunus Persica Fruit Extract",
     common: "Peach",
-    slug: "peach-fruit-extract",
+    slug: "prunus-persica-fruit-extract",
   },
 
   {
     inci: "Saccharomyces Ferment",
     slug: "saccharomyces-ferment",
   },
+
+  {
+    inci: "Salvia Miltiorrhiza Root Extract",
+    slug: "salvia-miltiorrhiza-root-extract",
+  },
+
   {
     inci: "Simmondsia Chinensis Seed Oil",
     common: "Jojoba Oil",
-    slug: "jojoba-seed-oil",
+    slug: "simmondsia-chinensis-seed-oil",
   },
+
   {
-    inci: "Sophora Angustifolia Root Extract",
-    slug: "sophora-root-extract",
+    inci: "Sodium Citrate",
+    slug: "sodium-citrate",
+  },
+
+  {
+    inci: "Sodium Lactate",
+    slug: "sodium-lactate",
   },
 
   {
     inci: "Theobroma Cacao Seed Butter",
     common: "Cocoa Butter",
-    slug: "cocoa-seed-butter",
+    slug: "theobroma-cacao-seed-butter",
   },
+
   {
     inci: "Tocopherol",
     common: "Vitamin E",
