@@ -128,18 +128,18 @@ export default function RootLayout({
               Products
             </Link>
             <Link
-              href="/contact"
-              onClick={() => setMenuOpen(false)}
-              className="text-black hover:text-neutral-700 transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
               href="/almanac"
               onClick={() => setMenuOpen(false)}
               className="text-black hover:text-neutral-700 transition-colors"
             >
               The Almanac
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
+              Contact
             </Link>
             <Link
               href="/wheretobuy"
