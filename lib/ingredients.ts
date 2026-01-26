@@ -30,7 +30,7 @@ export const ingredients = [
   },
   {
     inci: "Butyrospermum Parkii Extract",
-    common: "Shea",
+    common: "Shea Extract",
     slug: "shea-extract",
   },
 
