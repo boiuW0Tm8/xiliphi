@@ -4,7 +4,7 @@ export default function AboutPage() {
       <section className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-semibold mb-6">About Xiliphi</h1>
         <p className="text-lg text-neutral-600 leading-relaxed">
-          WHERE TO BUY
+          https://www.amazon.ca/s?k=XILIPHI&ref=bl_dp_s_web_0
         </p>
       </section>
     </main>
