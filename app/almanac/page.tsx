@@ -6,7 +6,7 @@ type Ingredient = (typeof ingredients)[number];
 // Group ingredients by first letter
 const groupedIngredients = ingredients.reduce(
   (acc, ingredient) => {
-    const letter = ingredient.name[0].toUpperCase();
+    const letter = ingredient.inci[0].toUpperCase();
     if (!acc[letter]) acc[letter] = [];
     acc[letter].push(ingredient);
     return acc;
@@ -58,7 +58,7 @@ export default function AlmanacPage() {
                         hover:border-black transition-colors
                       "
                     >
-                      {ingredient.name}
+                      {ingredient.inci}
                     </Link>
                   </li>
                 ))}
