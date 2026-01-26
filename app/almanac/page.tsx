@@ -43,13 +43,16 @@ export default function AlmanacPage() {
               </h3>
 
               <ul className="
-                grid gap-4
-                grid-cols-1
-                sm:grid-cols-2
-                md:grid-cols-3
-                lg:grid-cols-4
-                items-stretch
-              ">
+  grid gap-6
+  [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]
+  block w-full h-full
+  p-6
+  text-base
+  border border-neutral-200 rounded-xl
+  hover:border-black hover:bg-neutral-50
+  transition
+">
+
                 {groupedIngredients[letter].map((ingredient) => (
                   <li key={ingredient.slug}>
                     <Link
