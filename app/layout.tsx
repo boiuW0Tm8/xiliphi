@@ -42,18 +42,25 @@ export default function RootLayout({
             <div
               className={`hidden md:flex gap-4 md:gap-8 text-sm tracking-wide text-neutral-700 ${xiliphiFont.className}`}
             >
-              {["About", "Products", "Contact", "Where to buy"].map((label) => (
+              {["About", "Products", "The Almanac", "Contact", "Where to buy"].map((label) => (
                 <Link
                   key={label}
-                  href={label === "Where to buy" ? "/contact" : `/${label.toLowerCase()}`}
+                  href={
+                    label === "Where to buy"
+                      ? "/wheretobuy"
+                      : label === "The Almanac"
+                        ? "/almanac"
+                        : `/${label.toLowerCase()}`
+                  }
                   className="relative hover:text-black transition-colors duration-300
-                 after:absolute after:left-0 after:-bottom-1 after:h-px
-                 after:w-0 after:bg-black after:transition-all after:duration-300
-                 hover:after:w-full"
+      after:absolute after:left-0 after:-bottom-1 after:h-px
+      after:w-0 after:bg-black after:transition-all after:duration-300
+      hover:after:w-full"
                 >
                   {label}
                 </Link>
               ))}
+
             </div>
 
             {/* Mobile hamburger */}
@@ -128,6 +135,13 @@ export default function RootLayout({
               Contact
             </Link>
             <Link
+              href="/almanac"
+              onClick={() => setMenuOpen(false)}
+              className="text-black hover:text-neutral-700 transition-colors"
+            >
+              The Almanac
+            </Link>
+            <Link
               href="/wheretobuy"
               onClick={() => setMenuOpen(false)}
               className="text-black hover:text-neutral-700 transition-colors"
@@ -137,9 +151,6 @@ export default function RootLayout({
 
           </div>
         </div>
-
-
-
         {children}
       </body>
     </html>
