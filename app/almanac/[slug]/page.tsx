@@ -7,13 +7,15 @@ export function generateStaticParams() {
   }));
 }
 
-export default function IngredientPage({
+export default async function IngredientPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
+  const { slug } = await params;
+
   const ingredient = ingredients.find(
-    (i) => i.slug === params.slug
+    (i) => i.slug === slug
   );
 
   if (!ingredient) notFound();
