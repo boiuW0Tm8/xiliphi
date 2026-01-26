@@ -1,50 +1,174 @@
 export const ingredients = [
-  { name: "Aloe Barbadensis Leaf Extract", slug: "aloe-barbadensis-leaf-extract" },
-  { name: "Amethyst Powder", slug: "amethyst-powder" },
-  { name: "Arginine", slug: "arginine" },
-  { name: "Ascorbic Acid", slug: "ascorbic-acid" },
-  { name: "Avena Sativa (Oat) Extract", slug: "avena-sativa-oat-extract" },
+  {
+    inci: "Aloe Barbadensis Leaf Extract",
+    common: "Aloe Vera",
+    slug: "aloe-barbadensis-leaf-extract",
+  },
+  {
+    inci: "Amethyst Powder",
+    slug: "amethyst-powder",
+  },
+  {
+    inci: "Arginine",
+    slug: "arginine",
+  },
+  {
+    inci: "Ascorbic Acid",
+    common: "Vitamin C",
+    slug: "ascorbic-acid",
+  },
+  {
+    inci: "Avena Sativa Extract",
+    common: "Oat",
+    slug: "avena-sativa-oat-extract",
+  },
 
-  { name: "Butyrospermum Parkii (Shea) Butter", slug: "shea-butter" },
-  { name: "Butyrospermum Parkii (Shea) Extract", slug: "shea-extract" },
+  {
+    inci: "Butyrospermum Parkii Butter",
+    common: "Shea Butter",
+    slug: "shea-butter",
+  },
+  {
+    inci: "Butyrospermum Parkii Extract",
+    common: "Shea",
+    slug: "shea-extract",
+  },
 
-  { name: "Centella Asiatica Extract", slug: "centella-asiatica-extract" },
-  { name: "Cera Alba (Beeswax)", slug: "cera-alba-beeswax" },
-  { name: "Citrus Aurantium Dulcis (Orange) Peel Oil", slug: "orange-peel-oil" },
-  { name: "Cocos Nucifera (Coconut) Oil", slug: "coconut-oil" },
-  { name: "Collagen", slug: "collagen" },
-  { name: "Curcuma Longa (Turmeric) Root Extract", slug: "turmeric-root-extract" },
+  {
+    inci: "Centella Asiatica Extract",
+    common: "Centella / Cica",
+    slug: "centella-asiatica-extract",
+  },
+  {
+    inci: "Cera Alba",
+    common: "Beeswax",
+    slug: "cera-alba-beeswax",
+  },
+  {
+    inci: "Citrus Aurantium Dulcis Peel Oil",
+    common: "Orange Peel Oil",
+    slug: "orange-peel-oil",
+  },
+  {
+    inci: "Cocos Nucifera Oil",
+    common: "Coconut Oil",
+    slug: "coconut-oil",
+  },
+  {
+    inci: "Collagen",
+    slug: "collagen",
+  },
+  {
+    inci: "Curcuma Longa Root Extract",
+    common: "Turmeric",
+    slug: "turmeric-root-extract",
+  },
 
-  { name: "Glycerin", slug: "glycerin" },
-  { name: "Glycoside", slug: "glycoside" },
+  {
+    inci: "Glycerin",
+    slug: "glycerin",
+  },
+  {
+    inci: "Glycoside",
+    slug: "glycoside",
+  },
 
-  { name: "Hyaluronic Acid", slug: "hyaluronic-acid" },
+  {
+    inci: "Hyaluronic Acid",
+    slug: "hyaluronic-acid",
+  },
 
-  { name: "Lactobacillus Ferment", slug: "lactobacillus-ferment" },
-  { name: "Lavandula Angustifolia (Lavender) Extract", slug: "lavender-extract" },
+  {
+    inci: "Lactobacillus Ferment",
+    slug: "lactobacillus-ferment",
+  },
+  {
+    inci: "Lavandula Angustifolia Extract",
+    common: "Lavender",
+    slug: "lavender-extract",
+  },
 
-  { name: "Mangifera Indica (Mango) Fruit Extract", slug: "mango-fruit-extract" },
+  {
+    inci: "Mangifera Indica Fruit Extract",
+    common: "Mango",
+    slug: "mango-fruit-extract",
+  },
 
-  { name: "Niacinamide", slug: "niacinamide" },
-  { name: "Nonapeptide", slug: "nonapeptide" },
+  {
+    inci: "Niacinamide",
+    common: "Vitamin B3",
+    slug: "niacinamide",
+  },
+  {
+    inci: "Nonapeptide",
+    slug: "nonapeptide",
+  },
 
-  { name: "Olea Europaea (Olive) Fruit Oil", slug: "olive-fruit-oil" },
+  {
+    inci: "Olea Europaea Fruit Oil",
+    common: "Olive Oil",
+    slug: "olive-fruit-oil",
+  },
 
-  { name: "Panthenol", slug: "panthenol" },
-  { name: "Persea Gratissima (Avocado) Oil", slug: "avocado-oil" },
-  { name: "Prunus Amygdalus Dulcis (Sweet Almond) Oil", slug: "sweet-almond-oil" },
-  { name: "Prunus Persica (Peach) Fruit Extract", slug: "peach-fruit-extract" },
+  {
+    inci: "Panthenol",
+    common: "Pro-Vitamin B5",
+    slug: "panthenol",
+  },
+  {
+    inci: "Persea Gratissima Oil",
+    common: "Avocado Oil",
+    slug: "avocado-oil",
+  },
+  {
+    inci: "Prunus Amygdalus Dulcis Oil",
+    common: "Sweet Almond Oil",
+    slug: "sweet-almond-oil",
+  },
+  {
+    inci: "Prunus Persica Fruit Extract",
+    common: "Peach",
+    slug: "peach-fruit-extract",
+  },
 
-  { name: "Saccharomyces Ferment", slug: "saccharomyces-ferment" },
-  { name: "Simmondsia Chinensis (Jojoba) Seed Oil", slug: "jojoba-seed-oil" },
-  { name: "Sophora Angustifolia Root Extract", slug: "sophora-root-extract" },
+  {
+    inci: "Saccharomyces Ferment",
+    slug: "saccharomyces-ferment",
+  },
+  {
+    inci: "Simmondsia Chinensis Seed Oil",
+    common: "Jojoba Oil",
+    slug: "jojoba-seed-oil",
+  },
+  {
+    inci: "Sophora Angustifolia Root Extract",
+    slug: "sophora-root-extract",
+  },
 
-  { name: "Theobroma Cacao (Cocoa) Seed Butter", slug: "cocoa-seed-butter" },
-  { name: "Tocopherol (Vitamin E)", slug: "tocopherol" },
+  {
+    inci: "Theobroma Cacao Seed Butter",
+    common: "Cocoa Butter",
+    slug: "cocoa-seed-butter",
+  },
+  {
+    inci: "Tocopherol",
+    common: "Vitamin E",
+    slug: "tocopherol",
+  },
 
-  { name: "Water (Aqua)", slug: "water-aqua" },
+  {
+    inci: "Water",
+    common: "Aqua",
+    slug: "water-aqua",
+  },
 
-  { name: "Xanthan Gum", slug: "xanthan-gum" },
+  {
+    inci: "Xanthan Gum",
+    slug: "xanthan-gum",
+  },
 
-  { name: "Zinc PCA", slug: "zinc-pca" },
+  {
+    inci: "Zinc PCA",
+    slug: "zinc-pca",
+  },
 ];
