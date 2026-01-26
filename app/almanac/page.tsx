@@ -19,7 +19,7 @@ const letters = Object.keys(groupedIngredients).sort();
 
 export default function AlmanacPage() {
   return (
-    <main className="max-w-screen-2xl mx-auto px-8 py-16">
+    <main className="w-full px-8 py-16">
       {/* Header – tighter + left-aligned */}
       <header className="mb-12">
         <h1 className="text-4xl mb-3">The Almanac</h1>
