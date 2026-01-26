@@ -8,7 +8,7 @@ export default function ProductsPage() {
   const [buttersOpen, setButtersOpen] = useState(false);
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-24 bg-white text-black">
+    <main className="max-w-4xl mx-auto px-6 py-24">
       <h1 className="text-4xl font-medium mb-12">Products</h1>
 
       {/* Turmeric Skincare Set */}
@@ -29,7 +29,9 @@ export default function ProductsPage() {
 
         <div
           className={`mt-4 ml-8 space-y-3 overflow-hidden transition-all duration-300 ${
-            turmericOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            turmericOpen
+              ? "max-h-96 opacity-100 pointer-events-auto"
+              : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
           <Link href="/products/turmeric-cleanser" className="block hover:underline">
@@ -65,7 +67,9 @@ export default function ProductsPage() {
 
         <div
           className={`mt-4 ml-8 space-y-3 overflow-hidden transition-all duration-300 ${
-            buttersOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            buttersOpen
+              ? "max-h-96 opacity-100 pointer-events-auto"
+              : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
           <Link href="/products/original-body-butter" className="block hover:underline">
