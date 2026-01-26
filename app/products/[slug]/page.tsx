@@ -1,65 +1,71 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { products } from "@/lib/products";
-import { ingredients } from "@/lib/ingredients";
-import { notFound } from "next/navigation";
 
-/**
- * Required for static generation
- */
-export function generateStaticParams() {
-  return products.map((product) => ({
-    slug: product.slug,
-  }));
-}
-
-export default async function ProductPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-
-  const product = products.find(
-    (p) => p.slug === slug
-  );
-
-  if (!product) notFound();
+export default function ProductsPage() {
+  const [open, setOpen] = useState(false);
 
   return (
     <main className="max-w-4xl mx-auto px-6 py-24">
-      {/* Product name */}
-      <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-10">
-        {product.name}
-      </h1>
+      <h1 className="text-4xl font-medium mb-12">Products</h1>
 
-      {/* Ingredients */}
-      <section>
-        <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-4">
-          Ingredients
-        </h2>
+      {/* Turmeric Skincare Set */}
+      <div className="border-b border-neutral-200 pb-6 mb-6">
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex items-center gap-3 text-xl font-medium hover:opacity-70 transition"
+        >
+          {/* Arrow */}
+          <span
+            className={`
+              inline-block transform transition-transform duration-300
+              ${open ? "rotate-90" : "rotate-0"}
+            `}
+          >
+            ▶
+          </span>
 
-        <p className="text-lg text-neutral-800 leading-relaxed">
-          {product.ingredients.map((ingredientSlug, index) => {
-            const ingredient = ingredients.find(
-              (i) => i.slug === ingredientSlug
-            );
+          Turmeric Skincare Set
+        </button>
 
-            if (!ingredient) return null;
+        {/* Dropdown */}
+        <div
+          className={`
+            mt-4 ml-8 space-y-3 overflow-hidden transition-all duration-300
+            ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+          `}
+        >
+          <Link href="/products/turmeric-cleanser" className="block hover:underline">
+            Turmeric Gel Cleanser
+          </Link>
+          <Link href="/products/turmeric-toner" className="block hover:underline">
+            Turmeric Toner
+          </Link>
+          <Link href="/products/turmeric-serum" className="block hover:underline">
+            Turmeric Serum
+          </Link>
+          <Link href="/products/turmeric-cream" className="block hover:underline">
+            Turmeric Cream
+          </Link>
+        </div>
+      </div>
 
-            return (
-              <span key={ingredient.slug}>
-                <Link
-                  href={`/almanac/${ingredient.slug}`}
-                  className="hover:underline"
-                >
-                  {ingredient.inci}
-                </Link>
-                {index < product.ingredients.length - 1 && ", "}
-              </span>
-            );
-          })}
-        </p>
-      </section>
+      {/* Body Butters */}
+      <div className="space-y-3">
+        <Link href="/products/original-body-butter" className="block hover:underline">
+          Original Body Butter
+        </Link>
+        <Link href="/products/mango-body-butter" className="block hover:underline">
+          Mango Body Butter
+        </Link>
+        <Link href="/products/peach-body-butter" className="block hover:underline">
+          Peach Body Butter
+        </Link>
+        <Link href="/products/citrus-body-butter" className="block hover:underline">
+          Citrus Body Butter
+        </Link>
+      </div>
     </main>
   );
 }
