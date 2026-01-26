@@ -1,5 +1,10 @@
 export const ingredients = [
   {
+    inci: "Arbutin",
+    slug: "arbutin",
+  },
+  
+  {
     inci: "Allantoin",
     slug: "allantoin",
   },
@@ -110,6 +115,11 @@ export const ingredients = [
   },
 
   {
+    inci: "Hydrolyzed Sodium Hyaluronate",
+    slug: "hydrolyzed-sodium-hyaluronate",
+  },
+
+  {
     inci: "Inulin",
     slug: "inulin",
   },
@@ -198,6 +208,12 @@ export const ingredients = [
     slug: "sodium-citrate",
   },
 
+  {
+    inci: "Sodium Hyaluronate",
+    common: "Hyaluronic Acid (Salt)",
+    slug: "sodium-hyaluronate",
+  },
+  
   {
     inci: "Sodium Lactate",
     slug: "sodium-lactate",
