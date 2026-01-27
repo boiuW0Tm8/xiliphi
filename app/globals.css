@@ -39,3 +39,9 @@ body {
 .animate-fade-in {
   animation: fade-in 1000ms ease-out;
 }
+
+/*Force scroll*/
+html {
+  scrollbar-gutter: stable;
+}
+

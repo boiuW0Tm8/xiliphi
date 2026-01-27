@@ -19,53 +19,60 @@ const letters = Object.keys(groupedIngredients).sort();
 
 export default function AlmanacPage() {
   return (
-    <main className="w-full px-8 py-16">
-      {/* Header – tighter + left-aligned */}
-      <header className="mb-12">
-        <h1 className="text-4xl mb-3">The Almanac</h1>
-        <p className="text-neutral-700 max-w-3xl">
-          Welcome to the Almanac. Here, you can find information on every single
-          ingredient used in every Xiliphi product — what it is, why we use it,
-          and how it supports the skin.
-        </p>
-      </header>
+    <main className="bg-white px-6 py-24 text-neutral-900">
+      <section className="max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="mb-12">
+          <h1 className="text-4xl font-medium mb-6">
+            The Almanac
+          </h1>
 
-      {/* Ingredient list */}
-      <section>
-        <h2 className="text-lg mb-8">Ingredients</h2>
+          <p className="text-lg font-medium leading-normal max-w-2xl">
+            Welcome to the Almanac. Here, you can find information on every
+            ingredient used in Xiliphi products — what it is, why we use it,
+            and how it supports the skin.
+          </p>
+        </header>
 
-        <div className="space-y-12">
-          {letters.map((letter) => (
-            <div key={letter}>
-              {/* Alphabet letter */}
-              <h3 className="text-2xl font-medium mb-4">
-                {letter}
-              </h3>
-              <ul
-                className="
-                      grid gap-6
-                      [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]
-                    "
-              >
-                {groupedIngredients[letter].map((ingredient) => (
-                  <li key={ingredient.slug}>
-                    <Link
-                      href={`/almanac/${ingredient.slug}`}
-                      className="
-                        block w-full h-full
-                        p-5
-                        border border-neutral-200 rounded-lg
-                        hover:border-black transition-colors
-                      "
-                    >
-                      {ingredient.inci}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        {/* Ingredient list (unchanged) */}
+        <section>
+          <h2 className="text-lg font-medium mb-8">
+            Ingredients
+          </h2>
+
+          <div className="space-y-12">
+            {letters.map((letter) => (
+              <div key={letter}>
+                <h3 className="text-2xl font-medium mb-4">
+                  {letter}
+                </h3>
+
+                <ul
+                  className="
+                    grid gap-6
+                    [grid-template-columns:repeat(auto-fill,minmax(280px,1fr))]
+                  "
+                >
+                  {groupedIngredients[letter].map((ingredient) => (
+                    <li key={ingredient.slug}>
+                      <Link
+                        href={`/almanac/${ingredient.slug}`}
+                        className="
+                          block w-full h-full
+                          p-5
+                          border border-neutral-200 rounded-lg
+                          hover:border-black transition-colors
+                        "
+                      >
+                        {ingredient.inci}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
       </section>
     </main>
   );

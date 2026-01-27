@@ -1,11 +1,28 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 px-6 py-24 text-neutral-900">
-      <section className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-semibold mb-6">About Xiliphi</h1>
-        <p className="text-lg text-neutral-600 leading-relaxed">
-          https://www.amazon.ca/s?k=XILIPHI&ref=bl_dp_s_web_0
-        </p>
+    <main className="min-h-screen bg-white px-6 py-24 text-neutral-900">
+      <section className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-medium mb-8">
+          Where To Buy
+        </h1>
+
+        <Link
+          href="https://www.amazon.ca/s?k=XILIPHI&ref=bl_dp_s_web_0"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block opacity-100 hover:opacity-50 transition-opacity duration-300 ease-in-out"
+        >
+          <Image
+            src="/amazon-logo.png"
+            alt="Buy Xiliphi on Amazon"
+            width={160}
+            height={48}
+            priority
+          />
+        </Link>
       </section>
     </main>
   );
