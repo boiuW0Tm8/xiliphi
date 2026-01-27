@@ -19,11 +19,11 @@ const letters = Object.keys(groupedIngredients).sort();
 
 export default function AlmanacPage() {
   return (
-    <main className="bg-white px-6 py-24 text-neutral-900">
-      <section className="max-w-4xl mx-auto">
+    <main className="bg-white-50 min-h-screen px-6 py-20 text-neutral-700 sm:text-neutral-700 animate-fade-in-up">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <header className="mb-12">
-          <h1 className="text-4xl font-medium mb-6">
+        <header className="mb-12 animate-fade-in-up">
+          <h1 className="text-4xl font-medium mb-6 text-neutral-900">
             The Almanac
           </h1>
 
@@ -34,8 +34,8 @@ export default function AlmanacPage() {
           </p>
         </header>
 
-        {/* Ingredient list (unchanged) */}
-        <section>
+        {/* Ingredient list */}
+        <section className="animate-fade-in-up [animation-delay:120ms]">
           <h2 className="text-lg font-medium mb-8">
             Ingredients
           </h2>
@@ -73,7 +73,7 @@ export default function AlmanacPage() {
             ))}
           </div>
         </section>
-      </section>
+      </div>
     </main>
   );
 }

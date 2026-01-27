@@ -1,6 +1,15 @@
+import Link from "next/link";
 import { ingredients } from "@/lib/ingredients";
 import { products } from "@/lib/products";
 import { notFound } from "next/navigation";
+
+const BODY_BUTTER_ORDER = [
+  "original-body-butter",
+  "peach-body-butter",
+  "mango-body-butter",
+  "citrus-body-butter",
+];
+
 
 /**
  * Required for static generation
@@ -25,21 +34,46 @@ export default async function IngredientPage({
   if (!ingredient) notFound();
 
   // Find all products that include this ingredient
-  const usedInProducts = products.filter((product) =>
-    product.ingredients.includes(slug)
-  );
+const usedInProducts = products
+  .filter((product) => product.ingredients.includes(slug))
+  .sort((a, b) => {
+    const aIndex = BODY_BUTTER_ORDER.indexOf(a.slug);
+    const bIndex = BODY_BUTTER_ORDER.indexOf(b.slug);
+
+    // If both are body butters, sort by our defined order
+    if (aIndex !== -1 && bIndex !== -1) {
+      return aIndex - bIndex;
+    }
+
+    // If only one is a body butter, keep non-butter first
+    if (aIndex !== -1) return 1;
+    if (bIndex !== -1) return -1;
+
+    // Otherwise, keep original order
+    return 0;
+  });
+
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-24">
-      {/* INCI name */}
-      <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-4">
-        {ingredient.inci}
+    <main className="max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
+      {/* Back link */}
+      <Link
+        href="/almanac"
+        className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors mb-10"
+      >
+        <span className="text-lg leading-none">←</span>
+        Back to Almanac
+      </Link>
+
+      {/* Common name */}
+      <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-4 text-neutral-900">
+        {ingredient.common ?? ingredient.inci}
       </h1>
 
-      {/* Common name (optional) */}
-      {ingredient.common && (
+      {/* INCI name */}
+      {ingredient.common && ingredient.inci && (
         <p className="text-xl text-neutral-500 mb-8">
-          ({ingredient.common})
+          {ingredient.inci}
         </p>
       )}
 
@@ -47,7 +81,7 @@ export default async function IngredientPage({
       <div className="h-px w-24 bg-neutral-300 mb-10" />
 
       {/* Placeholder description */}
-      <p className="text-lg text-neutral-800 leading-relaxed max-w-3xl">
+      <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
         Detailed ingredient information coming soon.
       </p>
 
@@ -61,12 +95,12 @@ export default async function IngredientPage({
           <ul className="space-y-2">
             {usedInProducts.map((product) => (
               <li key={product.slug}>
-                <a
+                <Link
                   href={`/products/${product.slug}`}
                   className="text-neutral-800 hover:underline"
                 >
                   {product.name}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

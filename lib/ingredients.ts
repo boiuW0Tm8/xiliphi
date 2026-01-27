@@ -142,7 +142,7 @@ export const ingredients = [
 
   {
     inci: "Mangifera Indica Fruit Extract",
-    common: "Mango",
+    common: "Mango Extract",
     slug: "mangifera-indica-fruit-extract",
   },
 
@@ -183,7 +183,7 @@ export const ingredients = [
 
   {
     inci: "Prunus Persica Fruit Extract",
-    common: "Peach",
+    common: "Peach Extract",
     slug: "prunus-persica-fruit-extract",
   },
 

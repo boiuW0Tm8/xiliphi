@@ -8,22 +8,29 @@ export default function ProductsPage() {
   const [buttersOpen, setButtersOpen] = useState(false);
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-24">
-      <h1 className="text-4xl font-medium mb-12">Products</h1>
+    <main className="max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
+      <h1 className="text-4xl font-medium mb-12 animate-fade-in-up">
+        Products
+      </h1>
 
       {/* Turmeric Skincare Set */}
-      <div className="border-b border-neutral-200 pb-6 mb-6">
+      <div className="border-b border-neutral-200 pb-6 mb-6 animate-fade-in-up [animation-delay:120ms]">
         <button
           onClick={() => setTurmericOpen(!turmericOpen)}
           className="flex items-center gap-3 text-xl font-medium hover:opacity-70 transition"
         >
-          <span
-            className={`inline-block transform transition-transform duration-300 ${
-              turmericOpen ? "rotate-90" : "rotate-0"
-            }`}
-          >
-            ▶
-          </span>
+        <span
+          className={`
+            inline-block
+            text-lg
+            font-light
+            transition-transform duration-300
+            ${turmericOpen ? "rotate-90" : "rotate-0"}
+          `}
+        >
+          →
+        </span>
+
           Turmeric Skincare Set
         </button>
 
@@ -50,18 +57,23 @@ export default function ProductsPage() {
       </div>
 
       {/* Body Butters */}
-      <div className="border-b border-neutral-200 pb-6 mb-6">
+      <div className="border-b border-neutral-200 pb-6 mb-6 animate-fade-in-up [animation-delay:240ms]">
         <button
           onClick={() => setButtersOpen(!buttersOpen)}
           className="flex items-center gap-3 text-xl font-medium hover:opacity-70 transition"
         >
           <span
-            className={`inline-block transform transition-transform duration-300 ${
-              buttersOpen ? "rotate-90" : "rotate-0"
-            }`}
-          >
-            ▶
-          </span>
+        className={`
+          inline-block
+          text-lg
+          font-light
+          transition-transform duration-300
+          ${buttersOpen ? "rotate-90" : "rotate-0"}
+        `}
+      >
+        →
+      </span>
+
           Body Butters
         </button>
 

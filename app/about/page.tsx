@@ -1,12 +1,12 @@
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white px-6 py-24 text-neutral-900">
+    <main className="min-h-screen bg-white px-6 py-24 text-neutral-700 animate-fade-in-up">
       <section className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-medium mb-8">
+        <h1 className="text-4xl font-medium mb-8 text-neutral-900 animate-fade-in-up">
           About Xiliphi
         </h1>
 
-        <div className="space-y-6 max-w-2xl text-lg font-medium leading-normal">
+        <div className="space-y-6 max-w-2xl text-lg font-medium leading-normal animate-fade-in-up [animation-delay:120ms]">
           <p>
             Xiliphi is a skincare brand built around the idea that effective
             skincare doesn’t need to be complicated. We focus on clean,
@@ -48,4 +48,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
