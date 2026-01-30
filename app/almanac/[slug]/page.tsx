@@ -55,7 +55,7 @@ const usedInProducts = products
 
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
+     <main className="min-h-screen bg-white max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
       {/* Back link */}
       <Link
         href="/almanac"
