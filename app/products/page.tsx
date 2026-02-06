@@ -1,103 +1,106 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProductsPage() {
-  const [turmericOpen, setTurmericOpen] = useState(false);
-  const [buttersOpen, setButtersOpen] = useState(false);
-
   return (
-    <main className="min-h-screen bg-white text-black max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
-      <h1 className="text-4xl font-medium mb-12 animate-fade-in-up">
+    <main className="min-h-screen bg-white text-black max-w-6xl mx-auto px-6 py-24 animate-fade-in-up">
+      
+      {/* Page Title */}
+      <h1 className="text-4xl font-medium text-center mb-24">
         Products
       </h1>
 
-      {/* Turmeric Skincare Set */}
-      <div className="border-b border-neutral-200 pb-6 mb-6 animate-fade-in-up [animation-delay:120ms]">
-        <button
-          onClick={() => setTurmericOpen(!turmericOpen)}
-          className="flex items-center gap-3 text-xl font-medium hover:opacity-70 transition"
-        >
-        <span
-          className={`
-            inline-block
-            text-lg
-            font-light
-            transition-transform duration-300
-            ${turmericOpen ? "rotate-90" : "rotate-0"}
-          `}
-        >
-          →
-        </span>
-
-          Turmeric Skincare Set
-        </button>
-
-        <div
-          className={`mt-4 ml-8 space-y-3 overflow-hidden transition-all duration-300 ${
-            turmericOpen
-              ? "max-h-96 opacity-100 pointer-events-auto"
-              : "max-h-0 opacity-0 pointer-events-none"
-          }`}
-        >
-          <Link href="/products/turmeric-cleanser" className="block hover:underline">
-            Turmeric Gel Cleanser
-          </Link>
-          <Link href="/products/turmeric-toner" className="block hover:underline">
-            Turmeric Toner
-          </Link>
-          <Link href="/products/turmeric-serum" className="block hover:underline">
-            Turmeric Serum
-          </Link>
-          <Link href="/products/turmeric-cream" className="block hover:underline">
-            Turmeric Cream
-          </Link>
-        </div>
-      </div>
-
-      {/* Body Butters */}
-      <div className="border-b border-neutral-200 pb-6 mb-6 animate-fade-in-up [animation-delay:240ms]">
-        <button
-          onClick={() => setButtersOpen(!buttersOpen)}
-          className="flex items-center gap-3 text-xl font-medium hover:opacity-70 transition"
-        >
-          <span
-        className={`
-          inline-block
-          text-lg
-          font-light
-          transition-transform duration-300
-          ${buttersOpen ? "rotate-90" : "rotate-0"}
-        `}
-      >
-        →
-      </span>
-
+      {/* BODY BUTTERS */}
+      <section className="mb-32">
+        <h2 className="text-2xl font-medium mb-12">
           Body Butters
-        </button>
+        </h2>
 
-        <div
-          className={`mt-4 ml-8 space-y-3 overflow-hidden transition-all duration-300 ${
-            buttersOpen
-              ? "max-h-96 opacity-100 pointer-events-auto"
-              : "max-h-0 opacity-0 pointer-events-none"
-          }`}
-        >
-          <Link href="/products/original-body-butter" className="block hover:underline">
-            Original Body Butter
-          </Link>
-          <Link href="/products/peach-body-butter" className="block hover:underline">
-            Peach Body Butter
-          </Link>
-          <Link href="/products/mango-body-butter" className="block hover:underline">
-            Mango Body Butter
-          </Link>
-          <Link href="/products/citrus-body-butter" className="block hover:underline">
-            Citrus Body Butter
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {[
+            { name: "Original Body Butter", slug: "original-body-butter", image: "/original-main.jpg" },
+            { name: "Peach Body Butter", slug: "peach-body-butter", image: "/peach-main1.png" },
+            { name: "Mango Body Butter", slug: "mango-body-butter", image: "/mango-main.jpg" },
+            { name: "Citrus Body Butter", slug: "citrus-body-butter", image: "/citrus-main.jpg" },
+          ].map((product) => (
+            <Link
+              key={product.slug}
+              href={`/products/${product.slug}`}
+              className="group block text-center"
+            >
+              <div className="relative aspect-square mb-4">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              <p className="text-sm font-medium group-hover:underline">
+                {product.name}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* SKIN CARE SETS */}
+      <section className="mb-32">
+        <h2 className="text-2xl font-medium mb-12">
+          Skin Care Sets
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <Link
+            href="/products/turmeric-cleanser"
+            className="group block text-center"
+          >
+            <div className="relative aspect-square mb-4">
+              <Image
+                src="/turmeric-main.jpg"
+                alt="Turmeric Skincare Set"
+                fill
+                className="object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <p className="text-sm font-medium group-hover:underline">
+              Turmeric Skincare Set
+            </p>
           </Link>
         </div>
-      </div>
+      </section>
+
+      {/* LIP CARE */}
+      <section>
+        <h2 className="text-2xl font-medium mb-12">
+          Lip Care
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          <Link
+            href="/products/lip-mask"
+            className="group block text-center"
+          >
+            <div className="relative aspect-square mb-4">
+              <Image
+                src="/strawberry-main.jpg"
+                alt="Strawberry Lip mask/scrub 2-in-1"
+                fill
+                className="object-contain transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
+
+            <p className="text-sm font-medium group-hover:underline">
+              Strawberry Lip Mask/Scrub 2-in-1
+            </p>
+          </Link>
+        </div>
+      </section>
+
     </main>
   );
 }
