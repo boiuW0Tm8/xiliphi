@@ -1,7 +1,7 @@
 export const ingredients = [
   {
-    inci: "Arbutin",
-    slug: "arbutin",
+    inci: "Alpha Arbutin",
+    slug: "alpha-arbutin",
   },
   
   {
@@ -18,6 +18,11 @@ export const ingredients = [
   {
     inci: "Amethyst Powder",
     slug: "amethyst-powder",
+  },
+
+    {
+    inci: "Amino Acids",
+    slug: "amino-acids",
   },
 
   {
@@ -38,6 +43,21 @@ export const ingredients = [
   },
 
   {
+    inci: "Aspartic Acid",
+    slug: "aspartic-acid",
+  },
+
+  {
+    inci: "Azelaic Acid",
+    slug: "azelaic-acid",
+  },
+
+  {
+    inci: "Bambusa Vulgaris Extract",
+    slug: "bambusa-vulgaris-extract",
+  },
+
+  {
     inci: "Butyrospermum Parkii Butter",
     common: "Shea Butter",
     slug: "butyrospermum-parkii-butter",
@@ -47,6 +67,11 @@ export const ingredients = [
     inci: "Butyrospermum Parkii Extract",
     common: "Shea Extract",
     slug: "butyrospermum-parkii-extract",
+  },
+
+  {
+    inci: "Camellia Sinensis Leaf Extract",
+    slug: "camellia-sinensis-leaf-extract",
   },
 
   {
@@ -95,6 +120,12 @@ export const ingredients = [
   },
 
   {
+    inci: "Elais Guineensis Oil",
+    common: "Palm Oil",
+    slug: "elais-guineensis-oil",
+  },  
+
+  {
     inci: "Glutamic Acid",
     slug: "glutamic-acid",
   },
@@ -125,8 +156,8 @@ export const ingredients = [
   },
 
   {
-    inci: "Lactobacillus Ferment",
-    slug: "lactobacillus-ferment",
+    inci: "Lactobacillus Ferment Lysate",
+    slug: "lactobacillus-ferment-lysate",
   },
 
   {
@@ -194,6 +225,7 @@ export const ingredients = [
 
   {
     inci: "Salvia Miltiorrhiza Root Extract",
+    common: "Dan Shen",
     slug: "salvia-miltiorrhiza-root-extract",
   },
 
