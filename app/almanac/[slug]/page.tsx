@@ -35,21 +35,43 @@ export default async function IngredientPage({
 
   // Find all products that include this ingredient
 const usedInProducts = products
-  .filter((product) => product.ingredients.includes(slug))
+  .filter((product) => {
+    if (!product.ingredients) return false;
+
+    // 🟢 Normal ingredient array
+    if (
+      Array.isArray(product.ingredients) &&
+      typeof product.ingredients[0] === "string"
+    ) {
+      return (product.ingredients as string[]).includes(slug);
+    }
+
+    // 🟡 Sectioned ingredient array
+    if (
+      Array.isArray(product.ingredients) &&
+      typeof product.ingredients[0] === "object"
+    ) {
+      return (product.ingredients as {
+        section: string;
+        items: string[];
+      }[]).some((section) =>
+        section.items.includes(slug)
+      );
+    }
+
+    return false;
+  })
   .sort((a, b) => {
     const aIndex = BODY_BUTTER_ORDER.indexOf(a.slug);
     const bIndex = BODY_BUTTER_ORDER.indexOf(b.slug);
 
-    // If both are body butters, sort by our defined order
     if (aIndex !== -1 && bIndex !== -1) {
       return aIndex - bIndex;
     }
 
-    // If only one is a body butter, keep non-butter first
     if (aIndex !== -1) return 1;
     if (bIndex !== -1) return -1;
 
-    // Otherwise, keep original order
     return 0;
   });
 

@@ -20,10 +20,10 @@ export default function ProductsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {[
-            { name: "Original Body Butter", slug: "original-body-butter", image: "/original-main.jpg" },
-            { name: "Peach Body Butter", slug: "peach-body-butter", image: "/peach-main1.png" },
-            { name: "Mango Body Butter", slug: "mango-body-butter", image: "/mango-main.jpg" },
-            { name: "Citrus Body Butter", slug: "citrus-body-butter", image: "/citrus-main.jpg" },
+            { name: "Original Body Butter", slug: "original-body-butter", image: "/original/main.jpg" },
+            { name: "Peach Body Butter", slug: "peach-body-butter", image: "/peach/main.png" },
+            { name: "Mango Body Butter", slug: "mango-body-butter", image: "/mango/main.jpg" },
+            { name: "Citrus Body Butter", slug: "citrus-body-butter", image: "/citrus/main.jpg" },
           ].map((product) => (
             <Link
               key={product.slug}
@@ -55,12 +55,12 @@ export default function ProductsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <Link
-            href="/products/turmeric-cleanser"
+            href="/products/turmeric-skincare-set"
             className="group block text-center"
           >
             <div className="relative aspect-square mb-4">
               <Image
-                src="/turmeric-main.jpg"
+                src="/turmeric/main.jpg"
                 alt="Turmeric Skincare Set"
                 fill
                 className="object-contain transition-transform duration-500 group-hover:scale-105"
@@ -82,12 +82,12 @@ export default function ProductsPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           <Link
-            href="/products/lip-mask"
+            href="/products/strawberry-lip-care"
             className="group block text-center"
           >
             <div className="relative aspect-square mb-4">
               <Image
-                src="/strawberry-main.jpg"
+                src="/strawberry/main.jpg"
                 alt="Strawberry Lip mask/scrub 2-in-1"
                 fill
                 className="object-contain transition-transform duration-500 group-hover:scale-105"

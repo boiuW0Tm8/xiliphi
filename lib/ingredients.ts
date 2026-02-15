@@ -3,7 +3,7 @@ export const ingredients = [
     inci: "Alpha Arbutin",
     slug: "alpha-arbutin",
   },
-  
+
   {
     inci: "Allantoin",
     slug: "allantoin",
@@ -20,7 +20,7 @@ export const ingredients = [
     slug: "amethyst-powder",
   },
 
-    {
+  {
     inci: "Amino Acids",
     slug: "amino-acids",
   },
@@ -123,7 +123,13 @@ export const ingredients = [
     inci: "Elais Guineensis Oil",
     common: "Palm Oil",
     slug: "elais-guineensis-oil",
-  },  
+  },
+
+  {
+    inci: "Fragaria Ananassa Fruit Extract",
+    common: "Strawberry Extract",
+    slug: "fragaria-ananassa-fruit-extract",
+  },
 
   {
     inci: "Glutamic Acid",
@@ -133,6 +139,12 @@ export const ingredients = [
   {
     inci: "Glycerin",
     slug: "glycerin",
+  },
+
+  {
+    inci: "Helianthus Annuus Seed Oil",
+    common: "Sunflower Seed Oil",
+    slug: "helianthus-annuus-seed-oil",
   },
 
   {
@@ -178,6 +190,12 @@ export const ingredients = [
   },
 
   {
+    inci: "Mel",
+    common: "Honey",
+    slug: "mel",
+  },
+
+  {
     inci: "Niacinamide",
     common: "Vitamin B3",
     slug: "niacinamide",
@@ -201,6 +219,12 @@ export const ingredients = [
   },
 
   {
+    inci: "Parfum",
+    common: "Fragrance",
+    slug: "parfum",
+  },
+
+  {
     inci: "Persea Gratissima Oil",
     common: "Avocado Oil",
     slug: "persea-gratissima-oil",
@@ -216,6 +240,12 @@ export const ingredients = [
     inci: "Prunus Persica Fruit Extract",
     common: "Peach Extract",
     slug: "prunus-persica-fruit-extract",
+  },
+
+  {
+    inci: "Ricinus Communis Seed Oil",
+    common: "Castor Oil",
+    slug: "ricinus-communis-seed-oil",
   },
 
   {
@@ -245,10 +275,21 @@ export const ingredients = [
     common: "Hyaluronic Acid (Salt)",
     slug: "sodium-hyaluronate",
   },
-  
+
   {
     inci: "Sodium Lactate",
     slug: "sodium-lactate",
+  },
+
+  {
+    inci: "Squalane",
+    slug: "squalane",
+  },
+
+  {
+    inci: "Sucrose",
+    common: "Sugar",
+    slug: "sucrose",
   },
 
   {
