@@ -24,7 +24,7 @@ export const products: Product[] = [
   {
     slug: "turmeric-skincare-set",
     name: "Turmeric Skincare Set",
-    price: 89,
+    price: 49.99,
     size: "Cleanser • Toner • Serum • Cream",
     images: [
       "/turmeric/main.jpg",
@@ -138,7 +138,7 @@ export const products: Product[] = [
   {
     slug: "original-body-butter",
     name: "Original Body Butter",
-    price: 34,
+    price: 12.99,
     size: "100 g / 3.53 oz",
     images: [
       "/original/main.jpg",
@@ -184,7 +184,7 @@ export const products: Product[] = [
   {
     slug: "mango-body-butter",
     name: "Mango Body Butter",
-    price: 34,
+    price: 12.99,
     size: "100 g / 3.53 oz",
     images: [
       "/mango/main.jpg",
@@ -230,7 +230,7 @@ export const products: Product[] = [
   {
     slug: "peach-body-butter",
     name: "Peach Body Butter",
-    price: 34,
+    price: 12.99,
     size: "100 g / 3.53 oz",
     images: [
       "/peach/main.png",
@@ -274,7 +274,7 @@ export const products: Product[] = [
   {
     slug: "citrus-body-butter",
     name: "Citrus Body Butter",
-    price: 34,
+    price: 13.99,
     size: "100 g / 3.53 oz",
     images: [
       "/citrus/main.jpg",
@@ -324,7 +324,7 @@ export const products: Product[] = [
   {
     slug: "strawberry-lip-care",
     name: "Strawberry Lip Mask/Scrub 2-in-1",
-    price: 24,
+    price: 9.99,
     size: "Lip Mask + Lip Scrub",
     images: [
       "/strawberry/main.jpg",
