@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`overflow-x-hidden ${xiliphiFont.className}`}>
 
         {/* ================= NAVBAR ================= */}
-        <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b-4 border-neutral-200">
+        <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b-2 border-neutral-200">
           <div className="max-w-6xl mx-auto px-6 relative flex items-center h-16">
 
             {/* CENTER: Logo */}
@@ -130,7 +130,7 @@ export default function RootLayout({
           {children}
         </div>
         <footer className="bg-black text-white mt-24">
-          <div className="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between gap-10">
+          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
 
             {/* LEFT */}
             <div className="text-sm tracking-wide space-y-2">
@@ -140,19 +140,19 @@ export default function RootLayout({
 
             {/* RIGHT */}
             <div className="flex flex-col md:flex-row gap-6 text-sm tracking-wide">
-              <Link href="/contact" className="hover:text-neutral-300 transition-colors">
+              <Link href="/contact" className="hover:text-neutral-400 transition-colors">
                 Contact
               </Link>
-              <Link href="/faq" className="hover:text-neutral-300 transition-colors">
+              <Link href="/faq" className="hover:text-neutral-400 transition-colors">
                 FAQ
               </Link>
-              <Link href="/shipping" className="hover:text-neutral-300 transition-colors">
+              <Link href="/shipping" className="hover:text-neutral-400 transition-colors">
                 Shipping & Returns
               </Link>
-              <Link href="/privacy" className="hover:text-neutral-300 transition-colors">
+              <Link href="/privacy" className="hover:text-neutral-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="hover:text-neutral-300 transition-colors">
+              <Link href="/terms" className="hover:text-neutral-400 transition-colors">
                 Terms of Service
               </Link>
             </div>
