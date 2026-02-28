@@ -25,7 +25,7 @@ export async function POST(req: Request) {
     }
 
     await resend.emails.send({
-      from: "support@xiliphi.com",
+      from: "contact@xiliphi.com",
       to: "support@xiliphi.com",
       subject: "New Website Contact Message",
       html: `
