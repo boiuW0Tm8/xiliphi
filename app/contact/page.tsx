@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useRef } from "react";
+import ReactDOM from 'react-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactPage() {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [visible, setVisible] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -46,12 +48,23 @@ export default function ContactPage() {
 
       if (res.ok) {
         setSuccess(true);
+        setVisible(false);
         form.reset();
 
-        // 🔥 Auto hide success after 5 seconds
+        // Fade in
+        setTimeout(() => {
+          setVisible(true);
+        }, 10);
+
+        // Fade out after 4s
+        setTimeout(() => {
+          setVisible(false);
+        }, 4000);
+
+        // Unmount after fade-out
         setTimeout(() => {
           setSuccess(false);
-        }, 5000);
+        }, 4500);
       }
 
     } catch (err) {
@@ -63,7 +76,7 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white px-6 py-32 text-neutral-700">
+    <main className="min-h-screen bg-white px-6 py-32 text-neutral-700 animate-fade-in-up">
       {/* HEADER */}
       {/* HEADER */}
       <section className="max-w-4xl mx-auto text-center mb-24">
@@ -128,11 +141,35 @@ export default function ContactPage() {
       </section>
 
       {/* SUCCESS POPUP */}
-      {success && (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 bg-neutral-900 text-white px-6 py-3 rounded-full text-sm">
-          Message sent successfully ✓
-        </div>
-      )}
+      {success &&
+        ReactDOM.createPortal(
+          <div className="fixed inset-x-0 bottom-6 flex justify-center z-50 pointer-events-none">
+            <div
+              className={`bg-neutral-900 text-white px-6 py-3 rounded-full text-sm shadow-lg transition-all duration-500 ${visible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-4"
+                }`}
+            >
+              Message sent successfully ✓
+            </div>
+          </div>,
+          document.body
+        )}
+
+      {/* MAILING ADDRESS */}
+      <section className="max-w-3xl mx-auto mt-24 text-left">
+        <h2 className="text-xl font-medium text-neutral-900 mb-6">
+          Mailing Address
+        </h2>
+
+        <p className="text-neutral-600 leading-relaxed">
+          Xiliphi<br />
+          7030 Woodbine Avenue<br />
+          Suite 500<br />
+          Markham, ON L3R 6G2<br />
+          Canada
+        </p>
+      </section>
     </main>
   );
 }

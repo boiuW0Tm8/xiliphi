@@ -34,50 +34,50 @@ export default async function IngredientPage({
   if (!ingredient) notFound();
 
   // Find all products that include this ingredient
-const usedInProducts = products
-  .filter((product) => {
-    if (!product.ingredients) return false;
+  const usedInProducts = products
+    .filter((product) => {
+      if (!product.ingredients) return false;
 
-    // 🟢 Normal ingredient array
-    if (
-      Array.isArray(product.ingredients) &&
-      typeof product.ingredients[0] === "string"
-    ) {
-      return (product.ingredients as string[]).includes(slug);
-    }
+      // 🟢 Normal ingredient array
+      if (
+        Array.isArray(product.ingredients) &&
+        typeof product.ingredients[0] === "string"
+      ) {
+        return (product.ingredients as string[]).includes(slug);
+      }
 
-    // 🟡 Sectioned ingredient array
-    if (
-      Array.isArray(product.ingredients) &&
-      typeof product.ingredients[0] === "object"
-    ) {
-      return (product.ingredients as {
-        section: string;
-        items: string[];
-      }[]).some((section) =>
-        section.items.includes(slug)
-      );
-    }
+      // 🟡 Sectioned ingredient array
+      if (
+        Array.isArray(product.ingredients) &&
+        typeof product.ingredients[0] === "object"
+      ) {
+        return (product.ingredients as {
+          section: string;
+          items: string[];
+        }[]).some((section) =>
+          section.items.includes(slug)
+        );
+      }
 
-    return false;
-  })
-  .sort((a, b) => {
-    const aIndex = BODY_BUTTER_ORDER.indexOf(a.slug);
-    const bIndex = BODY_BUTTER_ORDER.indexOf(b.slug);
+      return false;
+    })
+    .sort((a, b) => {
+      const aIndex = BODY_BUTTER_ORDER.indexOf(a.slug);
+      const bIndex = BODY_BUTTER_ORDER.indexOf(b.slug);
 
-    if (aIndex !== -1 && bIndex !== -1) {
-      return aIndex - bIndex;
-    }
+      if (aIndex !== -1 && bIndex !== -1) {
+        return aIndex - bIndex;
+      }
 
-    if (aIndex !== -1) return 1;
-    if (bIndex !== -1) return -1;
+      if (aIndex !== -1) return 1;
+      if (bIndex !== -1) return -1;
 
-    return 0;
-  });
+      return 0;
+    });
 
 
   return (
-     <main className="min-h-screen bg-white max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
+    <main className="min-h-screen bg-white max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
       {/* Back link */}
       <Link
         href="/almanac"
@@ -103,9 +103,51 @@ const usedInProducts = products
       <div className="h-px w-24 bg-neutral-300 mb-10" />
 
       {/* Placeholder description */}
-      <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
-        Detailed ingredient information coming soon.
-      </p>
+      {ingredient.description ? (
+        <div className="space-y-12 max-w-3xl">
+
+          <section>
+            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+              What It Is
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed">
+              {ingredient.description.whatItIs}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+              Functional Role
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed">
+              {ingredient.description.function}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+              Skin-Relevant Properties
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed">
+              {ingredient.description.properties}
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+              Interesting Fact
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed">
+              {ingredient.description.interestingFact}
+            </p>
+          </section>
+
+        </div>
+      ) : (
+        <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
+          Detailed ingredient information coming soon.
+        </p>
+      )}
 
       {/* Found in products */}
       {usedInProducts.length > 0 && (

@@ -1,6 +1,8 @@
+"use client";
+
 export default function FAQPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-24">
+    <main className="max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
       <h1 className="text-3xl md:text-4xl font-medium mb-16 tracking-wide">
         Frequently Asked Questions
       </h1>
@@ -11,14 +13,14 @@ export default function FAQPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">Where do you ship?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            We currently ship within Canada. Additional regions may be added in the future.
+            We currently ship within Canada and the US. Additional regions may be added in the future.
           </p>
         </div>
 
         <div>
           <h2 className="text-lg font-medium mb-3">How long does shipping take?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            Orders typically arrive within 3–7 business days depending on your location.
+            Orders typically arrive within 3–7 business days. However, it may take longer depending on your location.
             You will receive tracking information once your order has shipped.
           </p>
         </div>
@@ -34,10 +36,11 @@ export default function FAQPage() {
         </div>
 
         <div>
-          <h2 className="text-lg font-medium mb-3">Are Xiliphi products natural?</h2>
+          <h2 className="text-lg font-medium mb-3">Are Xiliphi products 100% natural?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            We prioritize thoughtfully selected ingredients designed to nourish
-            and support healthy-looking skin.
+            While many of our ingredients are naturally derived, we also incorporate
+            carefully selected, skin-safe ingredients to ensure stability, safety,
+            and performance. Every formula is designed with balance and intention.
           </p>
         </div>
 
@@ -61,7 +64,14 @@ export default function FAQPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">How can I contact you?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            You can reach us anytime at{" "}
+            For general inqurires, you may use our
+            {" "}<a
+              href="/contact"
+              className="underline hover:text-black transition-colors"
+            >
+              contact
+            </a>{" "}
+            form. You can also reach us anytime at{" "}
             <a
               href="mailto:support@xiliphi.com"
               className="underline hover:text-black transition-colors"
@@ -72,6 +82,6 @@ export default function FAQPage() {
         </div>
 
       </div>
-    </div>
+    </main>
   );
 }

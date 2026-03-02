@@ -183,7 +183,7 @@ export default function AboutPage() {
 
           <AnimatedBlock variant={fadeRight} className="relative w-full h-[420px]">
             <Image
-              src="/about/phi.png"
+              src="/about/phi2.png"
               alt="Golden ratio inspired composition"
               fill
               className="object-cover rounded-2xl"

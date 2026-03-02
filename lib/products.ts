@@ -7,6 +7,8 @@ export type Product = {
   benefits?: string[];
   description?: string;
   howToUse?: string;
+  warning?: string;
+  warningFrench?: string;
   ingredients:
   | string[]
   | {
@@ -34,16 +36,17 @@ export const products: Product[] = [
       "/turmeric/ai2.png"
     ],
     benefits: [
-      "Complete brightening routine",
-      "Targets uneven skin tone",
+      "Complete 4-step routine",
       "Hydrates and restores radiance",
+      "Leaves skin feeling refreshed",
       "Powered by turmeric and botanical extracts",
     ],
     description:
-      "A complete turmeric-powered skincare ritual designed to brighten, calm, and restore glow. This curated set combines cleanser, toner, serum, and cream for layered hydration and visible radiance.",
+      "A complete turmeric-powered skincare ritual designed to gently cleanse, tone, hydrate, and protect. This curated set combines cleanser, toner, serum, and cream for layered skin care suitable for all skin types.",
     howToUse:
-      "Use cleanser and toner morning and night. Apply serum before moisturizing with turmeric cream. Use consistently for best results.",
-
+      "Start with warm water. Gently massage the gel cleanser onto the skin and rinse. Apply toner using fingertips or a cotton pad. Massage and press the serum into the face and neck, then seal in hydration with the cream. Use consistently as part of your daily routine.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       {
         section: "Turmeric Cleanser",
@@ -150,13 +153,15 @@ export const products: Product[] = [
     benefits: [
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
+      "Thick, butter-like consistency",
       "Melts instantly into skin",
-      "No parabens or synthetic fragrance",
     ],
     description:
-      "Our Original Body Butter is a luxurious, deeply hydrating formula crafted with unrefined shea butter, cacao butter, and nourishing botanical oils. It melts into the skin, restoring softness and glow without leaving a greasy finish.",
+      "Our Original Body Butter is a luxurious, deeply hydrating formula crafted with unrefined shea butter, vitamins, and nourishing natural oils. It melts into the skin, restoring softness and glow without leaving a greasy finish. Unlike other body butters, ours is noticeably thicker, making application smooth and satisfying.",
     howToUse:
-      "Massage into clean, dry skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+      "Massage into clean, dry or damp skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       "water-aqua",
       "glycerin",
@@ -194,15 +199,17 @@ export const products: Product[] = [
       "/mango/ai2.png"
     ],
     benefits: [
-      "Brightens dull skin",
-      "Infused with mango extract",
-      "Light tropical scent",
-      "Long-lasting hydration",
+      "Deeply nourishes dry skin",
+      "Rich in unrefined shea butter",
+      "Thick, butter-like consistency",
+      "Melts instantly into skin",
     ],
     description:
-      "A vibrant blend infused with mango extract and nourishing butters. Designed to hydrate and revive dry skin while leaving a subtle tropical warmth.",
+      "Our Mango Body Butter is a luxurious, deeply hydrating formula crafted with unrefined shea butter, vitamins, and nourishing natural oils. It melts into the skin, restoring softness and glow without leaving a greasy finish. Unlike other body butters, ours is noticeably thicker, making application smooth and satisfying.",
     howToUse:
-      "Massage onto clean skin. Focus on dry areas such as elbows and knees.",
+      "Massage into clean, dry or damp skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       "water-aqua",
       "glycerin",
@@ -238,15 +245,17 @@ export const products: Product[] = [
       "/peach/ingredients.jpg"
     ],
     benefits: [
-      "Softens and smooths skin",
-      "Delicate peach extract",
-      "Light fruity aroma",
-      "Fast-absorbing finish",
+      "Deeply nourishes dry skin",
+      "Rich in unrefined shea butter",
+      "Thick, butter-like consistency",
+      "Melts instantly into skin",
     ],
     description:
-      "A silky body butter infused with peach extract and rich plant oils. Leaves skin feeling supple, soft, and delicately scented.",
+      "Our Peach Body Butter is a luxurious, deeply hydrating formula crafted with unrefined shea butter, vitamins, and nourishing natural oils. It melts into the skin, restoring softness and glow without leaving a greasy finish. Unlike other body butters, ours is noticeably thicker, making application smooth and satisfying.",
     howToUse:
-      "Apply daily after showering for best results.",
+      "Massage into clean, dry or damp skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       "water-aqua",
       "glycerin",
@@ -284,15 +293,17 @@ export const products: Product[] = [
       "/citrus/ai2.png"
     ],
     benefits: [
-      "Refreshing citrus scent",
-      "Vitamin C enriched",
-      "Energizes dull skin",
-      "Lightweight but deeply moisturizing",
+      "Deeply nourishes dry skin",
+      "Rich in unrefined shea butter",
+      "Thick, butter-like consistency",
+      "Melts instantly into skin",
     ],
     description:
-      "An energizing blend enriched with citrus oils and vitamin C. Designed to refresh and hydrate while leaving skin radiant.",
+      "Our Citrus Body Butter is a luxurious, deeply hydrating formula crafted with unrefined shea butter, vitamins, and nourishing natural oils. It melts into the skin, restoring softness and glow without leaving a greasy finish. Unlike other body butters, ours is noticeably thicker, making application smooth and satisfying.",
     howToUse:
-      "Massage onto skin daily, especially in the morning for a refreshing boost.",
+      "Massage into clean, dry or damp skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       "water-aqua",
       "glycerin",
@@ -332,16 +343,17 @@ export const products: Product[] = [
       "/strawberry/ingredients.jpg"
     ],
     benefits: [
+      "2-in-1 lip combo",
       "Gently exfoliates and smooths lips",
       "Deeply hydrates and softens",
-      "Infused with strawberry extract",
       "Leaves lips glossy and nourished"
     ],
     description:
       "A two-step strawberry lip ritual featuring a gentle exfoliating scrub and a deeply nourishing lip mask. Designed to smooth, hydrate, and restore softness for visibly plumper, healthier-looking lips.",
     howToUse:
-      "Massage a small amount of lip scrub onto damp lips and rinse. Follow with lip mask and leave on overnight or as needed.",
-
+      "Massage a small amount of lip scrub onto damp lips and rinse or wipe off. Follow with lip mask and leave on overnight or as needed.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       {
         section: "Lip Mask",

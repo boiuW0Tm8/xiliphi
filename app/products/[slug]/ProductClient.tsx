@@ -14,15 +14,15 @@ export default function ProductClient({ product }: any) {
   );
 
   return (
-    <>
+    <main className="animate-fade-in-up">
       {/* ===================== */}
       {/* GRADIENT HERO SECTION */}
       {/* ===================== */}
       <section
         className={`w-full bg-gradient-to-br ${product.theme?.gradient} py-20`}
       >
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+
           {/* LEFT: IMAGE AREA */}
           <div className="flex flex-col items-center">
             {activeImage && (
@@ -38,11 +38,10 @@ export default function ProductClient({ product }: any) {
                 <button
                   key={img}
                   onClick={() => setActiveImage(img)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    activeImage === img
+                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImage === img
                       ? "border-amber-900"
                       : "border-transparent hover:scale-105"
-                  }`}
+                    }`}
                 >
                   <img
                     src={img}
@@ -127,7 +126,7 @@ export default function ProductClient({ product }: any) {
               </h2>
 
               {Array.isArray(product.ingredients) &&
-              typeof product.ingredients[0] === "string" ? (
+                typeof product.ingredients[0] === "string" ? (
                 <>
                   {/* Mobile List */}
                   <ul className="space-y-2 md:hidden text-black">
@@ -213,11 +212,35 @@ export default function ProductClient({ product }: any) {
                 </p>
               </div>
             )}
+
+            {/* WARNING */}
+            {product.warning && (
+              <div className="mt-8 text-black">
+                <h2 className="text-lg font-medium mb-3 text-black">
+                  CAUTION
+                </h2>
+                <p className="text-sm leading-relaxed text-black">
+                  {product.warning}
+                </p>
+              </div>
+            )}
+
+            {/* WARNING FRENCH*/}
+            {product.warning && (
+              <div className="mt-8 text-black">
+                <h2 className="text-lg font-medium mb-3 text-black">
+                  ATTENTION
+                </h2>
+                <p className="text-sm leading-relaxed text-black">
+                  {product.warningFrench}
+                </p>
+              </div>
+            )}            
           </div>
         </div>
       </section>
 
       <section className="bg-white py-20" />
-    </>
+    </main>
   );
 }

@@ -147,7 +147,10 @@ export default function RootLayout({
                 FAQ
               </Link>
               <Link href="/shipping" className="hover:text-neutral-400 transition-colors">
-                Shipping & Returns
+                Shipping
+              </Link>
+               <Link href="/returns" className="hover:text-neutral-400 transition-colors">
+                Returns
               </Link>
               <Link href="/privacy" className="hover:text-neutral-400 transition-colors">
                 Privacy Policy

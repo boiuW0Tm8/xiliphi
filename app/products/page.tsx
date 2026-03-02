@@ -15,7 +15,7 @@ export default function ProductsPage() {
       {/* BODY BUTTERS */}
       <section className="mb-32">
         <h2 className="text-2xl font-medium mb-12">
-          Body Butters
+          Body Butter
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -50,7 +50,7 @@ export default function ProductsPage() {
       {/* SKIN CARE SETS */}
       <section className="mb-32">
         <h2 className="text-2xl font-medium mb-12">
-          Skin Care Sets
+          Skin Care
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
