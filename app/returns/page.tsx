@@ -13,7 +13,14 @@ export default function ReturnsPage() {
         <div>
           <p className="text-neutral-600 leading-relaxed">
             We want you to feel confident in your purchase. If you are not fully satisfied,
-            please contact us within <strong>14 days of delivery</strong> and we will
+            please
+            {" "}<a
+              href="/contact"
+              className="underline hover:text-black transition-colors"
+            >
+              contact
+            </a>{" "}
+            us within <strong>14 days of delivery</strong> and we will
             do our best to assist you.
           </p>
         </div>
@@ -41,7 +48,14 @@ export default function ReturnsPage() {
           <h2 className="text-lg font-medium mb-3">Damaged or Incorrect Orders</h2>
           <p className="text-neutral-600 leading-relaxed">
             If your order arrives damaged, defective, or incorrect,
-            please contact us within <strong>48 hours of delivery</strong> and we will resolve the issue promptly.
+            please
+            {" "}<a
+              href="/contact"
+              className="underline hover:text-black transition-colors"
+            >
+              contact
+            </a>{" "}
+            us within <strong>48 hours of delivery</strong> and we will resolve the issue promptly.
           </p>
         </div>
 

@@ -30,7 +30,7 @@ export default function RootLayout({
             {/* CENTER: Logo */}
             <Link
               href="/"
-              className="absolute z-0 left-1/2 -translate-x-1/2 flex items-center opacity-100 hover:opacity-50 transition-opacity duration-300 ease-in-out"
+              className="absolute z-0 left-1/2 -translate-x-[48%] flex items-center opacity-100 hover:opacity-50 transition-opacity duration-300 ease-in-out"
             >
               <Image
                 src="/logo2.png"
@@ -41,26 +41,50 @@ export default function RootLayout({
               />
             </Link>
 
-            {/* RIGHT: Desktop nav links */}
-            <div className="hidden md:flex ml-auto gap-8 text-sm tracking-wide text-neutral-700">
-              {["About", "Products", "The Almanac", "Contact"].map((label) => (
-                <Link
-                  key={label}
-                  href={
-                    label === "Where to buy"
-                      ? "/wheretobuy"
-                      : label === "The Almanac"
+            {/* RIGHT: Desktop nav links + account */}
+            <div className="hidden md:flex ml-auto items-center gap-8 text-sm tracking-wide text-neutral-700">
+
+              {/* Nav Links */}
+              <div className="flex gap-8">
+                {["About", "Products", "The Almanac", "Contact"].map((label) => (
+                  <Link
+                    key={label}
+                    href={
+                      label === "The Almanac"
                         ? "/almanac"
                         : `/${label.toLowerCase()}`
-                  }
-                  className="relative hover:text-black transition-colors duration-300
-                  after:absolute after:left-0 after:-bottom-1 after:h-px
-                  after:w-0 after:bg-black after:transition-all after:duration-300
-                  hover:after:w-full"
+                    }
+                    className="relative hover:text-black transition-colors duration-300
+        after:absolute after:left-0 after:-bottom-1 after:h-px
+        after:w-0 after:bg-black after:transition-all after:duration-300
+        hover:after:w-full"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Account Icon */}
+              <Link
+                href="/account"
+                className="hover:opacity-60 transition-opacity duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
                 >
-                  {label}
-                </Link>
-              ))}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0"
+                  />
+                </svg>
+              </Link>
+
             </div>
 
             {/* RIGHT (Mobile): Hamburger */}
@@ -119,8 +143,12 @@ export default function RootLayout({
             <Link href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
               Contact
             </Link>
-            <Link href="/wheretobuy" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
-              Where to buy
+            <Link
+              href="/account"
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-neutral-700 transition-colors"
+            >
+              Account
             </Link>
           </div>
         </div>
@@ -149,7 +177,7 @@ export default function RootLayout({
               <Link href="/shipping" className="hover:text-neutral-400 transition-colors">
                 Shipping
               </Link>
-               <Link href="/returns" className="hover:text-neutral-400 transition-colors">
+              <Link href="/returns" className="hover:text-neutral-400 transition-colors">
                 Returns
               </Link>
               <Link href="/privacy" className="hover:text-neutral-400 transition-colors">

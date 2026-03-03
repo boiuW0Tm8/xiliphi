@@ -4,6 +4,13 @@ import { useState } from "react";
 import Link from "next/link";
 import { ingredients } from "@/lib/ingredients";
 
+const butterOptions = [
+  { label: "Original", slug: "original-body-butter" },
+  { label: "Peach", slug: "peach-body-butter" },
+  { label: "Mango", slug: "mango-body-butter" },
+  { label: "Citrus", slug: "citrus-body-butter" },
+];
+
 const ingredientMap = new Map(
   ingredients.map((i) => [i.slug, i])
 );
@@ -13,11 +20,24 @@ export default function ProductClient({ product }: any) {
     product.images?.[0] || ""
   );
 
+  const [butterSelections, setButterSelections] = useState<string[]>([
+    "", "", "", ""
+  ]);
+
+  const [selectedButter, setSelectedButter] = useState("");
+
+  const isButterLoverValid =
+    product.slug !== "butter-lover-bundle" ||
+    butterSelections.every((s) => s !== "");
+
+  const isSingleButterValid =
+    !["el-classico-bundle", "tootie-frootie-bundle"].includes(product.slug) ||
+    selectedButter !== "";
+
+  const isBundleValid = isButterLoverValid && isSingleButterValid;
+
   return (
     <main className="animate-fade-in-up">
-      {/* ===================== */}
-      {/* GRADIENT HERO SECTION */}
-      {/* ===================== */}
       <section
         className={`w-full bg-gradient-to-br ${product.theme?.gradient} py-20`}
       >
@@ -38,10 +58,11 @@ export default function ProductClient({ product }: any) {
                 <button
                   key={img}
                   onClick={() => setActiveImage(img)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImage === img
+                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    activeImage === img
                       ? "border-amber-900"
                       : "border-transparent hover:scale-105"
-                    }`}
+                  }`}
                 >
                   <img
                     src={img}
@@ -58,23 +79,31 @@ export default function ProductClient({ product }: any) {
 
             <Link
               href="/products?fromProduct=true"
-              className="text-sm text-black hover:opacity-70 transition mb-6 inline-block"
+              className="text-sm hover:opacity-70 transition mb-6 inline-block"
             >
               ← Back to Products
             </Link>
 
-            {/* PRODUCT NAME */}
-            <h1 className="text-3xl font-medium mb-4 text-black">
+            <h1 className="text-3xl font-medium mb-4">
               {product.name}
             </h1>
 
             {/* PRICE */}
-            <div className="mb-4 text-black">
-              <span className="text-2xl font-semibold text-black">
-                ${product.price.toFixed(2)}
-              </span>
+            <div className="mb-4">
+              <div className="flex items-baseline gap-3">
+                <span className="text-2xl font-semibold">
+                  ${product.price.toFixed(2)}
+                </span>
+
+                {product.originalPrice && (
+                  <span className="text-lg text-neutral-400 line-through">
+                    ${product.originalPrice.toFixed(2)}
+                  </span>
+                )}
+              </div>
+
               {product.size && (
-                <p className="text-sm mt-1 text-black">
+                <p className="text-sm mt-1">
                   {product.size}
                 </p>
               )}
@@ -82,11 +111,11 @@ export default function ProductClient({ product }: any) {
 
             {/* BENEFITS */}
             {product.benefits && (
-              <ul className="space-y-2 mb-6 text-black">
+              <ul className="space-y-2 mb-6">
                 {product.benefits.map((benefit: string) => (
                   <li
                     key={benefit}
-                    className="flex items-start gap-2 text-sm text-black"
+                    className="flex items-start gap-2 text-sm"
                   >
                     <span>✓</span>
                     <span>{benefit}</span>
@@ -95,13 +124,81 @@ export default function ProductClient({ product }: any) {
               </ul>
             )}
 
+            {/* ========================= */}
+            {/* BUNDLE SELECTION LOGIC   */}
+            {/* ========================= */}
+
+            {/* Butter Lover (choose 4) */}
+            {product.slug === "butter-lover-bundle" && (
+              <div className="mt-8 space-y-4">
+                <p className="text-sm font-medium">
+                  Choose your 4 body butters:
+                </p>
+
+                {butterSelections.map((selection, index) => (
+                  <select
+                    key={index}
+                    value={selection}
+                    onChange={(e) => {
+                      const updated = [...butterSelections];
+                      updated[index] = e.target.value;
+                      setButterSelections(updated);
+                    }}
+                    className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition"
+                  >
+                    <option value="">Select scent</option>
+                    {butterOptions.map((butter) => (
+                      <option key={butter.slug} value={butter.slug}>
+                        {butter.label}
+                      </option>
+                    ))}
+                  </select>
+                ))}
+              </div>
+            )}
+
+            {/* El Classico + Tootie Frootie */}
+            {["el-classico-bundle", "tootie-frootie-bundle"].includes(product.slug) && (
+              <div className="mt-8 space-y-4">
+                <p className="text-sm font-medium">
+                  Choose your body butter:
+                </p>
+
+                <select
+                  value={selectedButter}
+                  onChange={(e) => setSelectedButter(e.target.value)}
+                  className="w-full border border-neutral-300 px-4 py-3 text-sm focus:outline-none focus:border-black transition"
+                >
+                  <option value="">Select scent</option>
+                  {butterOptions.map((butter) => (
+                    <option key={butter.slug} value={butter.slug}>
+                      {butter.label}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            {/* Mystery */}
+            {product.slug === "mystery-bundle" && (
+              <p className="mt-6 text-sm text-neutral-500">
+                Scents are selected at random.
+              </p>
+            )}
+
+            {/* BUTTON */}
             <button
-              className={`w-full py-4 rounded-full text-white font-medium transition ${product.theme?.button}`}
+              disabled={!isBundleValid}
+              className={`w-full py-4 mt-8 rounded-full text-white font-medium transition ${
+                isBundleValid
+                  ? product.theme?.button
+                  : "bg-neutral-300 text-neutral-500 cursor-not-allowed"
+              }`}
             >
               Coming Soon!
             </button>
 
-            <p className="text-xs text-center mt-4 text-black">
+            <p className="text-xs text-center mt-4">
               Free shipping on orders over $50
             </p>
 
@@ -109,105 +206,53 @@ export default function ProductClient({ product }: any) {
 
             {/* DESCRIPTION */}
             {product.description && (
-              <div className="mb-8 text-black">
-                <h2 className="text-lg font-medium mb-3 text-black">
+              <div className="mb-8">
+                <h2 className="text-lg font-medium mb-3">
                   Description
                 </h2>
-                <p className="text-sm leading-relaxed text-black">
+                <p className="text-sm leading-relaxed">
                   {product.description}
                 </p>
               </div>
             )}
 
             {/* INGREDIENTS */}
-            <div className="mb-8 text-black">
-              <h2 className="text-lg font-medium mb-3 text-black">
+            <div className="mb-8">
+              <h2 className="text-lg font-medium mb-3">
                 Ingredients
               </h2>
 
               {Array.isArray(product.ingredients) &&
-                typeof product.ingredients[0] === "string" ? (
-                <>
-                  {/* Mobile List */}
-                  <ul className="space-y-2 md:hidden text-black">
-                    {(product.ingredients as string[]).map((slug) => {
-                      const ingredient = ingredientMap.get(slug);
-                      if (!ingredient) return null;
+              typeof product.ingredients[0] === "string" ? (
+                <p className="text-sm leading-relaxed">
+                  {(product.ingredients as string[]).map((slug, index) => {
+                    const ingredient = ingredientMap.get(slug);
+                    if (!ingredient) return null;
 
-                      return (
-                        <li key={slug} className="text-black">
-                          <Link
-                            href={`/almanac/${slug}`}
-                            className="hover:underline text-black"
-                          >
-                            {ingredient.inci}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  {/* Desktop Inline */}
-                  <p className="hidden md:block text-sm leading-relaxed text-black">
-                    {(product.ingredients as string[]).map((slug, index) => {
-                      const ingredient = ingredientMap.get(slug);
-                      if (!ingredient) return null;
-
-                      return (
-                        <span key={slug}>
-                          <Link
-                            href={`/almanac/${slug}`}
-                            className="hover:underline text-black"
-                          >
-                            {ingredient.inci}
-                          </Link>
-                          {index <
-                            (product.ingredients as string[]).length - 1 && ", "}
-                        </span>
-                      );
-                    })}
-                  </p>
-                </>
-              ) : (
-                (product.ingredients as {
-                  section: string;
-                  items: string[];
-                }[]).map((group) => (
-                  <div key={group.section} className="mb-6 text-black">
-                    <h3 className="text-sm font-semibold uppercase tracking-wide mb-2 text-black">
-                      {group.section}
-                    </h3>
-
-                    <p className="text-sm leading-relaxed text-black">
-                      {group.items.map((slug, index) => {
-                        const ingredient = ingredientMap.get(slug);
-                        if (!ingredient) return null;
-
-                        return (
-                          <span key={slug}>
-                            <Link
-                              href={`/almanac/${slug}`}
-                              className="hover:underline text-black"
-                            >
-                              {ingredient.inci}
-                            </Link>
-                            {index < group.items.length - 1 && ", "}
-                          </span>
-                        );
-                      })}
-                    </p>
-                  </div>
-                ))
-              )}
+                    return (
+                      <span key={slug}>
+                        <Link
+                          href={`/almanac/${slug}`}
+                          className="hover:underline"
+                        >
+                          {ingredient.inci}
+                        </Link>
+                        {index <
+                          (product.ingredients as string[]).length - 1 && ", "}
+                      </span>
+                    );
+                  })}
+                </p>
+              ) : null}
             </div>
 
             {/* HOW TO USE */}
             {product.howToUse && (
-              <div className="text-black">
-                <h2 className="text-lg font-medium mb-3 text-black">
+              <div>
+                <h2 className="text-lg font-medium mb-3">
                   How to Use
                 </h2>
-                <p className="text-sm leading-relaxed text-black">
+                <p className="text-sm leading-relaxed">
                   {product.howToUse}
                 </p>
               </div>
@@ -215,27 +260,28 @@ export default function ProductClient({ product }: any) {
 
             {/* WARNING */}
             {product.warning && (
-              <div className="mt-8 text-black">
-                <h2 className="text-lg font-medium mb-3 text-black">
+              <div className="mt-8">
+                <h2 className="text-lg font-medium mb-3">
                   CAUTION
                 </h2>
-                <p className="text-sm leading-relaxed text-black">
+                <p className="text-sm leading-relaxed">
                   {product.warning}
                 </p>
               </div>
             )}
 
-            {/* WARNING FRENCH*/}
-            {product.warning && (
-              <div className="mt-8 text-black">
-                <h2 className="text-lg font-medium mb-3 text-black">
+            {/* WARNING FRENCH */}
+            {product.warningFrench && (
+              <div className="mt-8">
+                <h2 className="text-lg font-medium mb-3">
                   ATTENTION
                 </h2>
-                <p className="text-sm leading-relaxed text-black">
+                <p className="text-sm leading-relaxed">
                   {product.warningFrench}
                 </p>
               </div>
-            )}            
+            )}
+
           </div>
         </div>
       </section>

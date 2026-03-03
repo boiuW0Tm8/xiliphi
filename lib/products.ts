@@ -1,9 +1,11 @@
 export type Product = {
   slug: string;
   name: string;
-  price?: number;
+  price: number;
+  originalPrice?: number;
   size?: string;
-  images?: string[];
+  images: string[];
+  category?: string;
   benefits?: string[];
   description?: string;
   howToUse?: string;
@@ -26,7 +28,8 @@ export const products: Product[] = [
   {
     slug: "turmeric-skincare-set",
     name: "Turmeric Skincare Set",
-    price: 49.99,
+    price: 50,
+    originalPrice: 65,
     size: "Cleanser • Toner • Serum • Cream",
     images: [
       "/turmeric/main.jpg",
@@ -35,6 +38,7 @@ export const products: Product[] = [
       "/turmeric/ai1.jpg",
       "/turmeric/ai2.png"
     ],
+    category: "skin-care",
     benefits: [
       "Complete 4-step routine",
       "Hydrates and restores radiance",
@@ -141,7 +145,8 @@ export const products: Product[] = [
   {
     slug: "original-body-butter",
     name: "Original Body Butter",
-    price: 12.99,
+    price: 15,
+    originalPrice: 20,
     size: "100 g / 3.53 oz",
     images: [
       "/original/main.jpg",
@@ -150,6 +155,7 @@ export const products: Product[] = [
       "/original/ai1.png",
       "/original/ai2.jpg"
     ],
+    category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
@@ -189,7 +195,8 @@ export const products: Product[] = [
   {
     slug: "mango-body-butter",
     name: "Mango Body Butter",
-    price: 12.99,
+    price: 15,
+    originalPrice: 20,
     size: "100 g / 3.53 oz",
     images: [
       "/mango/main.jpg",
@@ -198,6 +205,7 @@ export const products: Product[] = [
       "/mango/ai1.png",
       "/mango/ai2.png"
     ],
+    category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
@@ -237,13 +245,15 @@ export const products: Product[] = [
   {
     slug: "peach-body-butter",
     name: "Peach Body Butter",
-    price: 12.99,
+    price: 15,
+    originalPrice: 20,
     size: "100 g / 3.53 oz",
     images: [
       "/peach/main.png",
       "/peach/spread.jpg",
       "/peach/ingredients.jpg"
     ],
+    category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
@@ -283,7 +293,8 @@ export const products: Product[] = [
   {
     slug: "citrus-body-butter",
     name: "Citrus Body Butter",
-    price: 13.99,
+    price: 15,
+    originalPrice: 20,
     size: "100 g / 3.53 oz",
     images: [
       "/citrus/main.jpg",
@@ -292,6 +303,7 @@ export const products: Product[] = [
       "/citrus/ai1.png",
       "/citrus/ai2.png"
     ],
+    category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
@@ -335,13 +347,15 @@ export const products: Product[] = [
   {
     slug: "strawberry-lip-care",
     name: "Strawberry Lip Mask/Scrub 2-in-1",
-    price: 9.99,
+    price: 10,
+    originalPrice: 15,
     size: "Lip Mask + Lip Scrub",
     images: [
       "/strawberry/main.jpg",
       "/strawberry/spread.jpg",
       "/strawberry/ingredients.jpg"
     ],
+    category: "lip-care",
     benefits: [
       "2-in-1 lip combo",
       "Gently exfoliates and smooths lips",
@@ -388,4 +402,91 @@ export const products: Product[] = [
       button: "bg-[#d6336c] hover:bg-[#b0255a]",
     },
   },
+  // =========================
+  //  BUNDLES LINE
+  // =========================
+  {
+    slug: "butter-lover-bundle",
+    name: "Butter Lover Bundle",
+    price: 50,
+    originalPrice: 75,
+    images: [
+      "/bundles/butterlover.png",
+    ],
+    category: "bundle",
+    description: "Choose any four body butters and save.",
+    benefits: [
+      "Pick any 4 scents",
+      "Save compared to buying individually",
+      "Perfect for gifting"
+    ],
+    ingredients: [],
+  },
+  {
+    slug: "el-classico-bundle",
+    name: "El Classico",
+    price: 70,
+    originalPrice: 90,
+    images: [
+      "/bundles/elclassico.png"
+    ],
+    category: "bundle",
+    description: "One body butter, the Turmeric Skincare Set, and Lip Care.",
+    benefits: [
+      "Choose your body butter scent",
+      "Full face and body ritual",
+      "Best value set"
+    ],
+    ingredients: [],
+  },
+  {
+    slug: "tootie-frootie-bundle",
+    name: "Tootie Frootie",
+    price: 20,
+    originalPrice: 30,
+    images: [
+      "/bundles/tootiefrootie.png"
+    ],
+    category: "bundle",
+    description: "One body butter and one lip care product.",
+    benefits: [
+      "Choose your body butter scent",
+      "Bright and refreshing pair"
+    ],
+    ingredients: [],
+  },
+  {
+    slug: "ultimate-set",
+    name: "Ultimate Set",
+    price: 100,
+    originalPrice: 150,
+    images: [
+      "/bundles/ultimate.png"
+    ],
+    category: "bundle",
+    description: "One of everything. The complete Xiliphi collection.",
+    benefits: [
+      "All products included",
+      "Maximum savings",
+      "The full ritual"
+    ],
+    ingredients: [],
+  },
+  {
+    slug: "mystery-bundle",
+    name: "Mystery Bundle",
+    price: 25,
+    originalPrice: 40,
+    images: [
+      "/bundles/mystery.png"
+    ],
+    category: "bundle",
+    description: "A surprise curated selection at a special price.",
+    benefits: [
+      "Best savings",
+      "Hand-selected",
+      "Limited quantities"
+    ],
+    ingredients: [],
+  }
 ];

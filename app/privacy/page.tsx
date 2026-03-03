@@ -95,13 +95,14 @@ export default function PrivacyPolicyPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">Contact Us</h2>
           <p className="text-neutral-600 leading-relaxed">
-            If you have any questions about this Privacy Policy, please contact us at{" "}
-            <a
-              href="mailto:support@xiliphi.com"
+            If you have any questions about this Privacy Policy, please contact us using our{" "}
+            {" "}<a
+              href="/contact"
               className="underline hover:text-black transition-colors"
             >
-              support@xiliphi.com
-            </a>.
+              contact
+            </a>{" "}
+            form.
           </p>
         </div>
 

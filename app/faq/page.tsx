@@ -71,13 +71,7 @@ export default function FAQPage() {
             >
               contact
             </a>{" "}
-            form. You can also reach us anytime at{" "}
-            <a
-              href="mailto:support@xiliphi.com"
-              className="underline hover:text-black transition-colors"
-            >
-              support@xiliphi.com
-            </a>.
+            form.
           </p>
         </div>
 
