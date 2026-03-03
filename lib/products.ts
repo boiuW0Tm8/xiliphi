@@ -11,7 +11,7 @@ export type Product = {
   howToUse?: string;
   warning?: string;
   warningFrench?: string;
-  ingredients:
+  ingredients?:
   | string[]
   | {
     section: string;
@@ -414,13 +414,16 @@ export const products: Product[] = [
       "/bundles/butterlover.png",
     ],
     category: "bundle",
-    description: "Choose any four body butters and save.",
+    description: "For our body butter lovers! Choose any four body butters and save.",
     benefits: [
+      "For body butter enthusiasts",
       "Pick any 4 scents",
       "Save compared to buying individually",
       "Perfect for gifting"
     ],
     ingredients: [],
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
   },
   {
     slug: "el-classico-bundle",
@@ -431,13 +434,16 @@ export const products: Product[] = [
       "/bundles/elclassico.png"
     ],
     category: "bundle",
-    description: "One body butter, the Turmeric Skincare Set, and Lip Care.",
+    description: "The classic bundle! A turmeric skincare set, a lip care set, and one choice of body butter.",
     benefits: [
+      "One of each product type",
       "Choose your body butter scent",
       "Full face and body ritual",
-      "Best value set"
+      "Excellent value"
     ],
     ingredients: [],
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
   },
   {
     slug: "tootie-frootie-bundle",
@@ -451,9 +457,13 @@ export const products: Product[] = [
     description: "One body butter and one lip care product.",
     benefits: [
       "Choose your body butter scent",
+      "The perfect body and lip combo",
+      "For everyday hydration",
       "Bright and refreshing pair"
     ],
     ingredients: [],
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
   },
   {
     slug: "ultimate-set",
@@ -464,13 +474,16 @@ export const products: Product[] = [
       "/bundles/ultimate.png"
     ],
     category: "bundle",
-    description: "One of everything. The complete Xiliphi collection.",
+    description: "All for one. One for all. The complete Xiliphi collection.",
     benefits: [
       "All products included",
       "Maximum savings",
+      "Perfect for gifting",
       "The full ritual"
     ],
     ingredients: [],
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
   },
   {
     slug: "mystery-bundle",
@@ -481,12 +494,15 @@ export const products: Product[] = [
       "/bundles/mystery.png"
     ],
     category: "bundle",
-    description: "A surprise curated selection at a special price.",
+    description: "A surprise curated selection at a special price. Look out for additional goodies!",
     benefits: [
       "Best savings",
       "Hand-selected",
-      "Limited quantities"
+      "Guaranteed value",
+      "Surprises included!"
     ],
-    ingredients: [],
+    ingredients:[],
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
   }
 ];

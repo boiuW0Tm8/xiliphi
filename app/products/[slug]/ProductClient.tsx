@@ -58,11 +58,10 @@ export default function ProductClient({ product }: any) {
                 <button
                   key={img}
                   onClick={() => setActiveImage(img)}
-                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                    activeImage === img
+                  className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${activeImage === img
                       ? "border-amber-900"
                       : "border-transparent hover:scale-105"
-                  }`}
+                    }`}
                 >
                   <img
                     src={img}
@@ -182,18 +181,17 @@ export default function ProductClient({ product }: any) {
             {/* Mystery */}
             {product.slug === "mystery-bundle" && (
               <p className="mt-6 text-sm text-neutral-500">
-                Scents are selected at random.
+                Items are selected at random.
               </p>
             )}
 
             {/* BUTTON */}
             <button
               disabled={!isBundleValid}
-              className={`w-full py-4 mt-8 rounded-full text-white font-medium transition ${
-                isBundleValid
+              className={`w-full py-4 mt-8 rounded-full text-white font-medium transition ${isBundleValid
                   ? product.theme?.button
                   : "bg-neutral-300 text-neutral-500 cursor-not-allowed"
-              }`}
+                }`}
             >
               Coming Soon!
             </button>
@@ -223,7 +221,8 @@ export default function ProductClient({ product }: any) {
               </h2>
 
               {Array.isArray(product.ingredients) &&
-              typeof product.ingredients[0] === "string" ? (
+                typeof product.ingredients[0] === "string" &&
+                product.ingredients.length > 0 ? (
                 <p className="text-sm leading-relaxed">
                   {(product.ingredients as string[]).map((slug, index) => {
                     const ingredient = ingredientMap.get(slug);
@@ -243,7 +242,11 @@ export default function ProductClient({ product }: any) {
                     );
                   })}
                 </p>
-              ) : null}
+              ) : (
+                <p className="text-sm text-black leading-relaxed">
+                  Ingredients vary by product. Please see individual product pages for full details.
+                </p>
+              )}
             </div>
 
             {/* HOW TO USE */}
