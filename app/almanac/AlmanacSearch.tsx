@@ -98,6 +98,9 @@ export default function AlmanacSearch({
                 <li key={ingredient.slug}>
                   <Link
                     href={`/almanac/${ingredient.slug}`}
+                    onClick={() =>
+                      sessionStorage.setItem("almanacScroll", window.scrollY.toString())
+                    }
                     className="
                       block w-full h-full
                       p-5

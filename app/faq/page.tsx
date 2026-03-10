@@ -1,4 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ | Xiliphi",
+  description: "Answers to common questions about Xiliphi products, shipping, returns, and more.",
+  alternates: {
+    canonical: "/faq",
+  },
+};
 
 export default function FAQPage() {
   return (
@@ -22,6 +30,14 @@ export default function FAQPage() {
           <p className="text-neutral-600 leading-relaxed">
             Orders typically arrive within 3–7 business days. However, it may take longer depending on your location.
             You will receive tracking information once your order has shipped.
+          </p>
+        </div>
+
+         {/* PRICING */}
+        <div>
+          <h2 className="text-lg font-medium mb-3">What currency are your prices in?</h2>
+          <p className="text-neutral-600 leading-relaxed">
+            All prices are in Canadian dollars.
           </p>
         </div>
 
@@ -64,7 +80,7 @@ export default function FAQPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">How can I contact you?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            For general inqurires, you may use our
+            For general inquires, you may use our
             {" "}<a
               href="/contact"
               className="underline hover:text-black transition-colors"

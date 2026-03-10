@@ -2,6 +2,7 @@ export interface Ingredient {
   slug: string
   inci: string
   common?: string
+  image?: string
 
   description?: {
     whatItIs: string
@@ -31,6 +32,7 @@ export const ingredients = [
     inci: "Aloe Barbadensis Leaf Extract",
     common: "Aloe Vera",
     slug: "aloe-barbadensis-leaf-extract",
+    image: "/ingredients/aloe.png",
     description: {
       whatItIs:
         "Aloe Barbadensis Leaf Extract is derived from the leaves of the aloe vera plant.",
@@ -199,6 +201,7 @@ export const ingredients = [
     inci: "Butyrospermum Parkii Butter",
     common: "Shea Butter",
     slug: "butyrospermum-parkii-butter",
+    image: "/ingredients/shea.png",
     description: {
       whatItIs:
         "Butyrospermum Parkii Butter, commonly known as shea butter, is a lipid-rich fat extracted from the nuts of the shea tree.",
@@ -325,6 +328,7 @@ export const ingredients = [
     inci: "Curcuma Longa Root Extract",
     common: "Turmeric",
     slug: "curcuma-longa-root-extract",
+    image: "/ingredients/turmeric.png",
     description: {
       whatItIs:
         "Curcuma Longa Root Extract is derived from the root of the turmeric plant.",
@@ -417,6 +421,7 @@ export const ingredients = [
   {
     inci: "Glycerin",
     slug: "glycerin",
+    image: "/ingredients/glycerin.jpg",
     description: {
       whatItIs:
         "Glycerin is a plant-derived polyol commonly used in cosmetic formulations.",
@@ -493,6 +498,7 @@ export const ingredients = [
   {
     inci: "Inulin",
     slug: "inulin",
+    image: "/ingredients/inulins.png",
     description: {
       whatItIs:
         "Inulin is a naturally derived polysaccharide typically extracted from plants such as chicory root.",
@@ -508,6 +514,7 @@ export const ingredients = [
   {
     inci: "Lactobacillus Ferment Lysate",
     slug: "lactobacillus-ferment-lysate",
+    image: "/ingredients/Lactobacillus.png",
     description: {
       whatItIs:
         "Lactobacillus Ferment Lysate is derived from the fermentation of Lactobacillus bacteria.",
@@ -571,6 +578,7 @@ export const ingredients = [
     inci: "Mel",
     common: "Honey",
     slug: "mel",
+    image: "/ingredients/honey.png",
     description: {
       whatItIs:
         "Mel, commonly known as honey, is a natural substance produced by bees from floral nectar.",
@@ -821,6 +829,7 @@ export const ingredients = [
   {
     inci: "Squalane",
     slug: "squalane",
+    image: "/ingredients/squalane.jpg",
     description: {
       whatItIs:
         "Squalane is a hydrogenated derivative of squalene used in cosmetic formulations.",
@@ -869,6 +878,7 @@ export const ingredients = [
     inci: "Tocopherol",
     common: "Vitamin E",
     slug: "tocopherol",
+    image: "/ingredients/tocopherol.jpg",
     description: {
       whatItIs:
         "Tocopherol is a fat-soluble form of vitamin E used in cosmetic formulations.",

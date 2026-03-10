@@ -1,195 +1,65 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import "./globals.css";
-import localFont from "next/font/local";
-import { useState } from "react";
+import type { Metadata } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import localFont from "next/font/local";
+import NavbarClient from "@/components/Navbarclient";
+import "./globals.css";
+import VineDecoration from "@/components/VineDecoration";
+import Link from "next/link";
+import Script from 'next/script'
 
 const xiliphiFont = localFont({
   src: "./fonts/TT Norms Pro Regular.otf",
   display: "swap",
 });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export const metadata: Metadata = {
+  metadataBase: new URL("https://xiliphi.com"),
+  title: "Xiliphi | Natural Skincare",
+  description: "Discover Xiliphi's turmeric-powered skincare, body butters, and lip care — crafted with natural ingredients.",
+  openGraph: {
+    siteName: "Xiliphi",
+    url: "https://xiliphi.com",
+    type: "website",
+  },
+};
 
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`overflow-x-hidden ${xiliphiFont.className}`}>
-
-        {/* ================= NAVBAR ================= */}
-        <nav className="fixed top-0 left-0 w-full z-50 bg-white border-b-2 border-neutral-200">
-          <div className="max-w-6xl mx-auto px-6 relative flex items-center h-16">
-
-            {/* CENTER: Logo */}
-            <Link
-              href="/"
-              className="absolute z-0 left-1/2 -translate-x-[48%] flex items-center opacity-100 hover:opacity-50 transition-opacity duration-300 ease-in-out"
-            >
-              <Image
-                src="/logo2.png"
-                alt="Xiliphi logo"
-                width={120}
-                height={32}
-                priority
-              />
-            </Link>
-
-            {/* RIGHT: Desktop nav links + account */}
-            <div className="hidden md:flex ml-auto items-center gap-8 text-sm tracking-wide text-neutral-700">
-
-              {/* Nav Links */}
-              <div className="flex gap-8">
-                {["About", "Products", "The Almanac", "Contact"].map((label) => (
-                  <Link
-                    key={label}
-                    href={
-                      label === "The Almanac"
-                        ? "/almanac"
-                        : `/${label.toLowerCase()}`
-                    }
-                    className="relative hover:text-black transition-colors duration-300
-        after:absolute after:left-0 after:-bottom-1 after:h-px
-        after:w-0 after:bg-black after:transition-all after:duration-300
-        hover:after:w-full"
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Account Icon */}
-              <Link
-                href="/account"
-                className="hover:opacity-60 transition-opacity duration-300"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-5 h-5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0"
-                  />
-                </svg>
-              </Link>
-
-            </div>
-
-            {/* RIGHT (Mobile): Hamburger */}
-            <button
-              className="md:hidden ml-auto relative w-6 h-6"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span
-                className={`
-                  absolute left-0 top-1/2 w-6 h-px bg-black
-                  transition-all duration-300 ease-in-out
-                  ${menuOpen ? "rotate-45" : "-translate-y-2"}
-                `}
-              />
-
-              <span
-                className={`
-                  absolute left-0 top-1/2 w-6 h-px bg-black
-                  transition-opacity duration-200 ease-in-out
-                  ${menuOpen ? "opacity-0" : "opacity-100"}
-                `}
-              />
-
-              <span
-                className={`
-                  absolute left-0 top-1/2 w-6 h-px bg-black
-                  transition-all duration-500 ease-in-out
-                  ${menuOpen ? "-rotate-45" : "translate-y-2"}
-                `}
-              />
-            </button>
-          </div>
-        </nav>
-
-        {/* ================= MOBILE DROPDOWN ================= */}
-        <div
-          className={`
-            md:hidden fixed top-16 left-0 w-full z-40
-            overflow-hidden bg-white
-            border-b border-neutral-200
-            transition-[max-height] duration-500 ease-in-out
-            ${menuOpen ? "max-h-96" : "max-h-0"}
-          `}
-        >
-          <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
-            <Link href="/about" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
-              About
-            </Link>
-            <Link href="/products" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
-              Products
-            </Link>
-            <Link href="/almanac" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
-              The Almanac
-            </Link>
-            <Link href="/contact" onClick={() => setMenuOpen(false)} className="hover:text-neutral-700 transition-colors">
-              Contact
-            </Link>
-            <Link
-              href="/account"
-              onClick={() => setMenuOpen(false)}
-              className="hover:text-neutral-700 transition-colors"
-            >
-              Account
-            </Link>
-          </div>
-        </div>
-
-        {/* ================= PAGE CONTENT ================= */}
-        <div className="pt-16">
-          {children}
+        <div className="relative overflow-hidden"> {/* Add overflow-hidden here */}
+          <NavbarClient>
+            {children}
+          </NavbarClient>
         </div>
         <footer className="bg-black text-white mt-24">
           <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-6">
-
-            {/* LEFT */}
             <div className="text-sm tracking-wide space-y-2">
               <p className="font-medium">© {new Date().getFullYear()} Xiliphi</p>
               <p className="text-neutral-400">Based in Toronto, Canada</p>
             </div>
-
-            {/* RIGHT */}
             <div className="flex flex-col md:flex-row gap-6 text-sm tracking-wide">
-              <Link href="/contact" className="hover:text-neutral-400 transition-colors">
-                Contact
-              </Link>
-              <Link href="/faq" className="hover:text-neutral-400 transition-colors">
-                FAQ
-              </Link>
-              <Link href="/shipping" className="hover:text-neutral-400 transition-colors">
-                Shipping
-              </Link>
-              <Link href="/returns" className="hover:text-neutral-400 transition-colors">
-                Returns
-              </Link>
-              <Link href="/privacy" className="hover:text-neutral-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-neutral-400 transition-colors">
-                Terms of Service
-              </Link>
+              {[
+                { label: "Contact", href: "/contact" },
+                { label: "FAQ", href: "/faq" },
+                { label: "Shipping", href: "/shipping" },
+                { label: "Returns", href: "/returns" },
+                { label: "Privacy Policy", href: "/privacy" },
+                { label: "Terms of Service", href: "/terms" },
+              ].map(({ label, href }) => (
+                // replace <a key={href} href={href} ...>
+                <Link key={href} href={href} className="hover:text-neutral-400 transition-colors">
+                  {label}
+                </Link>
+              ))}
             </div>
           </div>
         </footer>
         <SpeedInsights />
+        <Script
+          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_PUBLIC_API_KEY"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

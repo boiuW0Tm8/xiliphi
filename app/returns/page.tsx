@@ -1,4 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Returns & Exchanges | Xiliphi",
+  description: "Learn about Xiliphi's return and exchange policy — contact us within 14 days of delivery.",
+  alternates: {
+    canonical: "/returns",
+  },
+};
 
 export default function ReturnsPage() {
   return (

@@ -1,4 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service | Xiliphi",
+  description: "Review Xiliphi's terms of service covering purchases, shipping, returns, and use of our website.",
+  alternates: {
+    canonical: "/terms",
+  },
+};
 
 export default function TermsOfServicePage() {
   return (
@@ -114,7 +122,7 @@ export default function TermsOfServicePage() {
         <div>
           <h2 className="text-lg font-medium mb-3">Contact</h2>
           <p className="text-neutral-600 leading-relaxed">
-            If you have any questions regarding these therms, please contact us using our{" "}
+            If you have any questions regarding these terms, please contact us using our{" "}
             {" "}<a
               href="/contact"
               className="underline hover:text-black transition-colors"

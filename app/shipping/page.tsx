@@ -1,4 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shipping Information | Xiliphi",
+  description: "Xiliphi ships across Canada and the U.S. — standard and express options with free shipping on orders over $50.",
+  alternates: {
+    canonical: "/shipping",
+  },
+};
 
 export default function ShippingPage() {
   return (
@@ -13,7 +21,7 @@ export default function ShippingPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">Shipping Options</h2>
           <p className="text-neutral-600 leading-relaxed mb-4">
-            We offer reliable shipping across Canada with two delivery options:
+            We offer reliable shipping across Canada and the U.S with two delivery options:
           </p>
 
           <ul className="space-y-3 text-neutral-600">

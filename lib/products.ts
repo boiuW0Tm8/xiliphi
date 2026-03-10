@@ -1,10 +1,14 @@
+import { bodyButterFAQ, turmericSetFAQ, lipCareFAQ, bundleFAQ } from "@/lib/faq";
+
 export type Product = {
   slug: string;
+  shopifyVariantId?: string;
   name: string;
   price: number;
   originalPrice?: number;
   size?: string;
   images: string[];
+  chart?: string,
   category?: string;
   benefits?: string[];
   description?: string;
@@ -22,12 +26,25 @@ export type Product = {
     accent: string;
     button: string;
   };
+  faq?: {
+    question: string;
+    answer: string;
+  }[];
+
+  heroIngredients?: {
+    slug: string;
+    title?: string;
+    description: string;
+  }[];
 };
+
 
 export const products: Product[] = [
   {
     slug: "turmeric-skincare-set",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977821261887",
     name: "Turmeric Skincare Set",
+    faq: turmericSetFAQ,
     price: 50,
     originalPrice: 65,
     size: "Cleanser • Toner • Serum • Cream",
@@ -38,15 +55,16 @@ export const products: Product[] = [
       "/turmeric/ai1.jpg",
       "/turmeric/ai2.png"
     ],
+    chart: "charts/turmeric-set.png",
     category: "skin-care",
     benefits: [
-      "Complete 4-step routine",
-      "Hydrates and restores radiance",
-      "Leaves skin feeling refreshed",
-      "Powered by turmeric and botanical extracts",
+      "Complete 4-step turmeric-powered skincare routine",
+      "Gentle cleanser with inulin helps cleanse and condition the skin",
+      "Fermented toner and serum help soothe and refresh the complexion",
+      "Barrier-supporting cream locks in hydration and strengthens moisture retention",
     ],
     description:
-      "A complete turmeric-powered skincare ritual designed to gently cleanse, tone, hydrate, and protect. This curated set combines cleanser, toner, serum, and cream for layered skin care suitable for all skin types.",
+      "A complete turmeric-powered skincare ritual designed to support the skin’s moisture barrier and overall balance. This curated four-step system pairs a gentle cleanser, fermented toning essence and serum, and a barrier-supporting cream to help cleanse, refresh, and deeply hydrate the skin. Powered by turmeric and botanical extracts, the routine works synergistically to promote a healthy-looking complexion while helping maintain the skin’s natural balance.",
     howToUse:
       "Start with warm water. Gently massage the gel cleanser onto the skin and rinse. Apply toner using fingertips or a cotton pad. Massage and press the serum into the face and neck, then seal in hydration with the cream. Use consistently as part of your daily routine.",
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
@@ -136,6 +154,32 @@ export const products: Product[] = [
       accent: "text-yellow-900",
       button: "bg-[#e0a800] hover:bg-[#c48f00]",
     },
+    heroIngredients: [
+      {
+        slug: "curcuma-longa-root-extract",
+        title: "Turmeric Extract",
+        description:
+          "A powerful antioxidant traditionally used in skincare to help brighten the appearance of skin and support a healthy-looking complexion."
+      },
+      {
+        slug: "inulin",
+        title: "Inulin (Prebiotic)",
+        description:
+          "A plant-derived ingredient known for its skin-conditioning properties that helps support the skin’s natural balance."
+      },
+      {
+        slug: "lactobacillus-ferment-lysate",
+        title: "Lactobacillus Ferment Lysate (Postbiotic)",
+        description:
+          "A fermented ingredient that helps support the skin’s natural balance while improving the appearance of calm, healthy skin."
+      },
+      {
+        slug: "aloe-barbadensis-leaf-extract",
+        title: "Aloe Vera",
+        description:
+          "A natural gel that helps soothe and hydrate the skin while supporting the skin’s moisture barrier for a soft, refreshed complexion."
+      }
+    ]
   },
 
   // =========================
@@ -144,7 +188,9 @@ export const products: Product[] = [
 
   {
     slug: "original-body-butter",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977726529599",
     name: "Original Body Butter",
+    faq: bodyButterFAQ,
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
@@ -155,6 +201,7 @@ export const products: Product[] = [
       "/original/ai1.png",
       "/original/ai2.jpg"
     ],
+    chart: "charts/original-bb.png",
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -190,11 +237,33 @@ export const products: Product[] = [
       accent: "text-amber-900",
       button: "bg-[#5c3b1e] hover:bg-[#4a2f17]",
     },
+    heroIngredients: [
+      {
+        slug: "butyrospermum-parkii-butter",
+        title: "Shea Butter",
+        description:
+          "Rich in essential fatty acids, shea butter deeply nourishes the skin while helping support the skin’s natural moisture barrier for long-lasting softness."
+      },
+      {
+        slug: "glycerin",
+        title: "Glycerin",
+        description:
+          "A powerful humectant that attracts moisture to the skin, helping keep it hydrated, smooth, and supple throughout the day."
+      },
+      {
+        slug: "tocopherol",
+        title: "Vitamin E (Tocopherol)",
+        description:
+          "An antioxidant that helps protect the skin from environmental stress while supporting healthy-looking, conditioned skin."
+      }
+    ]
   },
 
   {
     slug: "mango-body-butter",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977732984895",
     name: "Mango Body Butter",
+    faq: bodyButterFAQ,
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
@@ -205,6 +274,7 @@ export const products: Product[] = [
       "/mango/ai1.png",
       "/mango/ai2.png"
     ],
+    chart: "charts/mango-bb.png",
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -240,11 +310,33 @@ export const products: Product[] = [
       accent: "text-orange-900",
       button: "bg-[#c57b00] hover:bg-[#a86400]",
     },
+    heroIngredients: [
+      {
+        slug: "butyrospermum-parkii-butter",
+        title: "Shea Butter",
+        description:
+          "Rich in essential fatty acids, shea butter deeply nourishes the skin while helping support the skin’s natural moisture barrier for long-lasting softness."
+      },
+      {
+        slug: "glycerin",
+        title: "Glycerin",
+        description:
+          "A powerful humectant that attracts moisture to the skin, helping keep it hydrated, smooth, and supple throughout the day."
+      },
+      {
+        slug: "tocopherol",
+        title: "Vitamin E (Tocopherol)",
+        description:
+          "An antioxidant that helps protect the skin from environmental stress while supporting healthy-looking, conditioned skin."
+      }
+    ]
   },
 
   {
     slug: "peach-body-butter",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977727447103",
     name: "Peach Body Butter",
+    faq: bodyButterFAQ,
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
@@ -253,6 +345,7 @@ export const products: Product[] = [
       "/peach/spread.jpg",
       "/peach/ingredients.jpg"
     ],
+    chart: "charts/peach-bb.png",
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -288,11 +381,33 @@ export const products: Product[] = [
       accent: "text-rose-900",
       button: "bg-[#c05621] hover:bg-[#9c4221]",
     },
+    heroIngredients: [
+      {
+        slug: "butyrospermum-parkii-butter",
+        title: "Shea Butter",
+        description:
+          "Rich in essential fatty acids, shea butter deeply nourishes the skin while helping support the skin’s natural moisture barrier for long-lasting softness."
+      },
+      {
+        slug: "glycerin",
+        title: "Glycerin",
+        description:
+          "A powerful humectant that attracts moisture to the skin, helping keep it hydrated, smooth, and supple throughout the day."
+      },
+      {
+        slug: "tocopherol",
+        title: "Vitamin E (Tocopherol)",
+        description:
+          "An antioxidant that helps protect the skin from environmental stress while supporting healthy-looking, conditioned skin."
+      }
+    ]
   },
 
   {
     slug: "citrus-body-butter",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977738162239",
     name: "Citrus Body Butter",
+    faq: bodyButterFAQ,
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
@@ -303,6 +418,7 @@ export const products: Product[] = [
       "/citrus/ai1.png",
       "/citrus/ai2.png"
     ],
+    chart: "charts/citrus-bb.png",
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -339,6 +455,56 @@ export const products: Product[] = [
       accent: "text-orange-900",
       button: "bg-[#e76f00] hover:bg-[#c05600]",
     },
+    heroIngredients: [
+      {
+        slug: "butyrospermum-parkii-butter",
+        title: "Shea Butter",
+        description:
+          "Rich in essential fatty acids, shea butter deeply nourishes the skin while helping support the skin’s natural moisture barrier for long-lasting softness."
+      },
+      {
+        slug: "glycerin",
+        title: "Glycerin",
+        description:
+          "A powerful humectant that attracts moisture to the skin, helping keep it hydrated, smooth, and supple throughout the day."
+      },
+      {
+        slug: "tocopherol",
+        title: "Vitamin E (Tocopherol)",
+        description:
+          "An antioxidant that helps protect the skin from environmental stress while supporting healthy-looking, conditioned skin."
+      }
+    ]
+  },
+  {
+    slug: "body-butter-sample",
+    shopifyVariantId: "gid://shopify/ProductVariant/42986251386943",
+    name: "Body Butter Sample",
+    faq: bodyButterFAQ,
+    price: 5,
+    size: "10 g / 0.35 oz",
+    images: [
+      "/sample/sample2.png",
+    ],
+    category: "body-butter",
+    benefits: [
+      "Try before you commit",
+      "Same formula as full size",
+      "Choose your scent",
+      "Perfect introduction to Xiliphi",
+    ],
+    description:
+      "A small trial size of our body butter, perfect for experiencing the texture, scent, and nourishment before committing to a full jar.",
+    howToUse:
+      "Massage into clean, dry or damp skin. Apply generously to areas prone to dryness. Best used after showering to lock in moisture.",
+    warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
+    warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    ingredients: [],
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   },
 
   // =========================
@@ -346,7 +512,9 @@ export const products: Product[] = [
   // =========================
   {
     slug: "strawberry-lip-care",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977754218559",
     name: "Strawberry Lip Mask/Scrub 2-in-1",
+    faq: lipCareFAQ,
     price: 10,
     originalPrice: 15,
     size: "Lip Mask + Lip Scrub",
@@ -355,6 +523,7 @@ export const products: Product[] = [
       "/strawberry/spread.jpg",
       "/strawberry/ingredients.jpg"
     ],
+    chart: "charts/strawberry-lip.png",
     category: "lip-care",
     benefits: [
       "2-in-1 lip combo",
@@ -370,7 +539,7 @@ export const products: Product[] = [
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
     ingredients: [
       {
-        section: "Lip Mask",
+        section: "Strawberry Lip Mask",
         items: [
           "olea-europaea-fruit-oil",
           "cera-alba-beeswax",
@@ -383,7 +552,7 @@ export const products: Product[] = [
         ],
       },
       {
-        section: "Lip Scrub",
+        section: "Strawberry Lip Scrub",
         items: [
           "water-aqua",
           "sucrose",
@@ -401,13 +570,29 @@ export const products: Product[] = [
       accent: "text-rose-900",
       button: "bg-[#d6336c] hover:bg-[#b0255a]",
     },
+    heroIngredients: [
+      {
+        slug: "squalane",
+        title: "Squalane",
+        description:
+          "A lightweight emollient that helps deeply moisturize and soften lips while supporting the skin’s natural barrier."
+      },
+      {
+        slug: "mel",
+        title: "Honey",
+        description:
+          "A natural humectant that attracts and retains moisture, helping keep lips smooth, nourished, and hydrated."
+      }
+    ]
   },
   // =========================
   //  BUNDLES LINE
   // =========================
   {
     slug: "butter-lover-bundle",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977824145471",
     name: "Butter Lover Bundle",
+    faq: bundleFAQ,
     price: 50,
     originalPrice: 75,
     images: [
@@ -424,10 +609,18 @@ export const products: Product[] = [
     ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   },
+
   {
     slug: "el-classico-bundle",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977824178239",
     name: "El Classico",
+    faq: bundleFAQ,
     price: 70,
     originalPrice: 90,
     images: [
@@ -444,10 +637,17 @@ export const products: Product[] = [
     ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   },
   {
     slug: "tootie-frootie-bundle",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977825718335",
     name: "Tootie Frootie",
+    faq: bundleFAQ,
     price: 20,
     originalPrice: 30,
     images: [
@@ -464,10 +664,17 @@ export const products: Product[] = [
     ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   },
   {
     slug: "ultimate-set",
-    name: "Ultimate Set",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977826013247",
+    name: "The Ultimate Set",
+    faq: bundleFAQ,
     price: 100,
     originalPrice: 150,
     images: [
@@ -484,14 +691,21 @@ export const products: Product[] = [
     ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   },
   {
     slug: "mystery-bundle",
+    shopifyVariantId: "gid://shopify/ProductVariant/42977826078783",
     name: "Mystery Bundle",
+    faq: bundleFAQ,
     price: 25,
     originalPrice: 40,
     images: [
-      "/bundles/mystery.png"
+      "/bundles/mysterybox.png"
     ],
     category: "bundle",
     description: "A surprise curated selection at a special price. Look out for additional goodies!",
@@ -501,8 +715,13 @@ export const products: Product[] = [
       "Guaranteed value",
       "Surprises included!"
     ],
-    ingredients:[],
+    ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",
     warningFrench: "Pour usage externe seulement. Éviter le contact avec les yeux. En cas de contact avec les yeux, rincer abondamment à l'eau. Cesser l'utilisation en cas d'irritation ou d'éruption cutanée. Garder hors de la portée des enfants. Ne pas avaler. Faites d'abord un essai sur une petite zone de peau.",
+    theme: {
+      gradient: "from-[#e9faf7] via-[#79d6c3] to-[#16a085]",
+      accent: "text-teal-900",
+      button: "bg-[#16a085] hover:bg-[#12876f]",
+    },
   }
 ];

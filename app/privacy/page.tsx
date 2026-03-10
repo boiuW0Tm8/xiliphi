@@ -1,4 +1,13 @@
-"use client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://xiliphi.com"),
+  title: "Privacy Policy | Xiliphi",
+  description: "Learn how Xiliphi collects, uses, and protects your personal information.",
+  alternates: {
+    canonical: "/privacy",
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
