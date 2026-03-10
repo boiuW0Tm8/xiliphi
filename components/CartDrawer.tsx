@@ -43,7 +43,7 @@ export default function CartDrawer() {
           </h2>
           <button
             onClick={closeCart}
-            className="text-neutral-400 hover:text-black transition-colors text-xl leading-none"
+            className="text-neutral-400 hover:text-black transition-colors text-xl leading-none cursor-pointer"
             aria-label="Close cart"
           >
             ✕
