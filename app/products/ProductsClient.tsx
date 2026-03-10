@@ -5,6 +5,12 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { products } from "@/lib/products";
 
+declare global {
+  interface Window {
+    _klOnsite: any[];
+  }
+}
+
 export default function ProductsPage() {
 
   useEffect(() => {
@@ -13,6 +19,11 @@ export default function ProductsPage() {
       window.scrollTo(0, parseInt(savedScroll));
       sessionStorage.removeItem("productsScroll");
     }
+  }, []);
+
+  useEffect(() => {
+    window._klOnsite = window._klOnsite || [];
+    window._klOnsite.push(['openForm', 'W97ChS']);
   }, []);
 
   const saveScroll = () => {
@@ -149,7 +160,7 @@ export default function ProductsPage() {
           <h2 className="text-3xl font-medium">
             Lip Care
           </h2>
-           <p className="text-base text-neutral-500 mt-3 max-w-lg mx-auto">
+          <p className="text-base text-neutral-500 mt-3 max-w-lg mx-auto">
             Gentle exfoliation and nourishment for plump, healthy lips.
           </p>
         </div>
@@ -199,7 +210,7 @@ export default function ProductsPage() {
           <h2 className="text-3xl font-medium text-center">
             Bundles
           </h2>
-           <p className="text-base text-neutral-500 mt-3 max-w-lg mx-auto">
+          <p className="text-base text-neutral-500 mt-3 max-w-lg mx-auto">
             Curated sets designed to save on and simplify your ritual. May come with additional goodies!
           </p>
         </div>
