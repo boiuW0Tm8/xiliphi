@@ -283,7 +283,7 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* ================= MOBILE DROPDOWN ================= */}
-      <div className={`md:hidden fixed top-[100px] left-0 w-full z-40 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
+      <div className={`md:hidden fixed top-[80px] left-0 w-full z-50 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
         <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
           {[
             { label: "About", href: "/about" },
