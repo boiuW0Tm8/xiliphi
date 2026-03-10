@@ -43,6 +43,10 @@ const CART_FRAGMENT = `
         node {
           id
           quantity
+          attributes {
+            key
+            value
+          }
           cost {
             totalAmount {
               amount
@@ -153,6 +157,10 @@ export const GET_CART = `
 export type CartLine = {
   id: string;
   quantity: number;
+  attributes: {
+    key: string;
+    value: string;
+  }[]
   cost: {
     totalAmount: {
       amount: string;

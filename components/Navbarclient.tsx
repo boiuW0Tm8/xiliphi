@@ -176,12 +176,13 @@ function MobileSearchBar() {
           <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 104.5 4.5a7.5 7.5 0 0012.15 12.15z" />
         </svg>
         <input
-          ref={(el) => { if (searchOpen && el) el.focus(); }}
+          ref={(el) => { if (searchOpen && el) setTimeout(() => el.focus(), 300); }}
           type="text"
           value={query}
           onChange={handleChange}
           onBlur={() => setTimeout(() => setOpen(false), 150)}
           placeholder="Search Products..."
+          readOnly={!searchOpen}
           className="flex-1 outline-none text-sm py-1 bg-transparent placeholder-neutral-400 border-b border-neutral-300 focus:border-neutral-700 transition-all duration-300"
         />
         <button onClick={handleClose} className="text-neutral-400 hover:text-neutral-700 transition-colors text-lg leading-none">
@@ -282,7 +283,7 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
       </nav>
 
       {/* ================= MOBILE DROPDOWN ================= */}
-      <div className={`md:hidden fixed top-20 left-0 w-full z-40 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
+      <div className={`md:hidden fixed top-[100px] left-0 w-full z-40 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
         <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
           {[
             { label: "About", href: "/about" },

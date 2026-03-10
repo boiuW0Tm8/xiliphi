@@ -59,6 +59,7 @@ export default function CartDrawer() {
           ) : (
             <ul className="space-y-6">
               {lines.map((line) => {
+                console.log("line attributes:", line.attributes);
                 const image =
                   line.merchandise.product.images.edges[0]?.node;
                 const unitPrice = parseFloat(
@@ -95,6 +96,22 @@ export default function CartDrawer() {
                         <p className="text-xs text-neutral-400 mt-0.5">
                           {line.merchandise.title}
                         </p>
+                      )}
+                      {line.attributes && line.attributes.length > 0 && (
+                        <div className="mt-1 space-y-0.5">
+                          {line.attributes.map((attr: { key: string; value: string }) => {
+                            const formatted = attr.value
+                              .replace(/-/g, " ")
+                              .replace(/\b\w/g, (c) => c.toUpperCase())
+                              .replace(/\bBody Butter\b/, "")
+                              .trim();
+                            return (
+                              <p key={attr.key} className="text-xs text-neutral-400">
+                                {attr.key}: {formatted}
+                              </p>
+                            );
+                          })}
+                        </div>
                       )}
                       <p className="text-xs text-neutral-500 mt-1">
                         ${unitPrice} {currency}

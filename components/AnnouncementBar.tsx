@@ -2,7 +2,7 @@
 
 export default function AnnouncementBar() {
   const items = [
-    "🚚 FREE SHIPPING ORDERS OVER $15",
+    "🚚 FREE SHIPPING OVER $15",
     "🎉 GRAND OPENING SALE",
     "🔥 UP TO 30% OFF ALL ITEMS",
   ];
@@ -11,7 +11,7 @@ export default function AnnouncementBar() {
   const duplicatedItems = [...items, ...items, ...items, ...items];
 
   return (
-    <div className="fixed top-20 left-0 w-full bg-neutral-100 overflow-hidden z-40">
+    <div className="fixed top-20 left-0 w-full h-8 bg-neutral-100 overflow-hidden z-40">
       <div className="marquee-track">
         {duplicatedItems.map((item, i) => (
           <span key={i} className="marquee-item">

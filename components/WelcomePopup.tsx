@@ -6,7 +6,10 @@ export default function WelcomePopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(true);
+    if (!sessionStorage.getItem("welcome-seen")) {
+      setVisible(true);
+      sessionStorage.setItem("welcome-seen", "1");
+    }
   }, []);
 
   if (!visible) return null;
