@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </footer>
         <SpeedInsights />
         <Script
-          src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=YOUR_PUBLIC_API_KEY"
+          src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${process.env.NEXT_PUBLIC_KLAVIYO_API_KEY}`}
           strategy="afterInteractive"
         />
       </body>
