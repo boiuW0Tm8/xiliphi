@@ -5,12 +5,6 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { products } from "@/lib/products";
 
-declare global {
-  interface Window {
-    _klOnsite: any[];
-  }
-}
-
 export default function ProductsPage() {
 
   useEffect(() => {
@@ -19,11 +13,6 @@ export default function ProductsPage() {
       window.scrollTo(0, parseInt(savedScroll));
       sessionStorage.removeItem("productsScroll");
     }
-  }, []);
-
-  useEffect(() => {
-    window._klOnsite = window._klOnsite || [];
-    window._klOnsite.push(['openForm', 'W97ChS']);
   }, []);
 
   const saveScroll = () => {
