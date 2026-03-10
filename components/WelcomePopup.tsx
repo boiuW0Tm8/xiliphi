@@ -7,7 +7,7 @@ export default function WelcomePopup() {
 
   useEffect(() => {
     if (!sessionStorage.getItem("welcome-seen")) {
-      setVisible(true);
+      setTimeout(() => setVisible(true), 50);
       sessionStorage.setItem("welcome-seen", "1");
     }
   }, []);
