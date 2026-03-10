@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         destination: "/products",
         permanent: false,
       },
+      {
+        source: "/cart",
+        destination: "/products",
+        permanent: false,
+      },
     ];
   },
   experimental: {
