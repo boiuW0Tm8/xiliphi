@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import ProductClient from "./ProductClient";
 import { getProductSchema, getBreadcrumbSchema } from "@/lib/schema";
+import { Suspense } from "react"
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -90,7 +91,9 @@ export default async function ProductPage({
           ])),
         }}
       />
-      <ProductClient product={product} />
+      <Suspense fallback={null}>
+        <ProductClient product={product} />
+      </Suspense>
     </>
   );
 }
