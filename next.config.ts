@@ -9,7 +9,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-
+  async redirects() {
+    return [
+      {
+        source: "/products/cart",
+        destination: "/products",
+        permanent: false,
+      },
+    ];
+  },
   experimental: {
     scrollRestoration: true,
   },
