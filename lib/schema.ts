@@ -1,5 +1,3 @@
-import { Ingredient } from "@/lib/ingredients"
-
 export function getProductSchema(product: {
   title: string
   description: string
@@ -25,7 +23,43 @@ export function getProductSchema(product: {
       price: product.priceRange.minVariantPrice.amount,
       priceCurrency: product.priceRange.minVariantPrice.currencyCode,
       availability: "https://schema.org/InStock",
-      url: `https://xiliphi.com/products/${product.handle}`
+      url: `https://xiliphi.com/products/${product.handle}`,
+      priceValidUntil: "2027-01-01",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "CAD"
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "CA"
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: {
+            "@type": "QuantitativeValue",
+            minValue: 1,
+            maxValue: 3,
+            unitCode: "DAY"
+          },
+          transitTime: {
+            "@type": "QuantitativeValue",
+            minValue: 3,
+            maxValue: 7,
+            unitCode: "DAY"
+          }
+        }
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "CA",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn"
+      }
     },
     ...(product.rating && product.reviewCount ? {
       aggregateRating: {
@@ -35,70 +69,4 @@ export function getProductSchema(product: {
       }
     } : {})
   }
-}
-
-export function getIngredientSchema(ingredient: Ingredient) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: ingredient.common
-      ? `${ingredient.common} (${ingredient.inci})`
-      : ingredient.inci,
-    description: ingredient.description?.whatItIs,
-    url: `https://xiliphi.com/almanac/${ingredient.slug}`,
-    image: ingredient.image
-      ? `https://xiliphi.com${ingredient.image}`
-      : undefined,
-    publisher: {
-      "@type": "Organization",
-      name: "Xiliphi",
-      url: "https://xiliphi.com"
-    }
-  }
-}
-
-export function getBreadcrumbSchema(crumbs: { name: string; url: string }[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: crumbs.map((crumb, i) => ({
-      "@type": "ListItem",
-      position: i + 1,
-      name: crumb.name,
-      item: crumb.url
-    }))
-  }
-}
-
-export function getOrganizationSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Xiliphi",
-    url: "https://xiliphi.com",
-    logo: "https://xiliphi.com/logo.png",
-    sameAs: [],
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer service",
-      email: "hello@xiliphi.com",
-    },
-  };
-}
-
-export function getWebSiteSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Xiliphi",
-    url: "https://xiliphi.com",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: "https://xiliphi.com/search?q={search_term_string}",
-      },
-      "query-input": "required name=search_term_string",
-    },
-  };
 }
