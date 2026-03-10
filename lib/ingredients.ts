@@ -514,7 +514,7 @@ export const ingredients = [
   {
     inci: "Lactobacillus Ferment Lysate",
     slug: "lactobacillus-ferment-lysate",
-    image: "/ingredients/Lactobacillus.png",
+    image: "/ingredients/lactobacillus.png",
     description: {
       whatItIs:
         "Lactobacillus Ferment Lysate is derived from the fermentation of Lactobacillus bacteria.",
