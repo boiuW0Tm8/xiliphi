@@ -252,9 +252,12 @@ export default function ProductClient({ product }: any) {
           {/* LEFT: IMAGE AREA */}
           <div className="flex flex-col items-center">
             {activeImage && (
-              <img
+              <Image
                 src={activeImage}
                 alt={product.name}
+                width={500}
+                height={500}
+                priority
                 className="w-full max-w-lg object-contain drop-shadow-2xl transition-all duration-500"
               />
             )}
