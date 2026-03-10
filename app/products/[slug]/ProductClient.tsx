@@ -140,7 +140,8 @@ export default function ProductClient({ product }: any) {
         attributes.push({ key: `Butter ${i + 1}`, value: s });
       });
     } else if (SINGLE_BUTTER_SLUGS.includes(product.slug)) {
-      attributes.push({ key: "Butter Selection", value: selectedButter });
+      const butterLabel = butterOptions.find(b => b.slug === selectedButter)?.label ?? selectedButter;
+      attributes.push({ key: "Butter Selection", value: butterLabel });
     }
 
     await addToCart(product.shopifyVariantId, quantity, attributes);
