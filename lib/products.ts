@@ -3,6 +3,7 @@ import { bodyButterFAQ, turmericSetFAQ, lipCareFAQ, bundleFAQ } from "@/lib/faq"
 export type Product = {
   slug: string;
   shopifyVariantId?: string;
+  shopifyProductId?: string;
   name: string;
   price: number;
   originalPrice?: number;
@@ -262,6 +263,7 @@ export const products: Product[] = [
   {
     slug: "mango-body-butter",
     shopifyVariantId: "gid://shopify/ProductVariant/42977732984895",
+    shopifyProductId: "gid://shopify/Product/8102124748863",
     name: "Mango Body Butter",
     faq: bodyButterFAQ,
     price: 15,
