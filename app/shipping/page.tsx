@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Shipping Information | Xiliphi",
-  description: "Xiliphi ships across Canada and the U.S. — standard and express options with free shipping on orders over $50.",
+  description: "Xiliphi ships across Canada and the U.S. — standard and express options with free shipping on qualifying orders.",
   alternates: {
     canonical: "/shipping",
   },
@@ -11,19 +11,19 @@ export const metadata: Metadata = {
 export default function ShippingPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
-      <h1 className="text-3xl md:text-4xl font-medium mb-16 tracking-wide">
+      <h1 className="text-3xl md:text-4xl font-medium mb-4 tracking-wide">
         Shipping Information
       </h1>
+      <p className="text-sm text-neutral-400 mb-16">All rates are displayed in Canadian dollars (CAD).</p>
 
       <div className="space-y-12 text-neutral-800">
 
-        {/* SHIPPING OPTIONS */}
+        {/* CANADA */}
         <div>
-          <h2 className="text-lg font-medium mb-3">Shipping Options</h2>
+          <h2 className="text-lg font-medium mb-3">Shipping to Canada</h2>
           <p className="text-neutral-600 leading-relaxed mb-4">
-            We offer reliable shipping across Canada and the U.S with two delivery options:
+            We offer two delivery options for Canadian orders:
           </p>
-
           <ul className="space-y-3 text-neutral-600">
             <li>
               <strong>Standard Shipping — $10</strong><br />
@@ -34,6 +34,27 @@ export default function ShippingPage() {
               Faster delivery for when you need your order sooner.
             </li>
           </ul>
+        </div>
+
+        {/* US */}
+        <div>
+          <h2 className="text-lg font-medium mb-3">Shipping to the United States</h2>
+          <p className="text-neutral-600 leading-relaxed mb-4">
+            We also ship to the U.S. with the following rates:
+          </p>
+          <ul className="space-y-3 text-neutral-600">
+            <li>
+              <strong>Standard Shipping — $15</strong><br />
+              Free on orders over $75.
+            </li>
+            <li>
+              <strong>Express Shipping — $20</strong>
+            </li>
+          </ul>
+          <p className="text-neutral-600 leading-relaxed mt-4">
+            U.S. orders may be subject to customs fees or import duties upon delivery.
+            These charges are the responsibility of the customer and are not included in our shipping rates.
+          </p>
         </div>
 
         {/* PROCESSING TIME */}
