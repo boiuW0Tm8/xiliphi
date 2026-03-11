@@ -110,6 +110,29 @@ export default function PrivacyPolicyPage() {
           </ul>
         </div>
 
+        {/* KLAVIYO */}
+        <div>
+          <h2 className="text-lg font-medium mb-3">Email Marketing — Klaviyo</h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We use Klaviyo to manage our email marketing communications. If you subscribe to our mailing list,
+            your email address and certain browsing and purchase behavior may be collected and processed by
+            Klaviyo to help us send you relevant communications. Klaviyo processes this data in accordance with
+            their own privacy policy. You may unsubscribe at any time using the link in any email we send, or
+            by contacting us directly.
+          </p>
+        </div>
+
+        {/* JUDGE.ME */}
+        <div>
+          <h2 className="text-lg font-medium mb-3">Product Reviews — Judge.me</h2>
+          <p className="text-neutral-600 leading-relaxed">
+            We use Judge.me to collect and display product reviews. When you submit a review, your name,
+            email address, and review content are collected and processed by Judge.me. Reviews may be
+            displayed publicly on our website. Judge.me processes this data in accordance with their own
+            privacy policy.
+          </p>
+        </div>
+
         {/* SHOPIFY */}
         <div>
           <h2 className="text-lg font-medium mb-3">Relationship with Shopify</h2>
@@ -210,7 +233,7 @@ export default function PrivacyPolicyPage() {
             please contact us using our{" "}
             <Link href="/contact" className="underline hover:text-black transition-colors">
               contact form
-            </Link>
+            </Link>.
           </p>
         </div>
 

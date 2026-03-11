@@ -137,9 +137,11 @@ export default function TermsOfServicePage() {
         <div>
           <h2 className="text-lg font-medium mb-3">Section 8 — Third-Party Links & Tools</h2>
           <p className="text-neutral-600 leading-relaxed">
-            The Services may contain links to third-party websites or provide access to third-party tools. We are
-            not responsible for the content, accuracy, or practices of any third-party sites or tools. Your use
-            of third-party services is at your own risk and subject to their respective terms and policies.
+            The Services may contain links to third-party websites or provide access to third-party tools. 
+            We use third-party services including Klaviyo for email marketing and Judge.me for product reviews. 
+            Use of these services is subject to their respective terms and privacy policies. We are not responsible 
+            for the content, accuracy, or practices of any third-party sites or tools. Your use of third-party 
+            services is at your own risk and subject to their respective terms and policies. 
           </p>
         </div>
 
