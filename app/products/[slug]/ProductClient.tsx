@@ -65,6 +65,11 @@ export default function ProductClient({ product }: any) {
     script.src = "https://cdn.judge.me/assets/widget.js";
     script.setAttribute("data-shop", "xiliphi.myshopify.com");
     script.async = true;
+    script.onload = () => {
+      if ((window as any).jdgm) {
+        (window as any).jdgm.init();
+      }
+    };
     document.body.appendChild(script);
     return () => {
       document.body.removeChild(script);
