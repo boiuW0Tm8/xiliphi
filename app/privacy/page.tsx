@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xiliphi.com"),
@@ -207,9 +208,9 @@ export default function PrivacyPolicyPage() {
           <p className="text-neutral-600 leading-relaxed">
             If you have any questions about this Privacy Policy or would like to exercise any of your rights,
             please contact us using our{" "}
-            <a href="/contact" className="underline hover:text-black transition-colors">
+            <Link href="/contact" className="underline hover:text-black transition-colors">
               contact form
-            </a>.
+            </Link>
           </p>
         </div>
 

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "FAQ | Xiliphi",
@@ -33,7 +34,7 @@ export default function FAQPage() {
           </p>
         </div>
 
-         {/* PRICING */}
+        {/* PRICING */}
         <div>
           <h2 className="text-lg font-medium mb-3">What currency are your prices in?</h2>
           <p className="text-neutral-600 leading-relaxed">
@@ -72,7 +73,12 @@ export default function FAQPage() {
           <h2 className="text-lg font-medium mb-3">What is your return policy?</h2>
           <p className="text-neutral-600 leading-relaxed">
             If you are not satisfied with your purchase, please contact us within
-            14 days of delivery and we will work to resolve the issue.
+            14 days of delivery and we will work to resolve the issue. Please see
+            our{" "}
+            <Link href="/returns" className="underline hover:text-black transition-colors">
+              Returns Policy
+            </Link>{" "}
+            for full details.
           </p>
         </div>
 
@@ -80,14 +86,10 @@ export default function FAQPage() {
         <div>
           <h2 className="text-lg font-medium mb-3">How can I contact you?</h2>
           <p className="text-neutral-600 leading-relaxed">
-            For general inquires, you may use our
-            {" "}<a
-              href="/contact"
-              className="underline hover:text-black transition-colors"
-            >
-              contact
-            </a>{" "}
-            form.
+            For general inquiries, you may use our{" "}
+            <Link href="/contact" className="underline hover:text-black transition-colors">
+              contact form
+            </Link>.
           </p>
         </div>
 
