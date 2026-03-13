@@ -6,6 +6,7 @@ import "./globals.css";
 import VineDecoration from "@/components/VineDecoration";
 import Link from "next/link";
 import Script from 'next/script'
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const xiliphiFont = localFont({
   src: "./fonts/TT Norms Pro Regular.otf",
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           src={`https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${process.env.NEXT_PUBLIC_KLAVIYO_API_KEY}`}
           strategy="afterInteractive"
         />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID!} />
       </body>
     </html>
   );
