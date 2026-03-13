@@ -62,7 +62,6 @@ export default function ProductClient({ product }: any) {
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://cdn.judge.me/assets/widget.js";
     script.setAttribute("data-shop", "xiliphi.myshopify.com");
     script.async = true;
     script.onload = () => {

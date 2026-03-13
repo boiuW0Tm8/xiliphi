@@ -55,7 +55,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          {bodyButters.map((product) => (
+          {bodyButters.map((product, i) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
@@ -67,6 +67,8 @@ export default function ProductsPage() {
                   src={product.images[0]}
                   alt={product.name}
                   fill
+                  priority={i < 2}
+                  sizes="(max-width: 768px) 100vw, 420px"
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -105,7 +107,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          {skinCare.map((product) => (
+          {skinCare.map((product, i) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
@@ -117,6 +119,8 @@ export default function ProductsPage() {
                   src={product.images[0]}
                   alt={product.name}
                   fill
+                  priority={i < 2}
+                  sizes="(max-width: 768px) 100vw, 420px"
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -155,7 +159,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          {lipCare.map((product) => (
+          {lipCare.map((product, i) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
@@ -167,6 +171,8 @@ export default function ProductsPage() {
                   src={product.images[0]}
                   alt={product.name}
                   fill
+                  priority={i < 2}
+                  sizes="(max-width: 768px) 100vw, 420px"
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
@@ -205,7 +211,7 @@ export default function ProductsPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          {bundles.map((product) => (
+          {bundles.map((product, i) => (
             <Link
               key={product.slug}
               href={`/products/${product.slug}`}
@@ -217,6 +223,8 @@ export default function ProductsPage() {
                   src={product.images[0]}
                   alt={product.name}
                   fill
+                  priority={i < 2}
+                  sizes="(max-width: 768px) 100vw, 420px"
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
