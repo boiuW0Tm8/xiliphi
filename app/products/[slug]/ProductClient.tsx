@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ingredients } from "@/lib/ingredients";
 import { useCart } from "@/context/CartContext";
@@ -20,12 +20,10 @@ const ingredientMap = new Map(ingredients.map((i) => [i.slug, i]));
 
 const SINGLE_BUTTER_SLUGS = ["el-classico-bundle", "tootie-frootie-bundle", "body-butter-sample"];
 
-export default function ProductClient({ product }: any) {
+export default function ProductClient({ product, from }: { product: any; from: string | null }) {
   const { addToCart, isLoading } = useCart();
   const router = useRouter();
-  const searchParams = useSearchParams();
 
-  const from = searchParams.get("from");
   const backHref = from === "/" ? "/" : "/products";
   const backLabel = from === "/" ? "← Back to Home" : "← Back to Products";
 
@@ -447,16 +445,14 @@ export default function ProductClient({ product }: any) {
               >
                 <h2 className="text-lg font-medium">Ingredients</h2>
                 <span
-                  className={`text-lg transition-transform duration-300 ${ingredientsOpen ? "rotate-45" : ""
-                    }`}
+                  className={`text-lg transition-transform duration-300 ${ingredientsOpen ? "rotate-45" : ""}`}
                 >
                   +
                 </span>
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${ingredientsOpen ? "max-h-[3000px] opacity-100 mt-3" : "max-h-0 opacity-0"
-                  }`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${ingredientsOpen ? "max-h-[3000px] opacity-100 mt-3" : "max-h-0 opacity-0"}`}
               >
                 {bundleIngredientGroups !== null ? (
                   product.slug === "mystery-bundle" ? (
@@ -483,16 +479,14 @@ export default function ProductClient({ product }: any) {
                             >
                               <span className="text-xs font-semibold uppercase tracking-widest text-black">{group.label}</span>
                               <span
-                                className={`text-base transition-transform duration-300 ${isOpen ? "rotate-45" : ""
-                                  }`}
+                                className={`text-base transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
                               >
                                 +
                               </span>
                             </button>
                             {isOpen && <div className="border-t border-neutral-200" />}
                             <div
-                              className={`overflow-hidden transition-all duration-400 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                                }`}
+                              className={`overflow-hidden transition-all duration-400 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
                             >
                               <div className="px-4 pb-4 space-y-6">
                                 {group.sections.map((sec) => (
@@ -511,7 +505,6 @@ export default function ProductClient({ product }: any) {
                             </div>
                           </div>
                         ) : (
-                          /* Sample: single scent selected — render flat, no accordion */
                           <div key={group.label}>
                             {group.sections.map((sec) => (
                               <p key={sec.section} className="text-sm leading-relaxed">
@@ -522,7 +515,6 @@ export default function ProductClient({ product }: any) {
                         );
                       })}
 
-                      {/* Hints */}
                       {["el-classico-bundle", "tootie-frootie-bundle"].includes(product.slug) && !selectedButter && (
                         <p className="text-sm text-neutral-400 italic px-1">
                           Choose a body butter above to see its ingredients.
@@ -550,38 +542,34 @@ export default function ProductClient({ product }: any) {
                   product.ingredients.length > 0 &&
                   typeof product.ingredients[0] === "object" ? (
                   <div className="space-y-2">
-                    {(product.ingredients as { section: string; items: string[] }[]).map(
-                      (group) => {
-                        const isOpen = openIngredientSections.has(group.section);
-                        return (
-                          <div
-                            key={group.section}
-                            className="border border-neutral-200 rounded-lg overflow-hidden"
+                    {(product.ingredients as { section: string; items: string[] }[]).map((group) => {
+                      const isOpen = openIngredientSections.has(group.section);
+                      return (
+                        <div
+                          key={group.section}
+                          className="border border-neutral-200 rounded-lg overflow-hidden"
+                        >
+                          <button
+                            onClick={() => toggleIngredientSection(group.section)}
+                            className="flex items-center justify-between w-full px-4 py-3 text-left hover:bg-neutral-50 transition"
                           >
-                            <button
-                              onClick={() => toggleIngredientSection(group.section)}
-                              className="flex items-center justify-between w-full px-4 py-3 text-left hover:bg-neutral-50 transition"
+                            <span className="text-sm font-semibold">{group.section}</span>
+                            <span
+                              className={`text-base transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}
                             >
-                              <span className="text-sm font-semibold">{group.section}</span>
-                              <span
-                                className={`text-base transition-transform duration-300 ${isOpen ? "rotate-45" : ""
-                                  }`}
-                              >
-                                +
-                              </span>
-                            </button>
-                            <div
-                              className={`overflow-hidden transition-all duration-400 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                                }`}
-                            >
-                              <p className="px-4 pb-4 text-sm leading-relaxed">
-                                {renderIngredientList(group.items)}
-                              </p>
-                            </div>
+                              +
+                            </span>
+                          </button>
+                          <div
+                            className={`overflow-hidden transition-all duration-400 ease-in-out ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"}`}
+                          >
+                            <p className="px-4 pb-4 text-sm leading-relaxed">
+                              {renderIngredientList(group.items)}
+                            </p>
                           </div>
-                        );
-                      }
-                    )}
+                        </div>
+                      );
+                    })}
                   </div>
                 ) : null}
               </div>
@@ -657,10 +645,7 @@ export default function ProductClient({ product }: any) {
                       </button>
                     </div>
 
-                    <div
-                      className={`${isReversed ? "md:order-1 flex justify-start" : "flex justify-end"
-                        }`}
-                    >
+                    <div className={`${isReversed ? "md:order-1 flex justify-start" : "flex justify-end"}`}>
                       {ingredient.image && (
                         <div className="relative w-full max-w-md aspect-square">
                           <Image

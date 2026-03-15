@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { products } from "@/lib/products";
 import ProductClient from "./ProductClient";
 import { getProductSchema, getBreadcrumbSchema } from "@/lib/schema";
-import { Suspense } from "react"
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -47,10 +46,13 @@ export async function generateMetadata({
 
 export default async function ProductPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
+  const { from } = await searchParams;
 
   const product = products.find((p) => p.slug === slug);
 
@@ -91,9 +93,7 @@ export default async function ProductPage({
           ])),
         }}
       />
-      <Suspense fallback={null}>
-        <ProductClient product={product} />
-      </Suspense>
+      <ProductClient product={product} from={from ?? null} />
     </>
   );
 }
