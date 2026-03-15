@@ -58,21 +58,6 @@ export default function ProductClient({ product, from }: { product: any; from: s
     }
   }, []);
 
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.setAttribute("data-shop", "xiliphi.myshopify.com");
-    script.async = true;
-    script.onload = () => {
-      if ((window as any).jdgm) {
-        (window as any).jdgm.init();
-      }
-    };
-    document.body.appendChild(script);
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   // Save state to sessionStorage before navigating to almanac
   const saveStateAndNavigate = useCallback(
     (href: string) => {
@@ -306,13 +291,6 @@ export default function ProductClient({ product, from }: { product: any; from: s
             </Link>
 
             <h1 className="text-3xl font-medium mb-4">{product.name}</h1>
-
-            {product.shopifyProductId && (
-              <div
-                className="jdgm-widget jdgm-preview-badge mb-4"
-                data-id={product.shopifyProductId}
-              />
-            )}
 
             {/* PRICE */}
             <div className="mb-4">
