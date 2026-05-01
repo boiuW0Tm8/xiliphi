@@ -118,7 +118,34 @@ export default function AboutClient() {
       </section>
 
       {/* CONTENT SECTIONS */}
-      <section className="max-w-7xl mx-auto space-y-40 text-xl md:text-2xl font-medium leading-relaxed">
+      <section className="max-w-7xl mx-auto space-y-24 text-xl md:text-2xl font-medium leading-relaxed">
+
+        {/* ORIGIN STORY */}
+        <div className="grid md:grid-cols-2 gap-20 items-center">
+          <AnimatedBlock
+            variant={fadeLeft}
+            className="relative w-full h-[420px] order-2 md:order-1"
+          >
+            <Image
+              src="/about/origin.png"
+              alt="The origin of Xiliphi"
+              fill
+              className="object-cover rounded-2xl"
+            />
+          </AnimatedBlock>
+
+          <AnimatedBlock
+            variant={fadeRight}
+            className="order-1 md:order-2 max-w-xl ml-auto"
+          >
+            <p>
+              Xiliphi started when our founder, Ying, moved to Canada from China. The skincare products here
+              didn't agree with her. Fragrances, fillers, and ingredients she
+              couldn't pronounce left her skin irritated and reactive. So she
+              stopped buying and started making.
+            </p>
+          </AnimatedBlock>
+        </div>
 
         {/* SECTION 1 */}
         <div className="grid md:grid-cols-2 gap-20 items-center">
