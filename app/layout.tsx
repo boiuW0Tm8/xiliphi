@@ -21,6 +21,14 @@ export const metadata: Metadata = {
     siteName: "Xiliphi",
     url: "https://xiliphi.com",
     type: "website",
+    images: [
+      {
+        url: "https://xiliphi.com/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Xiliphi Natural Skincare",
+      },
+    ],
   },
 };
 
