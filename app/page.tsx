@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://xiliphi.com/og-image.jpg",
+        url: "https://xiliphi.com/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Xiliphi Natural Skincare",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Xiliphi | Natural Skincare",
     description: "Minimal, intentional skincare crafted with natural ingredients.",
-    images: ["https://xiliphi.com/og-image.jpg"],
+    images: ["https://xiliphi.com/opengraph-image.png"],
   },
 };
 
