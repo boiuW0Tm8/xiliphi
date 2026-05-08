@@ -141,19 +141,7 @@ export default function ProductClient({ product, from }: { product: any; from: s
       const butterLabel = butterOptions.find(b => b.slug === selectedButter)?.label ?? selectedButter;
       attributes.push({ key: "Butter Selection", value: butterLabel });
     }
-
     await addToCart(product.shopifyVariantId, quantity, attributes);
-
-    // Meta Pixel - InitiateCheckout
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('track', 'InitiateCheckout', {
-        content_name: product.name,
-        value: product.price * quantity,
-        currency: 'CAD',
-        num_items: quantity,
-      });
-    }
-
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   }
