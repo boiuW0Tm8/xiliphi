@@ -83,7 +83,7 @@ export default function HomeClient() {
             </div>
 
             {/* Hero image */}
-            <div className="order-1 md:order-2 flex justify-center items-center w-full">
+            <div className="order-1 md:order-2 hidden md:flex justify-center items-center w-full">
               <div className="relative w-full max-w-lg md:max-w-xl mx-auto group">
 
                 <button
