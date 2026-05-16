@@ -36,7 +36,7 @@ export default function ProductsPage() {
   );
 
   return (
-    <main className="min-h-screen bg-white text-black max-w-[1400px] mx-auto px-8 py-24 animate-fade-in-up">
+    <main className="min-h-screen text-black max-w-[1400px] mx-auto px-8 py-24 animate-fade-in-up">
 
       {/* Page Title */}
       <h1 className="text-5xl font-medium text-center mb-32">

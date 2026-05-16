@@ -139,7 +139,7 @@ export default function AboutClient() {
             className="order-1 md:order-2 max-w-xl ml-auto"
           >
             <p>
-              Xiliphi started when our founder, Ying, moved to Canada from China. The skincare products here
+              Xiliphi started when our founder, Ying, immigrated to Canada from China. The skincare products here
               didn't agree with her. Fragrances, fillers, and ingredients she
               couldn't pronounce left her skin irritated and reactive. So she
               stopped buying and started making.
