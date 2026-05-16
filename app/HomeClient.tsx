@@ -316,10 +316,10 @@ export default function HomeClient() {
         {/* ================= INGREDIENT PHILOSOPHY ================= */}
         <section className="bg-[#4A5D4F] text-white py-24 md:py-28">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <span className="inline-block text-xs tracking-[0.2em] uppercase text-amber-400 mb-4 font-medium">
+            <span className="inline-block text-5xl tracking-[0.2em] uppercase text-amber-400 mb-4 font-black">
               The Almanac
             </span>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-6 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
               Know what you put on your skin.
             </h2>
             <p className="text-neutral-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">

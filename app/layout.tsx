@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </NavbarClient>
         </div>
-        <footer className="bg-black text-white mt-24">
+        <footer className="bg-black text-white">
           <div className="max-w-6xl mx-auto px-6 py-6 flex flex-row justify-between items-center">
             <div className="text-sm tracking-wide space-y-2">
               <p className="font-medium">© {new Date().getFullYear()} Xiliphi</p>
