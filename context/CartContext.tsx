@@ -88,14 +88,6 @@ export function CartProvider({ children }: { children: ReactNode }) {
         }
 
         setCart(updatedCart);
-        // Meta Pixel - AddToCart
-        if (typeof window !== 'undefined' && window.fbq) {
-          window.fbq('track', 'AddToCart', {
-            value: updatedCart.cost?.totalAmount?.amount,
-            currency: updatedCart.cost?.totalAmount?.currencyCode ?? 'CAD',
-            num_items: quantity,
-          });
-        }
         setIsOpen(true);
       } finally {
         setIsLoading(false);

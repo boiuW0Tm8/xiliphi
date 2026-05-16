@@ -181,15 +181,6 @@ export default function CartDrawer() {
             {/* Checkout button */}
             <a
               href={cart?.checkoutUrl}
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).fbq) {
-                  (window as any).fbq('track', 'InitiateCheckout', {
-                    value: parseFloat(total?.amount ?? '0'),
-                    currency: total?.currencyCode ?? 'CAD',
-                    num_items: cart?.totalQuantity ?? 0,
-                  });
-                }
-              }}
               className="block w-full bg-black text-white text-center text-sm tracking-wide py-4 rounded-full hover:bg-neutral-800 transition-colors"
             >
               Checkout →
