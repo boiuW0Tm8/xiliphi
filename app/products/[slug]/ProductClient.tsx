@@ -653,6 +653,7 @@ export default function ProductClient({ product, from }: { product: any; from: s
           {product.shopifyProductId ? (
             <JudgeMeWidget
               productId={product.shopifyProductId}
+              productTitle={product.name}
               productUrl={`https://xiliphi.com/products/${product.slug}`}
             />
           ) : (

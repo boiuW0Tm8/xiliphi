@@ -2,9 +2,11 @@
 
 export default function JudgeMeWidget({
   productId,
+  productTitle,
   productUrl,
 }: {
   productId: string;
+  productTitle: string;
   productUrl: string;
 }) {
   const numericId = productId.replace("gid://shopify/Product/", "");
@@ -27,9 +29,10 @@ export default function JudgeMeWidget({
         src="https://cdnwidget.judge.me/widget_preloader.js"
       />
       <div
-        className="jdgm-widget jdgm-review-widget"
+        className="jdgm-widget jdgm-review-widget jdgm-outside-widget"
         data-id={numericId}
         data-url={productUrl}
+        data-product-title={productTitle}
       />
     </>
   );
