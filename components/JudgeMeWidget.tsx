@@ -1,19 +1,6 @@
 "use client";
 
-export default function JudgeMeWidget({
-  productId,
-  productTitle,
-}: {
-  productId: string;
-  productTitle: string;
-}) {
+export default function JudgeMeBadge({ productId }: { productId: string }) {
   const numericId = productId.replace("gid://shopify/Product/", "");
-
-  return (
-    <div
-      className="jdgm-widget jdgm-review-widget jdgm-outside-widget"
-      data-id={numericId}
-      data-product-title={productTitle}
-    />
-  );
+  return <div className="jdgm-widget jdgm-preview-badge" data-id={numericId} />;
 }

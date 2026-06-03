@@ -8,7 +8,7 @@ import { useCart } from "@/context/CartContext";
 import { reviews } from "@/lib/reviews";
 import { products } from "@/lib/products";
 import Image from "next/image";
-import JudgeMeWidget from "@/components/JudgeMeWidget";
+import JudgeMeBadge from "@/components/JudgeMeWidget";
 
 const butterOptions = [
   { label: "Original", slug: "original-body-butter" },
@@ -290,7 +290,12 @@ export default function ProductClient({ product, from }: { product: any; from: s
               {backLabel}
             </Link>
 
-            <h1 className="text-3xl font-medium mb-4">{product.name}</h1>
+            <h1 className="text-3xl font-medium mb-2">{product.name}</h1>
+            {product.shopifyProductId && (
+              <div className="mb-4 min-h-[20px]">
+                <JudgeMeBadge productId={product.shopifyProductId} />
+              </div>
+            )}
 
             {/* PRICE */}
             <div className="mb-4">
@@ -650,29 +655,22 @@ export default function ProductClient({ product, from }: { product: any; from: s
           <h2 className="text-2xl font-medium mb-10 text-center">
             Don't take our word for it...
           </h2>
-          {product.shopifyProductId ? (
-            <JudgeMeWidget
-              productId={product.shopifyProductId}
-              productTitle={product.name}
-            />
-          ) : (
-            <div className="grid md:grid-cols-3 gap-8">
-              {productReviews.map((review, i) => (
-                <div
-                  key={i}
-                  className="bg-white border border-neutral-200 rounded-xl p-10 shadow-sm flex flex-col justify-between min-h-[200px]"
-                >
-                  <div>
-                    <div className="text-xl mb-4 text-teal-600">
-                      {"★★★★★".slice(0, review.rating)}
-                    </div>
-                    <p className="text-base text-neutral-700 leading-relaxed">{review.text}</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {productReviews.map((review, i) => (
+              <div
+                key={i}
+                className="bg-white border border-neutral-200 rounded-xl p-10 shadow-sm flex flex-col justify-between min-h-[200px]"
+              >
+                <div>
+                  <div className="text-xl mb-4 text-teal-600">
+                    {"★★★★★".slice(0, review.rating)}
                   </div>
-                  <p className="text-sm text-neutral-500 mt-6">— {review.name}</p>
+                  <p className="text-base text-neutral-700 leading-relaxed">{review.text}</p>
                 </div>
-              ))}
-            </div>
-          )}
+                <p className="text-sm text-neutral-500 mt-6">— {review.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
