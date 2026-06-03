@@ -94,7 +94,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         if (typeof window !== 'undefined' && window.fbq) {
           const eventId = `atc_${Date.now()}_${Math.random().toString(36).slice(2, 9)}`;
           window.fbq('track', 'AddToCart', {
-            value: parseFloat(updatedCart.cost?.totalAmount?.amount ?? '0'),
+            value: parseFloat(updatedCart.cost?.totalAmount?.amount ?? '0'),  
             currency: updatedCart.cost?.totalAmount?.currencyCode ?? 'CAD',
             num_items: quantity,
           }, { eventID: eventId });

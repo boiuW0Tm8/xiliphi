@@ -44,6 +44,7 @@ export const products: Product[] = [
   {
     slug: "turmeric-skincare-set",
     shopifyVariantId: "gid://shopify/ProductVariant/42977821261887",
+    shopifyProductId: "gid://shopify/Product/8102132678719",
     name: "Turmeric Skincare Set",
     faq: turmericSetFAQ,
     price: 50,
@@ -190,6 +191,7 @@ export const products: Product[] = [
   {
     slug: "original-body-butter",
     shopifyVariantId: "gid://shopify/ProductVariant/42977726529599",
+    shopifyProductId: "gid://shopify/Product/8102122225727",
     name: "Original Body Butter",
     faq: bodyButterFAQ,
     price: 15,
@@ -337,6 +339,7 @@ export const products: Product[] = [
   {
     slug: "peach-body-butter",
     shopifyVariantId: "gid://shopify/ProductVariant/42977727447103",
+    shopifyProductId: "gid://shopify/Product/8102122684479",
     name: "Peach Body Butter",
     faq: bodyButterFAQ,
     price: 15,
@@ -408,6 +411,7 @@ export const products: Product[] = [
   {
     slug: "citrus-body-butter",
     shopifyVariantId: "gid://shopify/ProductVariant/42977738162239",
+    shopifyProductId: "gid://shopify/Product/8102126911551",
     name: "Citrus Body Butter",
     faq: bodyButterFAQ,
     price: 15,
@@ -481,6 +485,7 @@ export const products: Product[] = [
   {
     slug: "body-butter-sample",
     shopifyVariantId: "gid://shopify/ProductVariant/42986251386943",
+    shopifyProductId: "gid://shopify/Product/8103947010111",
     name: "Body Butter Sample",
     faq: bodyButterFAQ,
     price: 5,
@@ -515,6 +520,7 @@ export const products: Product[] = [
   {
     slug: "strawberry-lip-care",
     shopifyVariantId: "gid://shopify/ProductVariant/42977754218559",
+    shopifyProductId: "gid://shopify/Product/8102135332927",
     name: "Strawberry Lip Mask/Scrub 2-in-1",
     faq: lipCareFAQ,
     price: 10,
@@ -593,6 +599,7 @@ export const products: Product[] = [
   {
     slug: "butter-lover-bundle",
     shopifyVariantId: "gid://shopify/ProductVariant/42977824145471",
+    shopifyProductId: "gid://shopify/Product/8102165741631",
     name: "Butter Lover Bundle",
     faq: bundleFAQ,
     price: 50,
@@ -621,6 +628,7 @@ export const products: Product[] = [
   {
     slug: "el-classico-bundle",
     shopifyVariantId: "gid://shopify/ProductVariant/42977824178239",
+    shopifyProductId: "gid://shopify/Product/8102165774399",
     name: "El Classico",
     faq: bundleFAQ,
     price: 70,
@@ -648,6 +656,7 @@ export const products: Product[] = [
   {
     slug: "tootie-frootie-bundle",
     shopifyVariantId: "gid://shopify/ProductVariant/42977825718335",
+    shopifyProductId: "gid://shopify/Product/8102167117887",
     name: "Tootie Frootie",
     faq: bundleFAQ,
     price: 20,
@@ -675,6 +684,7 @@ export const products: Product[] = [
   {
     slug: "ultimate-set",
     shopifyVariantId: "gid://shopify/ProductVariant/42977826013247",
+    shopifyProductId: "gid://shopify/Product/8102167281727",
     name: "The Ultimate Set",
     faq: bundleFAQ,
     price: 100,
@@ -702,6 +712,7 @@ export const products: Product[] = [
   {
     slug: "mystery-bundle",
     shopifyVariantId: "gid://shopify/ProductVariant/42977826078783",
+    shopifyProductId: "gid://shopify/Product/8102167347263",
     name: "Mystery Bundle",
     faq: bundleFAQ,
     price: 25,
