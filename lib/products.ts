@@ -623,7 +623,7 @@ export const products: Product[] = [
     price: 50,
     originalPrice: 75,
     images: [
-      "/bundles/butterlover3.jpg",
+      "/bundles/butterlover5.jpg",
     ],
     category: "bundle",
     description: "For our body butter lovers! Choose any four body butters and save.",
