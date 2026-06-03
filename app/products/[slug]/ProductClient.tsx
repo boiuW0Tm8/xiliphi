@@ -8,7 +8,6 @@ import { useCart } from "@/context/CartContext";
 import { reviews } from "@/lib/reviews";
 import { products } from "@/lib/products";
 import Image from "next/image";
-import JudgeMeBadge from "@/components/JudgeMeWidget";
 
 const butterOptions = [
   { label: "Original", slug: "original-body-butter" },
@@ -291,9 +290,17 @@ export default function ProductClient({ product, from }: { product: any; from: s
             </Link>
 
             <h1 className="text-3xl font-medium mb-2">{product.name}</h1>
-            {product.shopifyProductId && (
-              <div className="mb-4 min-h-[20px]">
-                <JudgeMeBadge productId={product.shopifyProductId} />
+            {product.rating && (
+              <div className="mb-4 flex items-center gap-2">
+                <span className="text-teal-600 text-lg leading-none">
+                  {"★".repeat(Math.round(product.rating))}
+                  <span className="text-neutral-300">
+                    {"★".repeat(5 - Math.round(product.rating))}
+                  </span>
+                </span>
+                <span className="text-sm text-neutral-500">
+                  {product.reviewCount} {product.reviewCount === 1 ? "review" : "reviews"}
+                </span>
               </div>
             )}
 

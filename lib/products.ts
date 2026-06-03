@@ -8,6 +8,8 @@ export type Product = {
   price: number;
   originalPrice?: number;
   size?: string;
+  rating?: number;
+  reviewCount?: number;
   images: string[];
   chart?: string,
   category?: string;
@@ -50,6 +52,8 @@ export const products: Product[] = [
     price: 50,
     originalPrice: 65,
     size: "Cleanser • Toner • Serum • Cream",
+    rating: 5,
+    reviewCount: 6,
     images: [
       "/turmeric/main.jpg",
       "/turmeric/spread.jpg",
@@ -197,6 +201,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
+    rating: 5,
+    reviewCount: 5,
     images: [
       "/original/main.jpg",
       "/original/spread.jpg",
@@ -271,6 +277,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
+    rating: 5,
+    reviewCount: 4,
     images: [
       "/mango/main.jpg",
       "/mango/spread.jpg",
@@ -345,6 +353,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
+    rating: 5,
+    reviewCount: 6,
     images: [
       "/peach/main.png",
       "/peach/spread.jpg",
@@ -417,6 +427,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
+    rating: 5,
+    reviewCount: 5,
     images: [
       "/citrus/main.jpg",
       "/citrus/spread.jpg",
@@ -490,6 +502,8 @@ export const products: Product[] = [
     faq: bodyButterFAQ,
     price: 5,
     size: "10 g / 0.35 oz",
+    rating: 5,
+    reviewCount: 4,
     images: [
       "/sample/sample2.png",
     ],
@@ -526,6 +540,8 @@ export const products: Product[] = [
     price: 10,
     originalPrice: 15,
     size: "Lip Mask + Lip Scrub",
+    rating: 5,
+    reviewCount: 6,
     images: [
       "/strawberry/main.jpg",
       "/strawberry/spread.jpg",
@@ -602,6 +618,8 @@ export const products: Product[] = [
     shopifyProductId: "gid://shopify/Product/8102165741631",
     name: "Butter Lover Bundle",
     faq: bundleFAQ,
+    rating: 5,
+    reviewCount: 4,
     price: 50,
     originalPrice: 75,
     images: [
@@ -631,6 +649,8 @@ export const products: Product[] = [
     shopifyProductId: "gid://shopify/Product/8102165774399",
     name: "El Classico",
     faq: bundleFAQ,
+    rating: 5,
+    reviewCount: 5,
     price: 70,
     originalPrice: 90,
     images: [
@@ -659,6 +679,8 @@ export const products: Product[] = [
     shopifyProductId: "gid://shopify/Product/8102167117887",
     name: "Tootie Frootie",
     faq: bundleFAQ,
+    rating: 5,
+    reviewCount: 4,
     price: 20,
     originalPrice: 30,
     images: [
@@ -687,6 +709,8 @@ export const products: Product[] = [
     shopifyProductId: "gid://shopify/Product/8102167281727",
     name: "The Ultimate Set",
     faq: bundleFAQ,
+    rating: 5,
+    reviewCount: 5,
     price: 100,
     originalPrice: 150,
     images: [
@@ -715,6 +739,8 @@ export const products: Product[] = [
     shopifyProductId: "gid://shopify/Product/8102167347263",
     name: "Mystery Bundle",
     faq: bundleFAQ,
+    rating: 5,
+    reviewCount: 6,
     price: 25,
     originalPrice: 40,
     images: [
