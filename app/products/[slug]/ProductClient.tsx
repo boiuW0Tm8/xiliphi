@@ -654,7 +654,6 @@ export default function ProductClient({ product, from }: { product: any; from: s
             <JudgeMeWidget
               productId={product.shopifyProductId}
               productTitle={product.name}
-              productUrl={`https://xiliphi.com/products/${product.slug}`}
             />
           ) : (
             <div className="grid md:grid-cols-3 gap-8">

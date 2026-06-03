@@ -43,6 +43,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={`overflow-x-hidden ${xiliphiFont.className}`}>
+        <Script id="jdgm-config" strategy="beforeInteractive">
+          {`
+            window.jdgm = window.jdgm || {};
+            window.jdgm.SHOP_DOMAIN = 'wvpuwf-1k.myshopify.com';
+            window.jdgm.PLATFORM = 'shopify';
+            window.jdgm.PUBLIC_TOKEN = '3sXR0VYZiI5NoLrW0W535ZaeWzo';
+            window.jdgmSettings = window.jdgm;
+          `}
+        </Script>
+        <Script
+          id="jdgm-preloader"
+          src="https://cdnwidget.judge.me/widget_preloader.js"
+          strategy="afterInteractive"
+        />
         <div className="relative overflow-hidden">
           <NavbarClient>
             {children}
