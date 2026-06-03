@@ -654,7 +654,7 @@ export const products: Product[] = [
     price: 70,
     originalPrice: 90,
     images: [
-      "/bundles/elclassico.png"
+      "/bundles/elclassico2.jpg"
     ],
     category: "bundle",
     description: "The classic bundle! A turmeric skincare set, a lip care set, and one choice of body butter.",
@@ -684,7 +684,7 @@ export const products: Product[] = [
     price: 20,
     originalPrice: 30,
     images: [
-      "/bundles/tootiefrootie.png"
+      "/bundles/tootiefrootie2.jpg"
     ],
     category: "bundle",
     description: "One body butter and one lip care product.",
@@ -714,7 +714,7 @@ export const products: Product[] = [
     price: 100,
     originalPrice: 150,
     images: [
-      "/bundles/ultimate.png"
+      "/bundles/ultimate.jpg"
     ],
     category: "bundle",
     description: "All for one. One for all. The complete Xiliphi collection.",
