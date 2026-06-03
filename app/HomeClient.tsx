@@ -314,44 +314,69 @@ export default function HomeClient() {
 
 
         {/* ================= INGREDIENT PHILOSOPHY ================= */}
-        <section className="bg-[#4A5D4F] text-white py-24 md:py-28">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <span className="inline-block text-5xl tracking-[0.2em] uppercase text-amber-400 mb-4 font-black">
-              The Almanac
-            </span>
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
-              Know what you put on your skin.
-            </h2>
-            <p className="text-neutral-300 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-              Every ingredient we use is documented in our Almanac, with clear explanations of what it does, where it comes from, and why we chose it.
-            </p>
-            <button
-              onClick={() => navigateTo("/almanac")}
-              className="px-10 py-4 rounded-full bg-white text-neutral-900 text-sm tracking-wide uppercase hover:bg-amber-50 transition cursor-pointer shadow-sm hover:shadow-md"
-            >
-              Visit The Almanac
-            </button>
+        <section className="bg-[#4A5D4F] text-white py-16 md:py-20">
+          <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+            {/* Text left */}
+            <div className="text-center md:text-left order-2 md:order-1">
+              <span className="inline-block text-5xl tracking-[0.2em] uppercase text-amber-400 mb-4 font-black">
+                The Almanac
+              </span>
+              <h2 className="text-3xl md:text-5xl font-medium tracking-tight mb-6 leading-tight">
+                Know what you put on your skin.
+              </h2>
+              <p className="text-neutral-300 text-lg leading-relaxed mb-10 max-w-md mx-auto md:mx-0">
+                Every ingredient we use is documented in our Almanac, with clear explanations of what it does, where it comes from, and why we chose it.
+              </p>
+              <button
+                onClick={() => navigateTo("/almanac")}
+                className="px-10 py-4 rounded-full bg-white text-neutral-900 text-sm tracking-wide uppercase hover:bg-amber-50 transition cursor-pointer shadow-sm hover:shadow-md"
+              >
+                Visit The Almanac
+              </button>
+            </div>
+
+            {/* Image right */}
+            <div className="order-1 md:order-2 flex justify-center md:justify-end">
+              <div className="relative w-full max-w-md aspect-[3/4]">
+                <Image
+                  src="/almanac/almanac.png"
+                  alt="The Xiliphi Almanac"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+
           </div>
         </section>
 
-
         {/* ================= CANADIAN ================= */}
-        <section className="max-w-7xl mx-auto px-6 py-20 md:py-24">
-          <div className="flex flex-col items-center text-center space-y-5">
-            <div className="relative w-24 h-16 md:w-32 md:h-20">
+        <section className="max-w-6xl mx-auto px-6 py-20 md:py-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+            {/* Flag left */}
+            <div className="order-1 relative w-full aspect-[3/2] max-w-md mx-auto md:mx-0">
               <Image
                 src="/home/canadian-flag.png"
                 alt="Canadian Flag"
                 fill
                 className="object-contain"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <h2 className="text-2xl md:text-3xl font-medium text-neutral-900 tracking-tight">
-              Proudly Canadian Owned & Operated.
-            </h2>
-            <p className="text-base text-neutral-600 max-w-xl">
-              Xiliphi is based in Canada, built with Canadian values — clean ingredients, honest formulations, and a commitment to doing things right.
-            </p>
+
+            {/* Text right */}
+            <div className="order-2 text-center md:text-left">
+              <h2 className="text-2xl md:text-3xl font-medium text-neutral-900 tracking-tight mb-4">
+                Proudly Canadian Owned & Operated.
+              </h2>
+              <p className="text-base text-neutral-600 max-w-xl mx-auto md:mx-0">
+                Xiliphi is based in Canada, built with Canadian values: clean ingredients, honest formulations, and a commitment to doing things right.
+              </p>
+            </div>
+
           </div>
         </section>
 
