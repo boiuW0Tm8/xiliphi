@@ -12,6 +12,7 @@ export async function POST(req) {
             customData,
             eventSourceUrl,
             clientUserAgent, // Grab this from client payload now
+            testEventCode,
             fbp,
             fbc,
             email,
@@ -48,12 +49,14 @@ export async function POST(req) {
                     data: [{
                         event_name: eventName,
                         event_time: Math.floor(Date.now() / 1000),
-                        event_id: eventId, // This matches the client uuid exactly
+                        event_id: eventId,
                         action_source: 'website',
                         event_source_url: eventSourceUrl,
                         user_data: userData,
                         custom_data: customData,
                     }],
+                    // VVV 2. Add this right here, outside the 'data' array VVV
+                    ...(testEventCode ? { test_event_code: testEventCode } : {})
                 }),
             }
         );
