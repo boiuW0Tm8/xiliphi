@@ -7,6 +7,7 @@ import { ingredients } from "@/lib/ingredients";
 import { useCart } from "@/context/CartContext";
 import { reviews } from "@/lib/reviews";
 import { products } from "@/lib/products";
+import { trackEvent } from "@/lib/meta-pixel";
 import Image from "next/image";
 
 const butterOptions = [
@@ -57,6 +58,16 @@ export default function ProductClient({ product, from }: { product: any; from: s
       // ignore
     }
   }, []);
+
+  // Fire ViewContent for Meta
+  useEffect(() => {
+    trackEvent("ViewContent", {
+      value: product.price,
+      currency: "CAD",
+      content_ids: [product.slug],
+      content_type: "product",
+    });
+  }, [product.slug]);
 
   // Save state to sessionStorage before navigating to almanac
   const saveStateAndNavigate = useCallback(
@@ -142,6 +153,14 @@ export default function ProductClient({ product, from }: { product: any; from: s
       attributes.push({ key: "Butter Selection", value: butterLabel });
     }
     await addToCart(product.shopifyVariantId, quantity, attributes);
+
+    trackEvent("AddToCart", {
+      value: product.price * quantity,
+      currency: "CAD",
+      content_ids: [product.slug],
+      content_type: "product",
+    });
+
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   }
