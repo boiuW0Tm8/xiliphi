@@ -38,6 +38,7 @@ export async function POST(req) {
             user_data: userData,
             custom_data: customData,
           }],
+          test_event_code: 'TEST57208',
         }),
       }
     );
