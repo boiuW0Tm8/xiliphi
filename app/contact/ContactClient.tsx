@@ -78,66 +78,99 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white px-6 py-32 text-neutral-700 animate-fade-in-up">
       {/* HEADER */}
-      {/* HEADER */}
-      <section className="max-w-4xl mx-auto text-center mb-24">
+      <section className="max-w-5xl mx-auto mb-16">
         <h1 className="text-5xl md:text-6xl font-medium text-neutral-900 tracking-tight">
           Contact Us
         </h1>
-
-        <p className="mt-6 text-lg md:text-xl text-neutral-500 font-normal max-w-2xl mx-auto leading-relaxed">
+        <div className="w-10 h-0.5 mt-5" style={{ backgroundColor: "#5b9d8c" }} />
+        <p className="mt-6 text-lg md:text-xl text-neutral-500 font-normal max-w-2xl leading-relaxed">
           Questions? We’re happy to help! Send us a message here and we’ll respond as soon as we can.
         </p>
       </section>
 
-      {/* FORM */}
-      <section className="max-w-3xl mx-auto">
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-8 text-lg font-medium"
-        >
-          <input
-            name="name"
-            placeholder="Name*"
-            required
-            className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-neutral-900 transition-colors"
-          />
+      {/* TWO-COLUMN: FORM + ADDRESS */}
+      <section className="max-w-5xl mx-auto grid md:grid-cols-5 gap-12 md:gap-16 items-start">
 
-          <input
-            name="email"
-            type="email"
-            placeholder="Email*"
-            required
-            className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-neutral-900 transition-colors"
-          />
-
-          <input
-            name="phone"
-            placeholder="Telephone Number*"
-            required
-            className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-neutral-900 transition-colors"
-          />
-
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows={5}
-            className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-neutral-900 transition-colors resize-none"
-          />
-
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-            size="invisible"
-            ref={recaptchaRef}
-            badge="bottomright"
-          />
-
-          <button
-            disabled={loading}
-            className="mt-8 inline-flex items-center gap-2 border border-neutral-900 px-6 py-3 rounded-full text-sm hover:bg-neutral-900 hover:text-white transition-colors"
+        {/* FORM — 3 of 5 columns */}
+        <div className="md:col-span-3">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-8 text-lg font-medium"
           >
-            {loading ? "Sending..." : "Send →"}
-          </button>
-        </form>
+            <input
+              name="name"
+              placeholder="Name*"
+              required
+              className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-[#5b9d8c] transition-colors"
+            />
+
+            <input
+              name="email"
+              type="email"
+              placeholder="Email*"
+              required
+              className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-[#5b9d8c] transition-colors"
+            />
+
+            <input
+              name="phone"
+              placeholder="Telephone Number*"
+              required
+              className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-[#5b9d8c] transition-colors"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Message"
+              rows={5}
+              className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-[#5b9d8c] transition-colors resize-none"
+            />
+
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+              size="invisible"
+              ref={recaptchaRef}
+              badge="bottomright"
+            />
+
+            <button
+              disabled={loading}
+              className="mt-4 inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-base font-medium text-white transition-colors disabled:opacity-60"
+              style={{ backgroundColor: "#5b9d8c" }}
+            >
+              {loading ? "Sending..." : "Send →"}
+            </button>
+          </form>
+        </div>
+
+        {/* ADDRESS — 2 of 5 columns, thin teal left accent */}
+        <aside
+          className="md:col-span-2 md:pl-6"
+          style={{ borderLeft: "2px solid #5b9d8c" }}
+        >
+          <div className="mb-8">
+            <h2 className="text-lg font-medium text-neutral-900 mb-2">
+              Response time
+            </h2>
+            <p className="text-sm text-neutral-600 leading-relaxed">
+              We typically respond within 24–48 hours.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-medium text-neutral-900 mb-2">
+              Mailing Address
+            </h2>
+            <p className="text-sm text-neutral-600 leading-relaxed">
+              Xiliphi<br />
+              7030 Woodbine Avenue<br />
+              Suite 500<br />
+              Markham, ON L3R 6G2<br />
+              Canada
+            </p>
+          </div>
+        </aside>
+
       </section>
 
       {/* SUCCESS POPUP */}
@@ -155,21 +188,6 @@ export default function ContactPage() {
           </div>,
           document.body
         )}
-
-      {/* MAILING ADDRESS */}
-      <section className="max-w-3xl mx-auto mt-24 text-left">
-        <h2 className="text-xl font-medium text-neutral-900 mb-6">
-          Mailing Address
-        </h2>
-
-        <p className="text-neutral-600 leading-relaxed">
-          Xiliphi<br />
-          7030 Woodbine Avenue<br />
-          Suite 500<br />
-          Markham, ON L3R 6G2<br />
-          Canada
-        </p>
-      </section>
     </main>
   );
 }

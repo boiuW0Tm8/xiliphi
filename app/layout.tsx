@@ -49,7 +49,40 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </NavbarClient>
         </div>
         <footer className="bg-black text-white">
-          <div className="max-w-6xl mx-auto px-6 py-6 flex flex-row justify-between items-center">
+          {/* MOBILE — stacked, centered */}
+          <div className="md:hidden px-6 py-8 flex flex-col gap-8">
+            <div className="grid grid-cols-2 gap-x-12 gap-y-4 text-sm tracking-wide w-fit mx-auto text-center">
+              {[
+                { label: "Contact", href: "/contact" },
+                { label: "FAQ", href: "/faq" },
+                { label: "Shipping", href: "/shipping" },
+                { label: "Returns", href: "/returns" },
+                { label: "Privacy Policy", href: "/privacy" },
+                { label: "Terms of Service", href: "/terms" },
+              ].map(({ label, href }) => (
+                <Link key={href} href={href} className="hover:text-neutral-400 transition-colors">
+                  {label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex justify-center gap-6 text-xl border-y border-white/10 py-6">
+              {socialLinks.map(({ icon, href, label }) => (
+                <a key={href} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                  className="text-neutral-400 hover:text-white transition-colors">
+                  {icon}
+                </a>
+              ))}
+            </div>
+
+            <div className="text-sm tracking-wide space-y-2 text-center">
+              <p className="font-medium">© {new Date().getFullYear()} Xiliphi</p>
+              <p className="text-neutral-400">Based in Toronto, Canada</p>
+            </div>
+          </div>
+
+          {/* DESKTOP — unchanged from your original */}
+          <div className="hidden md:flex max-w-6xl mx-auto px-6 py-6 flex-row justify-between items-center">
             <div className="text-sm tracking-wide space-y-2">
               <p className="font-medium">© {new Date().getFullYear()} Xiliphi</p>
               <p className="text-neutral-400">Based in Toronto, Canada</p>
@@ -71,14 +104,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
               <div className="flex gap-6 text-xl">
                 {socialLinks.map(({ icon, href, label }) => (
-                  <a
-                    key={href}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="text-neutral-400 hover:text-white transition-colors"
-                  >
+                  <a key={href} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                    className="text-neutral-400 hover:text-white transition-colors">
                     {icon}
                   </a>
                 ))}

@@ -268,16 +268,20 @@ export default function ProductClient({ product, from }: { product: any; from: s
 
           {/* LEFT: IMAGE AREA */}
           <div className="flex flex-col items-center">
-            {activeImage && (
-              <Image
-                src={activeImage}
-                alt={product.name}
-                width={500}
-                height={500}
-                priority
-                className="w-full max-w-lg object-contain drop-shadow-2xl transition-all duration-500"
-              />
-            )}
+            <div className="relative w-full max-w-lg aspect-square">
+              {product.images?.map((img: string) => (
+                <Image
+                  key={img}
+                  src={img}
+                  alt={product.name}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 512px"
+                  className={`object-contain drop-shadow-2xl rounded-2xl transition-opacity duration-200 ease-in-out ${activeImage === img ? "opacity-100" : "opacity-0"
+                    }`}
+                />
+              ))}
+            </div>
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
               {product.images?.map((img: string) => (

@@ -69,7 +69,7 @@ export default function ProductsPage() {
                   fill
                   priority={i < 2}
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                 />
               </div>
 
@@ -121,7 +121,7 @@ export default function ProductsPage() {
                   fill
                   priority={i < 2}
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                 />
               </div>
 
@@ -173,7 +173,7 @@ export default function ProductsPage() {
                   fill
                   priority={i < 2}
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export default function ProductsPage() {
                   fill
                   priority={i < 2}
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
                 />
               </div>
 

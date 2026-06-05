@@ -146,7 +146,7 @@ export default function HomeClient() {
             <button onClick={() => navigateTo("/products/turmeric-skincare-set?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-amber-50 mb-5">
                 <Image
-                  src="/turmeric/main.jpg"
+                  src="/turmeric/turmericmain1.png"
                   alt="Turmeric Ritual Set"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -165,7 +165,7 @@ export default function HomeClient() {
             <button onClick={() => navigateTo("/products/mango-body-butter?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-orange-50 mb-5">
                 <Image
-                  src="/mango/main.jpg"
+                  src="/mango/mangomain.png"
                   alt="Mango Body Butter"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -184,7 +184,7 @@ export default function HomeClient() {
             <button onClick={() => navigateTo("/products/strawberry-lip-care?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-rose-50 mb-5">
                 <Image
-                  src="/strawberry/main.jpg"
+                  src="/strawberry/lipmain.png"
                   alt="Strawberry Lip Care Duo"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -337,16 +337,20 @@ export default function HomeClient() {
             </div>
 
             {/* Image right */}
-            <div className="order-1 md:order-2 flex justify-center md:justify-end">
-              <div className="relative w-full max-w-md aspect-[3/4]">
+            <div className="order-1 md:order-2 md:flex md:justify-end">
+              <button
+                onClick={() => navigateTo("/almanac")}
+                aria-label="Visit The Almanac"
+                className="relative block w-4/5 max-w-md aspect-[3/4] mx-auto md:mx-0 ml-11 cursor-pointer bg-transparent border-0 p-0 group"
+              >
                 <Image
-                  src="/almanac/almanac.png"
+                  src="/almanac/almanac1.png"
                   alt="The Xiliphi Almanac"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
+              </button>
             </div>
 
           </div>

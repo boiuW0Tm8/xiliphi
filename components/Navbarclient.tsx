@@ -79,7 +79,7 @@ function SearchBar() {
   };
 
   return (
-    <div className="relative hidden md:flex items-center">
+    <div className="relative hidden lg:flex items-center">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="absolute left-0 w-4 h-4 text-neutral-400 pointer-events-none"
@@ -158,7 +158,7 @@ function MobileSearchBar() {
       {/* Search icon — always mounted, fades out when open */}
       <button
         onClick={() => setSearchOpen(true)}
-        className={`md:hidden hover:opacity-60 transition-all duration-300 ${searchOpen ? "opacity-0 pointer-events-none w-0" : "opacity-100 w-5"}`}
+        className={`lg:hidden hover:opacity-60 transition-all duration-300 ${searchOpen ? "opacity-0 pointer-events-none w-0" : "opacity-100 w-5"}`}
         aria-label="Open search"
       >
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
@@ -168,7 +168,7 @@ function MobileSearchBar() {
 
       {/* Full-width search overlay — slides in over navbar */}
       <div
-        className={`md:hidden absolute inset-0 z-50 bg-white flex items-center px-4 gap-3 transition-all duration-300 ease-in-out ${
+        className={`lg:hidden absolute inset-0 z-50 bg-white flex items-center px-4 gap-3 transition-all duration-300 ease-in-out ${
           searchOpen ? "opacity-100 pointer-events-auto translate-x-0" : "opacity-0 pointer-events-none -translate-x-4"
         }`}
       >
@@ -241,7 +241,7 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
           </Link>
 
           {/* RIGHT: Desktop nav links + account + cart */}
-          <div className="hidden md:flex ml-auto items-center gap-8 text-sm tracking-wide text-neutral-700">
+          <div className="hidden lg:flex ml-auto items-center gap-8 text-sm tracking-wide text-neutral-700">
             <div className="flex gap-8">
               {["About", "Products", "The Almanac", "Contact"].map((label) => (
                 <Link
@@ -266,8 +266,8 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
             <CartButton />
           </div>
 
-          {/* RIGHT (Mobile): Cart + Hamburger */}
-          <div className="md:hidden ml-auto flex items-center gap-4">
+          {/* RIGHT (Mobile/Tablet): Cart + Hamburger */}
+          <div className="lg:hidden ml-auto flex items-center gap-4">
             <CartButton />
             <button
               className="relative w-6 h-6"
@@ -282,8 +282,8 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
         </div>
       </nav>
 
-      {/* ================= MOBILE DROPDOWN ================= */}
-      <div className={`md:hidden fixed top-[80px] left-0 w-full z-50 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
+      {/* ================= MOBILE/TABLET DROPDOWN ================= */}
+      <div className={`lg:hidden fixed top-[80px] left-0 w-full z-50 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
         <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
           {[
             { label: "About", href: "/about" },

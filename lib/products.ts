@@ -55,11 +55,11 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 6,
     images: [
-      "/turmeric/main.jpg",
-      "/turmeric/spread.jpg",
-      "/turmeric/ingredients.jpg",
-      "/turmeric/ai1.jpg",
-      "/turmeric/ai2.png"
+      "/turmeric/turmericai.png",
+      "/turmeric/turmericai1.png",
+      "/turmeric/turmericai2.png",
+      "/turmeric/turmericai3.png",
+      "/turmeric/ingredients.jpg"
     ],
     chart: "charts/turmeric-set.png",
     category: "skin-care",
@@ -204,11 +204,11 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 5,
     images: [
-      "/original/main.jpg",
+      "/original/originalmain.png",
       "/original/spread.jpg",
-      "/original/ingredients.jpg",
-      "/original/ai1.png",
-      "/original/ai2.jpg"
+      "/original/originalai1.png",
+      "/original/originalai2.png",
+      "/original/ingredients.jpg"
     ],
     chart: "charts/original-bb.png",
     category: "body-butter",
@@ -280,11 +280,11 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 4,
     images: [
-      "/mango/main.jpg",
+      "/mango/mangomain.png",
       "/mango/spread.jpg",
-      "/mango/ingredients.jpg",
-      "/mango/ai1.png",
-      "/mango/ai2.png"
+      "/mango/mangoai1.png",
+      "/mango/mangoai2.png",
+      "/mango/ingredients.jpg"
     ],
     chart: "charts/mango-bb.png",
     category: "body-butter",
@@ -356,8 +356,10 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 6,
     images: [
-      "/peach/main.png",
+      "/peach/peachmain.png",
       "/peach/spread.jpg",
+      "/peach/peachai1.png",
+      "/peach/peachai2.png",
       "/peach/ingredients.jpg"
     ],
     chart: "charts/peach-bb.png",
@@ -430,11 +432,11 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 5,
     images: [
-      "/citrus/main.jpg",
+      "/citrus/citrusmain.png",
       "/citrus/spread.jpg",
-      "/citrus/ingredients.jpg",
-      "/citrus/ai1.png",
-      "/citrus/ai2.png"
+      "/citrus/citrusai1.png",
+      "/citrus/citrusai2.png",
+      "/citrus/ingredients.jpg"
     ],
     chart: "charts/citrus-bb.png",
     category: "body-butter",
@@ -505,7 +507,7 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 4,
     images: [
-      "/sample/sample2.png",
+      "/sample/samplemain.png",
     ],
     category: "body-butter",
     benefits: [
@@ -543,8 +545,10 @@ export const products: Product[] = [
     rating: 5,
     reviewCount: 6,
     images: [
-      "/strawberry/main.jpg",
-      "/strawberry/spread.jpg",
+      "/strawberry/lipmain1.png",
+      "/strawberry/lipai01.png",
+      "/strawberry/lipai2.png",
+      "/strawberry/lipai03.png",
       "/strawberry/ingredients.jpg"
     ],
     chart: "charts/strawberry-lip.png",
@@ -623,7 +627,7 @@ export const products: Product[] = [
     price: 50,
     originalPrice: 75,
     images: [
-      "/bundles/butterlover5.jpg",
+      "/bundles/butterlovermain2.png",
     ],
     category: "bundle",
     description: "For our body butter lovers! Choose any four body butters and save.",
@@ -654,7 +658,7 @@ export const products: Product[] = [
     price: 70,
     originalPrice: 90,
     images: [
-      "/bundles/elclassico3.jpg"
+      "/bundles/elclassicoai.png"
     ],
     category: "bundle",
     description: "The classic bundle! A turmeric skincare set, a lip care set, and one choice of body butter.",
@@ -684,7 +688,7 @@ export const products: Product[] = [
     price: 20,
     originalPrice: 30,
     images: [
-      "/bundles/tootiefrootie3.jpg"
+      "/bundles/tootiefrootieai1.png"
     ],
     category: "bundle",
     description: "One body butter and one lip care product.",
@@ -714,7 +718,7 @@ export const products: Product[] = [
     price: 100,
     originalPrice: 150,
     images: [
-      "/bundles/ultimate2.jpg"
+      "/bundles/ultimateai1.png"
     ],
     category: "bundle",
     description: "All for one. One for all. The complete Xiliphi collection.",
@@ -744,7 +748,7 @@ export const products: Product[] = [
     price: 25,
     originalPrice: 40,
     images: [
-      "/bundles/mysterybox.png"
+      "/bundles/surpriseai.png"
     ],
     category: "bundle",
     description: "A surprise curated selection at a special price. Look out for additional goodies!",

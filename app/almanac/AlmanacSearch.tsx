@@ -67,7 +67,8 @@ export default function AlmanacSearch({
             px-5 py-4
             text-lg
             focus:outline-none
-            focus:border-black
+            focus:border-[#5b9d8c]
+            focus:ring-1 focus:ring-[#5b9d8c]
             transition-colors
           "
         />
@@ -84,8 +85,9 @@ export default function AlmanacSearch({
       <div className="space-y-12">
         {letters.map((letter) => (
           <div key={letter}>
-            <h3 className="text-2xl font-medium mb-4">
-              {letter}
+            <h3 className="flex items-center gap-4 mb-4">
+              <span className="text-2xl font-medium text-[#5b9d8c]">{letter}</span>
+              <span className="flex-1 h-px bg-neutral-200" />
             </h3>
 
             <ul
@@ -105,9 +107,16 @@ export default function AlmanacSearch({
                       block w-full h-full
                       p-5
                       border border-neutral-200
+                      border-l-2 border-l-[#5b9d8c]
                       rounded-lg
-                      hover:border-black
-                      transition-colors
+                      hover:border-[#5b9d8c]
+                      hover:bg-[#f5faf8]
+                      hover:-translate-y-0.5
+                      hover:shadow-md
+                      transition-all
+                      will-change-transform
+                      [transform:translateZ(0)]
+                      [backface-visibility:hidden]
                     "
                   >
                     {ingredient.inci}
