@@ -16,7 +16,7 @@ export async function POST(req) {
             fbp,
             fbc,
             email,
-            customerId
+            customerId,
         } = body;
 
         // Grab IP carefully on Vercel
