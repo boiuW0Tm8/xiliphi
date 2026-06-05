@@ -146,7 +146,7 @@ export default function HomeClient() {
             <button onClick={() => navigateTo("/products/turmeric-skincare-set?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-amber-50 mb-5">
                 <Image
-                  src="/turmeric/turmericmain1.png"
+                  src="/turmeric/turmericai.png"
                   alt="Turmeric Ritual Set"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -184,7 +184,7 @@ export default function HomeClient() {
             <button onClick={() => navigateTo("/products/strawberry-lip-care?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-rose-50 mb-5">
                 <Image
-                  src="/strawberry/lipmain.png"
+                  src="/strawberry/lipmain1.png"
                   alt="Strawberry Lip Care Duo"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
