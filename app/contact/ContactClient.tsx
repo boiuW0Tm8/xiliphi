@@ -114,8 +114,7 @@ export default function ContactPage() {
 
             <input
               name="phone"
-              placeholder="Telephone Number*"
-              required
+              placeholder="Telephone Number"
               className="w-full border-b border-neutral-300 bg-transparent py-4 outline-none focus:border-[#5b9d8c] transition-colors"
             />
 
@@ -135,7 +134,7 @@ export default function ContactPage() {
 
             <button
               disabled={loading}
-              className="mt-4 inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-base font-medium text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100"
+              className="mt-0 inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full text-base font-medium text-white cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg hover:brightness-110 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100"
               style={{ backgroundColor: "#5b9d8c" }}
             >
               {loading ? "Sending..." : "Send →"}
