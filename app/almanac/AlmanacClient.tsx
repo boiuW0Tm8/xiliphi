@@ -32,7 +32,7 @@ export default function AlmanacClient() {
         <img src="/almanac/decor/almanac26.png" alt="" style={{ position: 'absolute', top: '350px', right: '-10%', width: '650px', transform: 'rotate(55deg)' }} />
         <img src="/almanac/decor/almanac27.png" alt="" style={{ position: 'absolute', top: '1350px', right: '5%', width: '430px', transform: 'rotate(60deg)' }} />
         <img src="/almanac/decor/almanac28.png" alt="" style={{ position: 'absolute', top: '2350px', right: '0%', width: '500px', transform: 'rotate(75deg)' }} />
-        <img src="/almanac/decor/almanac29.png" alt="" style={{ position: 'absolute', top: '3350px', right: '3%', width: '500px', transform: 'rotate(45deg)' }} />
+        <img src="/almanac/decor/almanac292.png" alt="" style={{ position: 'absolute', top: '3350px', right: '3%', width: '500px', transform: 'rotate(45deg)' }} />
         <img src="/almanac/decor/almanac30.png" alt="" style={{ position: 'absolute', top: '4700px', right: '-15%', width: '850px', transform: 'rotate(-7deg)' }} />
       </div>
 
