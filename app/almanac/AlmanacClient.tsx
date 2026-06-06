@@ -22,18 +22,18 @@ export default function AlmanacClient() {
       {/* DECORATIVE INGREDIENT COLLAGE — desktop only, static pixel positions */}
       <div aria-hidden="true" className="hidden lg:block pointer-events-none absolute top-0 left-0 right-0 z-0 overflow-hidden" style={{ height: '7679px' }}>
         {/* LEFT GUTTER */}
-        <img src="/almanac/decor/almanac21.png" alt="" style={{ position: 'absolute', top: '50px', left: '1%', width: '420px', transform: 'rotate(-8deg)' }} />
-        <img src="/almanac/decor/almanac22.png" alt="" style={{ position: 'absolute', top: '1050px', left: '-8%', width: '500px', transform: 'rotate(12deg)' }} />
-        <img src="/almanac/decor/almanac23.png" alt="" style={{ position: 'absolute', top: '2050px', left: '0%', width: '430px', transform: 'rotate(65deg)' }} />
-        <img src="/almanac/decor/almanac24.png" alt="" style={{ position: 'absolute', top: '3050px', left: '-13%', width: '600px', transform: 'rotate(-10deg)' }} />
-        <img src="/almanac/decor/almanac25.png" alt="" style={{ position: 'absolute', top: '4050px', left: '-2%', width: '430px', transform: 'rotate(160deg)' }} />
+        <img src="/almanac/decor/centella.png" alt="" style={{ position: 'absolute', top: '50px', left: '1%', width: '420px', transform: 'rotate(-8deg)' }} />
+        <img src="/almanac/decor/honey.png" alt="" style={{ position: 'absolute', top: '1050px', left: '-8%', width: '500px', transform: 'rotate(12deg)' }} />
+        <img src="/almanac/decor/glycerin.png" alt="" style={{ position: 'absolute', top: '2050px', left: '0%', width: '430px', transform: 'rotate(65deg)' }} />
+        <img src="/almanac/decor/turmeric.png" alt="" style={{ position: 'absolute', top: '3050px', left: '-13%', width: '700px', transform: 'rotate(-10deg)' }} />
+        <img src="/almanac/decor/vitamine.png" alt="" style={{ position: 'absolute', top: '4050px', left: '-2%', width: '430px', transform: 'rotate(160deg)' }} />
 
         {/* RIGHT GUTTER */}
-        <img src="/almanac/decor/almanac26.png" alt="" style={{ position: 'absolute', top: '350px', right: '-10%', width: '650px', transform: 'rotate(55deg)' }} />
-        <img src="/almanac/decor/almanac27.png" alt="" style={{ position: 'absolute', top: '1350px', right: '5%', width: '430px', transform: 'rotate(60deg)' }} />
-        <img src="/almanac/decor/almanac28.png" alt="" style={{ position: 'absolute', top: '2350px', right: '0%', width: '500px', transform: 'rotate(75deg)' }} />
-        <img src="/almanac/decor/almanac292.png" alt="" style={{ position: 'absolute', top: '3350px', right: '3%', width: '500px', transform: 'rotate(45deg)' }} />
-        <img src="/almanac/decor/almanac30.png" alt="" style={{ position: 'absolute', top: '4700px', right: '-15%', width: '850px', transform: 'rotate(-7deg)' }} />
+        <img src="/almanac/decor/inulin.png" alt="" style={{ position: 'absolute', top: '350px', right: '-10%', width: '650px', transform: 'rotate(55deg)' }} />
+        <img src="/almanac/decor/shea.png" alt="" style={{ position: 'absolute', top: '1350px', right: '10%', width: '430px', transform: 'rotate(60deg)' }} />
+        <img src="/almanac/decor/camellia.png" alt="" style={{ position: 'absolute', top: '2350px', right: '0%', width: '500px', transform: 'rotate(75deg)' }} />
+        <img src="/almanac/decor/jojoba.png" alt="" style={{ position: 'absolute', top: '3350px', right: '3%', width: '400px', transform: 'rotate(45deg)' }} />
+        <img src="/almanac/decor/aloe.png" alt="" style={{ position: 'absolute', top: '4700px', right: '-15%', width: '850px', transform: 'rotate(-7deg)' }} />
       </div>
 
       {/* CONTENT */}
