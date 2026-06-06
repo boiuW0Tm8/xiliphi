@@ -341,8 +341,7 @@ export default function HomeClient() {
               <button
                 onClick={() => navigateTo("/almanac")}
                 aria-label="Visit The Almanac"
-                className="relative block w-4/5 max-w-md aspect-[3/4] mx-auto md:mx-0 ml-11 cursor-pointer bg-transparent border-0 p-0 group"
-              >
+                className="relative block w-4/5 max-w-md aspect-[3/4] mx-auto cursor-pointer bg-transparent border-0 p-0 group"              >
                 <Image
                   src="/almanac/almanac1.png"
                   alt="The Xiliphi Almanac"

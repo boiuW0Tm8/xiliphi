@@ -119,7 +119,7 @@ export default async function IngredientPage({
     });
 
   return (
-    <main className="min-h-screen bg-white max-w-4xl mx-auto px-6 py-24 animate-fade-in-up">
+    <main className="relative min-h-screen px-6 md:px-12 lg:px-20 py-16 text-neutral-700 animate-fade-in-up bg-gradient-to-b from-[#d0f7e9] to-[#fee4ca]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(getIngredientSchema(ingredient)) }}
@@ -134,119 +134,123 @@ export default async function IngredientPage({
           ]))
         }}
       />
-      {/* Back link */}
-      <Link
-        href={backHref}
-        className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors mb-10"
-      >
-        <span className="text-lg leading-none">←</span>
-        {backLabel}
-      </Link>
 
-      {/* Common name */}
-      <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-4 text-neutral-900">
-        {ingredient.common ?? ingredient.inci}
-      </h1>
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-4xl mx-auto bg-white rounded-2xl px-8 md:px-12 py-12 md:py-16 my-8 shadow-sm">
+        {/* Back link */}
+        <Link
+          href={backHref}
+          className="inline-flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-900 transition-colors mb-10"
+        >
+          <span className="text-lg leading-none">←</span>
+          {backLabel}
+        </Link>
 
-      {/* INCI name */}
-      {ingredient.common && ingredient.inci && (
-        <p className="text-xl text-neutral-500 mb-8">{ingredient.inci}</p>
-      )}
+        {/* Common name */}
+        <h1 className="text-5xl md:text-6xl font-medium tracking-tight mb-4 text-neutral-900">
+          {ingredient.common ?? ingredient.inci}
+        </h1>
 
-      {/* Divider */}
-      <div className="h-px w-24 bg-neutral-300 mb-10" />
+        {/* INCI name */}
+        {ingredient.common && ingredient.inci && (
+          <p className="text-xl text-neutral-500 mb-8">{ingredient.inci}</p>
+        )}
 
-      {/* Description */}
-      {ingredient.description ? (
-        <div className="space-y-12 max-w-3xl">
-          <section>
-            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
-              What It Is
+        {/* Divider */}
+        <div className="h-px w-24 bg-neutral-300 mb-10" />
+
+        {/* Description */}
+        {ingredient.description ? (
+          <div className="space-y-12 max-w-3xl">
+            <section>
+              <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+                What It Is
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                {ingredient.description.whatItIs}
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+                Functional Role
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                {ingredient.description.function}
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+                Skin-Relevant Properties
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                {ingredient.description.properties}
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
+                Interesting Fact
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
+                {ingredient.description.interestingFact}
+              </p>
+            </section>
+          </div>
+        ) : (
+          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
+            Detailed ingredient information coming soon.
+          </p>
+        )}
+
+        {/* Found in products */}
+        {usedInProducts.length > 0 && (
+          <section className="mt-14">
+            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-4">
+              Found in
             </h2>
-            <p className="text-lg text-neutral-700 leading-relaxed">
-              {ingredient.description.whatItIs}
-            </p>
-          </section>
 
-          <section>
-            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
-              Functional Role
-            </h2>
-            <p className="text-lg text-neutral-700 leading-relaxed">
-              {ingredient.description.function}
-            </p>
-          </section>
+            <ul className="space-y-2">
+              {usedInProducts.map((product) => {
+                const hasSections =
+                  Array.isArray(product.ingredients) &&
+                  typeof product.ingredients[0] === "object";
 
-          <section>
-            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
-              Skin-Relevant Properties
-            </h2>
-            <p className="text-lg text-neutral-700 leading-relaxed">
-              {ingredient.description.properties}
-            </p>
-          </section>
+                if (hasSections) {
+                  const matchingSections = (
+                    product.ingredients as { section: string; items: string[] }[]
+                  )
+                    .filter((section) => section.items.includes(slug))
+                    .map((section) => section.section);
 
-          <section>
-            <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-3">
-              Interesting Fact
-            </h2>
-            <p className="text-lg text-neutral-700 leading-relaxed">
-              {ingredient.description.interestingFact}
-            </p>
-          </section>
-        </div>
-      ) : (
-        <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl">
-          Detailed ingredient information coming soon.
-        </p>
-      )}
+                  return matchingSections.map((sectionName) => (
+                    <li key={`${product.slug}-${sectionName}`}>
+                      <Link
+                        href={`/products/${product.slug}`}
+                        className="text-neutral-800 hover:underline"
+                      >
+                        {sectionName}
+                      </Link>
+                    </li>
+                  ));
+                }
 
-      {/* Found in products */}
-      {usedInProducts.length > 0 && (
-        <section className="mt-14">
-          <h2 className="text-sm uppercase tracking-wide text-neutral-500 mb-4">
-            Found in
-          </h2>
-
-          <ul className="space-y-2">
-            {usedInProducts.map((product) => {
-              const hasSections =
-                Array.isArray(product.ingredients) &&
-                typeof product.ingredients[0] === "object";
-
-              if (hasSections) {
-                const matchingSections = (
-                  product.ingredients as { section: string; items: string[] }[]
-                )
-                  .filter((section) => section.items.includes(slug))
-                  .map((section) => section.section);
-
-                return matchingSections.map((sectionName) => (
-                  <li key={`${product.slug}-${sectionName}`}>
+                return (
+                  <li key={product.slug}>
                     <Link
                       href={`/products/${product.slug}`}
                       className="text-neutral-800 hover:underline"
                     >
-                      {sectionName}
+                      {product.name}
                     </Link>
                   </li>
-                ));
-              }
-
-              return (
-                <li key={product.slug}>
-                  <Link
-                    href={`/products/${product.slug}`}
-                    className="text-neutral-800 hover:underline"
-                  >
-                    {product.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </section>
-      )}
+                );
+              })}
+            </ul>
+          </section>
+        )}
+      </div>
     </main>
   );
 }
