@@ -265,27 +265,24 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
             <CartButton />
           </div>
 
-          {/* RIGHT (Mobile/Tablet): Account + Cart + Hamburger */}
-          <div className="lg:hidden ml-auto -mr-10 flex items-center gap-4">
-            <a href="https://shopify.com/65072234559/account" className="hover:opacity-60 transition-opacity duration-300" aria-label="Account">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.5 20.25a7.5 7.5 0 0115 0" />
-              </svg>
-            </a>
+          {/* RIGHT (Mobile/Tablet): Cart + Hamburger */}
+          <div className="lg:hidden ml-auto flex items-center gap-4">
             <CartButton />
             <button
               className="relative w-6 h-6"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
-              {/* ...hamburger spans unchanged... */}
+              <span className={`absolute left-0 top-1/2 w-6 h-px bg-black transition-all duration-300 ease-in-out ${menuOpen ? "rotate-45" : "-translate-y-2"}`} />
+              <span className={`absolute left-0 top-1/2 w-6 h-px bg-black transition-opacity duration-200 ease-in-out ${menuOpen ? "opacity-0" : "opacity-100"}`} />
+              <span className={`absolute left-0 top-1/2 w-6 h-px bg-black transition-all duration-500 ease-in-out ${menuOpen ? "-rotate-45" : "translate-y-2"}`} />
             </button>
           </div>
         </div>
       </nav>
 
       {/* ================= MOBILE/TABLET DROPDOWN ================= */}
-      <div className={`lg:hidden fixed top-[80px] left-0 w-full z-50 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-500 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
+      <div className={`lg:hidden fixed top-[80px] left-0 w-full z-50 overflow-hidden bg-white border-b border-neutral-200 transition-[max-height] duration-400 ease-in-out ${menuOpen ? "max-h-96" : "max-h-0"}`}>
         <div className="px-6 py-6 flex flex-col gap-4 text-sm tracking-wide text-black">
           {[
             { label: "About", href: "/about" },
@@ -297,14 +294,21 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
               {label}
             </Link>
           ))}
-        </div>
+          <a
+          href="https://shopify.com/65072234559/account"
+          onClick={() => setMenuOpen(false)}
+          className="hover:text-neutral-700 transition-colors"
+          >
+          Account
+        </a>
       </div>
+    </div >
 
-      {/* ================= CART DRAWER ================= */}
-      <CartDrawer />
+      {/* ================= CART DRAWER ================= */ }
+      < CartDrawer />
 
-      {/* ================= PAGE CONTENT ================= */}
-      <WelcomePopup />
+      {/* ================= PAGE CONTENT ================= */ }
+      < WelcomePopup />
       <div className="pt-20">{children}</div>
     </>
   );
