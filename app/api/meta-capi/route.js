@@ -11,12 +11,13 @@ export async function POST(req) {
             eventId,
             customData,
             eventSourceUrl,
-            clientUserAgent, // Grab this from client payload now
+            clientUserAgent,
             testEventCode,
             fbp,
             fbc,
             email,
             customerId,
+            anonId,
         } = body;
 
         // Grab IP carefully on Vercel
@@ -28,20 +29,26 @@ export async function POST(req) {
         // Use client-passed user agent first, fall back to header if necessary
         const userAgent = clientUserAgent || req.headers.get('user-agent') || undefined;
 
+        // external_id accepts an array; Meta matches on any value.
+        // anonId covers logged-out traffic, customerId adds logged-in users on top.
+        const externalIds = [];
+        if (customerId) externalIds.push(hash(String(customerId)));
+        if (anonId) externalIds.push(hash(String(anonId)));
+
         const userData = {
             em: email && email.trim() ? [hash(email)] : undefined,
             fbp: fbp || undefined,
             fbc: fbc || undefined,
             client_ip_address: clientIp,
             client_user_agent: userAgent,
-            external_id: customerId ? [hash(String(customerId))] : undefined,
+            external_id: externalIds.length ? externalIds : undefined,
         };
 
         // Thoroughly clean up undefined keys so they don't get sent to Meta
         Object.keys(userData).forEach((k) => userData[k] === undefined && delete userData[k]);
 
         const res = await fetch(
-            `https://graph.facebook.com/v19.0/${process.env.NEXT_PUBLIC_META_PIXEL_ID}/events?access_token=${process.env.META_ACCESS_TOKEN}`,
+            `https://graph.facebook.com/v21.0/${process.env.NEXT_PUBLIC_META_PIXEL_ID}/events?access_token=${process.env.META_ACCESS_TOKEN}`,
             {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -55,7 +62,6 @@ export async function POST(req) {
                         user_data: userData,
                         custom_data: customData,
                     }],
-                    // VVV 2. Add this right here, outside the 'data' array VVV
                     ...(testEventCode ? { test_event_code: testEventCode } : {})
                 }),
             }
@@ -63,7 +69,6 @@ export async function POST(req) {
 
         const metaData = await res.json();
 
-        // Log this during testing so you can see exactly what Meta thinks of your event
         if (metaData.errors || metaData.warnings) {
             console.warn("Meta CAPI Warning/Error:", JSON.stringify(metaData, null, 2));
         }
