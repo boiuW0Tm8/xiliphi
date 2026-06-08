@@ -353,8 +353,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
-    rating: 5,
-    reviewCount: 6,
+    rating: 4.8,
+    reviewCount: 7,
     images: [
       "/peach/peachmain.png",
       "/peach/spread.jpg",
@@ -429,8 +429,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
-    rating: 5,
-    reviewCount: 5,
+    rating: 4.8,
+    reviewCount: 6,
     images: [
       "/citrus/citrusmain.png",
       "/citrus/spread.jpg",
@@ -542,8 +542,8 @@ export const products: Product[] = [
     price: 10,
     originalPrice: 15,
     size: "Lip Mask + Lip Scrub",
-    rating: 5,
-    reviewCount: 6,
+    rating: 4.7,
+    reviewCount: 7,
     images: [
       "/strawberry/lipmain1.png",
       "/strawberry/lipai01.png",

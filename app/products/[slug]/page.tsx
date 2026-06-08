@@ -69,6 +69,8 @@ export default async function ProductPage({
             title: product.name,
             description: product.description ?? `Shop ${product.name} by Xiliphi.`,
             handle: product.slug,
+            rating: product.rating,
+            reviewCount: product.reviewCount,
             priceRange: {
               minVariantPrice: {
                 amount: product.price.toString(),

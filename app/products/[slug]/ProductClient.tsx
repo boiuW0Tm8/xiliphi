@@ -314,15 +314,21 @@ export default function ProductClient({ product, from }: { product: any; from: s
 
             <h1 className="text-3xl font-medium mb-2">{product.name}</h1>
             {product.rating && (
-              <div className="mb-4 flex items-center gap-2">
-                <span className="text-teal-600 text-lg leading-none">
-                  {"★".repeat(Math.round(product.rating))}
-                  <span className="text-neutral-300">
-                    {"★".repeat(5 - Math.round(product.rating))}
+              <div className="mb-4 flex items-center gap-1">
+                <div className="relative inline-block text-lg leading-none">
+                  <span className="text-neutral-300">★★★★★</span>
+
+                  <span
+                    className="absolute left-0 top-0 overflow-hidden whitespace-nowrap text-teal-600"
+                    style={{ width: `${(product.rating / 5) * 100}%` }}
+                  >
+                    ★★★★★
                   </span>
-                </span>
+                </div>
+
                 <span className="text-sm text-neutral-500">
-                  {product.reviewCount} {product.reviewCount === 1 ? "review" : "reviews"}
+                  {product.rating.toFixed(1)} ({product.reviewCount}{" "}
+                  {product.reviewCount === 1 ? "review" : "reviews"})
                 </span>
               </div>
             )}
