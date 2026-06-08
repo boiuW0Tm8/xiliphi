@@ -2,7 +2,7 @@
 
 export default function AnnouncementBar() {
   const items = [
-    "🚚 FREE SHIPPING OVER $15",
+    "🚚 FREE SHIPPING OVER $10",
     "🎉 GRAND OPENING SALE",
     "🔥 UP TO 30% OFF ALL ITEMS",
   ];
