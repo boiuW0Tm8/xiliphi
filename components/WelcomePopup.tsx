@@ -33,7 +33,7 @@ export default function WelcomePopup() {
           Welcome to Xiliphi
         </h2>
         <p className="text-neutral-600 leading-relaxed mb-8">
-          As thanks for joining us during our grand opening, we're offering <strong>30% off sitewide</strong>, as well as <strong>free shipping on orders over $10 within Canada!</strong>
+          As thanks for joining us during our grand opening, we're offering <strong>30% off sitewide, BOGO 50% off Body Butters</strong>, as well as <strong>free shipping on orders over $10 within Canada!</strong>
         </p>
 
         <button
