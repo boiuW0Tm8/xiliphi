@@ -8,6 +8,7 @@ import { useCart } from "@/context/CartContext";
 import { reviews } from "@/lib/reviews";
 import { products } from "@/lib/products";
 import { trackEvent } from "@/lib/meta-pixel";
+import { trackTikTokEvent } from "@/lib/tiktok";
 import Image from "next/image";
 
 const butterOptions = [
@@ -59,13 +60,19 @@ export default function ProductClient({ product, from }: { product: any; from: s
     }
   }, []);
 
-  // Fire ViewContent for Meta
+  // Fire ViewContent for Meta + TikTok
   useEffect(() => {
     trackEvent("ViewContent", {
       value: product.price,
       currency: "CAD",
       content_ids: [product.slug],
       content_type: "product",
+    });
+
+    trackTikTokEvent("ViewContent", {
+      value: product.price,
+      currency: "CAD",
+      contents: [{ content_id: product.slug, content_name: product.name, price: product.price, quantity: 1 }],
     });
   }, [product.slug]);
 
@@ -159,6 +166,12 @@ export default function ProductClient({ product, from }: { product: any; from: s
       currency: "CAD",
       content_ids: [product.slug],
       content_type: "product",
+    });
+
+    trackTikTokEvent("AddToCart", {
+      value: product.price * quantity,
+      currency: "CAD",
+      contents: [{ content_id: product.slug, content_name: product.name, price: product.price, quantity }],
     });
 
     setAdded(true);
