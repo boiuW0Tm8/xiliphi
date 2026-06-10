@@ -444,7 +444,7 @@ export default function ProductClient({ product, from }: { product: any; from: s
               {buttonLabel()}
             </button>
 
-            <p className="text-xs text-center mt-4">Free shipping on orders over $15!</p>
+            <p className="text-xs text-center mt-4">Free shipping on orders over $10!</p>
 
             <div className="border-t border-neutral-200 my-8" />
 

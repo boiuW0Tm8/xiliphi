@@ -624,7 +624,7 @@ export const products: Product[] = [
     faq: bundleFAQ,
     rating: 5,
     reviewCount: 4,
-    price: 50,
+    price: 40,
     originalPrice: 75,
     images: [
       "/bundles/butterlovermain2.png",

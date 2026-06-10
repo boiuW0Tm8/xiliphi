@@ -3,8 +3,8 @@
 export default function AnnouncementBar() {
   const items = [
     "🚚 FREE SHIPPING OVER $10",
-    "🎉 GRAND OPENING SALE",
-    "🔥 UP TO 30% OFF ALL ITEMS",
+    "🎉 UP TO 30% OFF ALL ITEMS",
+    "🔥 BOGO 50% OFF BODY BUTTER",
   ];
 
   // We multiply the array to ensure it's wider than the screen
