@@ -89,6 +89,11 @@ export default function ProductsPage() {
                     </span>
                   )}
                 </div>
+                {product.slug !== "body-butter-sample" && (
+                  <p className="text-sm font-medium text-amber-700">
+                    Buy one, get one 50% off
+                  </p>
+                )}
               </div>
             </Link>
           ))}
