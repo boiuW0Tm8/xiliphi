@@ -28,6 +28,7 @@ export async function POST(req) {
       customData,
       eventSourceUrl,
       clientUserAgent,
+      testEventCode,
       ttclid,
       ttp,
       email,
@@ -65,7 +66,7 @@ export async function POST(req) {
           page: { url: eventSourceUrl },
         },
       ],
-      // test_event_code: 'TEST95249', // uncomment to route into Test Events tab
+      ...(testEventCode ? { test_event_code: testEventCode } : {})
     };
 
     const res = await fetch('https://business-api.tiktok.com/open_api/v1.3/event/track/', {
