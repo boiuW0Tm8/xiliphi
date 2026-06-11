@@ -1,6 +1,21 @@
 import crypto from 'crypto';
 
-const hash = (v) =>
+// Email: lowercase + trim, then SHA-256
+const hashEmail = (v) =>
+  v ? crypto.createHash('sha256').update(v.trim().toLowerCase()).digest('hex') : undefined;
+
+// Phone: normalize to E.164-ish (digits + leading +), then SHA-256.
+// NOTE: ensure country code is present upstream. If your checkout stores bare
+// 10-digit numbers, prepend '+1' before this runs.
+const hashPhone = (v) => {
+  if (!v) return undefined;
+  const e164 = v.replace(/[^\d+]/g, ''); // keep digits and +, strip spaces/dashes/parens
+  return e164 ? crypto.createHash('sha256').update(e164).digest('hex') : undefined;
+};
+
+// External ID: hashed here, so send the RAW anon id from the client.
+// Do NOT pre-hash in getAnonId() or you'll double-hash and never match.
+const hashId = (v) =>
   v ? crypto.createHash('sha256').update(v.trim().toLowerCase()).digest('hex') : undefined;
 
 export async function POST(req) {
@@ -9,6 +24,7 @@ export async function POST(req) {
     const {
       eventName,
       eventId,
+      eventTime, // client-captured unix seconds (when trackEvent fired)
       customData,
       eventSourceUrl,
       clientUserAgent,
@@ -32,12 +48,14 @@ export async function POST(req) {
       data: [
         {
           event: eventName,
-          event_time: Math.floor(Date.now() / 1000),
+          // Prefer client event time; TikTok rejects events older than ~10 min,
+          // so accurate timing also protects against silent drops.
+          event_time: eventTime || Math.floor(Date.now() / 1000),
           event_id: eventId,
           user: {
-            email: hash(email),
-            phone: hash(phone),
-            external_id: hash(externalId),
+            email: hashEmail(email),
+            phone: hashPhone(phone),
+            external_id: hashId(externalId),
             ttp: ttp || undefined,
             ttclid: ttclid || undefined,
             ip: clientIp,
@@ -47,7 +65,7 @@ export async function POST(req) {
           page: { url: eventSourceUrl },
         },
       ],
-       //test_event_code: 'TEST95249',  // uncomment to route into Test Events tab
+      // test_event_code: 'TEST95249', // uncomment to route into Test Events tab
     };
 
     const res = await fetch('https://business-api.tiktok.com/open_api/v1.3/event/track/', {
@@ -60,6 +78,13 @@ export async function POST(req) {
     });
 
     const data = await res.json();
+
+    // TikTok returns code: 0 on success. Anything else means the event was
+    // rejected even though the HTTP status is 200 — log it while debugging.
+    if (data.code !== 0) {
+      console.error('TikTok rejected event:', data.code, data.message, data.data);
+    }
+
     return Response.json(data);
   } catch (err) {
     console.error('TikTok CAPI Error:', err);

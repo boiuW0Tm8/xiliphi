@@ -1,7 +1,27 @@
 import crypto from 'crypto';
 
-const hash = (v) =>
+// --- Shared hashing helpers (identical to the TikTok route) ---
+// Keep these in sync across both routes so the same anon visitor produces the
+// same external_id hash on Meta and TikTok — that's what lets you match your
+// own traffic across pixels.
+
+// Email: lowercase + trim, then SHA-256
+const hashEmail = (v) =>
     v ? crypto.createHash('sha256').update(v.trim().toLowerCase()).digest('hex') : undefined;
+
+// Phone: normalize to E.164-ish (digits + leading +), then SHA-256.
+// NOTE: ensure country code is present upstream. If checkout stores bare
+// 10-digit numbers, prepend '+1' before this runs.
+const hashPhone = (v) => {
+    if (!v) return undefined;
+    const e164 = v.replace(/[^\d+]/g, ''); // keep digits and +, strip spaces/dashes/parens
+    return e164 ? crypto.createHash('sha256').update(e164).digest('hex') : undefined;
+};
+
+// IDs (external_id / customerId / anonId): hashed here, so send RAW from client.
+// Do NOT pre-hash in getAnonId() or you'll double-hash and never match.
+const hashId = (v) =>
+    v ? crypto.createHash('sha256').update(String(v).trim().toLowerCase()).digest('hex') : undefined;
 
 export async function POST(req) {
     try {
@@ -9,6 +29,7 @@ export async function POST(req) {
         const {
             eventName,
             eventId,
+            eventTime, // client-captured unix seconds (when trackEvent fired)
             customData,
             eventSourceUrl,
             clientUserAgent,
@@ -16,6 +37,7 @@ export async function POST(req) {
             fbp,
             fbc,
             email,
+            phone,
             customerId,
             anonId,
         } = body;
@@ -32,11 +54,12 @@ export async function POST(req) {
         // external_id accepts an array; Meta matches on any value.
         // anonId covers logged-out traffic, customerId adds logged-in users on top.
         const externalIds = [];
-        if (customerId) externalIds.push(hash(String(customerId)));
-        if (anonId) externalIds.push(hash(String(anonId)));
+        if (customerId) externalIds.push(hashId(customerId));
+        if (anonId) externalIds.push(hashId(anonId));
 
         const userData = {
-            em: email && email.trim() ? [hash(email)] : undefined,
+            em: email && email.trim() ? [hashEmail(email)] : undefined,
+            ph: phone && phone.trim() ? [hashPhone(phone)] : undefined,
             fbp: fbp || undefined,
             fbc: fbc || undefined,
             client_ip_address: clientIp,
@@ -55,7 +78,9 @@ export async function POST(req) {
                 body: JSON.stringify({
                     data: [{
                         event_name: eventName,
-                        event_time: Math.floor(Date.now() / 1000),
+                        // Prefer client event time so server/browser events dedup
+                        // cleanly on event_id with matching-ish timestamps.
+                        event_time: eventTime || Math.floor(Date.now() / 1000),
                         event_id: eventId,
                         action_source: 'website',
                         event_source_url: eventSourceUrl,
@@ -69,8 +94,13 @@ export async function POST(req) {
 
         const metaData = await res.json();
 
-        if (metaData.errors || metaData.warnings) {
+        // Meta uses singular `error` (object) for hard failures and `errors`/
+        // `warnings` for softer issues — catch all three. On success, log
+        // events_received to confirm the event actually landed.
+        if (metaData.error || metaData.errors || metaData.warnings) {
             console.warn("Meta CAPI Warning/Error:", JSON.stringify(metaData, null, 2));
+        } else {
+            console.log("Meta CAPI ok, events_received:", metaData.events_received);
         }
 
         return Response.json(metaData);
