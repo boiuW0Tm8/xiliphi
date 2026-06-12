@@ -94,7 +94,7 @@ export default function HomeClient() {
                   {/* Increased height constraints to let the image expand naturally */}
                   <div className="relative aspect-square w-full rounded-3xl overflow-hidden">
                     <Image
-                      src="/home/bogo.png"
+                      src="/home/bogo1.png"
                       alt="BOGO Deal"
                       fill
                       className="object-contain rounded-3xl drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
