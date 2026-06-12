@@ -83,8 +83,8 @@ export default function HomeClient() {
             </div>
 
             {/* Hero image */}
-            <div className="order-1 md:order-2 hidden md:flex justify-center items-center w-full">
-              <div className="relative w-full max-w-lg md:max-w-xl mx-auto group pb-16">
+            <div className="order-1 md:order-2 flex justify-center items-center w-full">
+              <div className="relative w-full max-w-lg md:max-w-xl mx-auto group pb-10 md:pb-16">
 
                 <button
                   onClick={() => navigateTo("/products?from=/")}
@@ -92,12 +92,12 @@ export default function HomeClient() {
                   aria-label="Shop Mango Body Butter"
                 >
                   {/* Increased height constraints to let the image expand naturally */}
-                  <div className="relative h-[350px] sm:h-[450px] md:h-[500px] lg:h-[550px] w-full rounded-3xl overflow-hidden">
+                  <div className="relative aspect-square w-full rounded-3xl overflow-hidden">
                     <Image
                       src="/home/bogo.png"
                       alt="BOGO Deal"
                       fill
-                      className="object-cover rounded-3xl drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain rounded-3xl drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority
                     />
@@ -105,7 +105,7 @@ export default function HomeClient() {
                 </button>
 
                 {/* Floating accent badge positioned bottom-left */}
-                <div className="absolute -bottom-12 left-2 md:-bottom-2 md:left-44 bg-white rounded-full px-5 py-3 shadow-lg border border-amber-100 pointer-events-none z-10">
+                <div className="absolute -bottom9 left-1/2 -translate-x-1/2 md:bottom-2 md:left-44 md:translate-x-0 bg-white rounded-full px-5 py-3 shadow-lg border border-amber-100 pointer-events-none z-10 text-center md:text-left">
                   <p className="text-xs uppercase tracking-widest text-amber-700 font-medium">Limited Time!</p>
                   <p className="text-sm font-medium text-neutral-800">BOGO 50% off Body Butters</p>
                 </div>
