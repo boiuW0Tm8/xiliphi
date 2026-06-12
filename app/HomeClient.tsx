@@ -84,20 +84,20 @@ export default function HomeClient() {
 
             {/* Hero image */}
             <div className="order-1 md:order-2 hidden md:flex justify-center items-center w-full">
-              <div className="relative w-full max-w-lg md:max-w-xl mx-auto group">
+              <div className="relative w-full max-w-lg md:max-w-xl mx-auto group pb-16">
 
                 <button
-                  onClick={() => navigateTo("/products/mango-body-butter?from=/")}
+                  onClick={() => navigateTo("/products?from=/")}
                   className="block w-full cursor-pointer bg-transparent border-0 p-0"
                   aria-label="Shop Mango Body Butter"
                 >
                   {/* Increased height constraints to let the image expand naturally */}
-                  <div className="relative h-[350px] sm:h-[450px] md:h-[500px] lg:h-[550px] w-full">
+                  <div className="relative h-[350px] sm:h-[450px] md:h-[500px] lg:h-[550px] w-full rounded-3xl overflow-hidden">
                     <Image
-                      src="/mango/mango.png"
-                      alt="Xiliphi Mango Body Butter"
+                      src="/home/bogo.png"
+                      alt="BOGO Deal"
                       fill
-                      className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      className="object-cover rounded-3xl drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       priority
                     />
@@ -105,9 +105,9 @@ export default function HomeClient() {
                 </button>
 
                 {/* Floating accent badge positioned bottom-left */}
-                <div className="absolute bottom-2 left-2 md:bottom-6 md:left-6 bg-white rounded-full px-5 py-3 shadow-lg border border-amber-100 pointer-events-none z-10">
-                  <p className="text-xs uppercase tracking-widest text-amber-700 font-medium">Bestseller</p>
-                  <p className="text-sm font-medium text-neutral-800">Mango Body Butter</p>
+                <div className="absolute -bottom-12 left-2 md:-bottom-2 md:left-44 bg-white rounded-full px-5 py-3 shadow-lg border border-amber-100 pointer-events-none z-10">
+                  <p className="text-xs uppercase tracking-widest text-amber-700 font-medium">Limited Time!</p>
+                  <p className="text-sm font-medium text-neutral-800">BOGO 50% off Body Butters</p>
                 </div>
 
               </div>
