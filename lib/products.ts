@@ -54,7 +54,7 @@ export const products: Product[] = [
     originalPrice: 65,
     size: "Cleanser • Toner • Serum • Cream",
     rating: 5,
-    reviewCount: 6,
+    reviewCount: 9,
     images: [
       "/turmeric/turmericai.png",
     //  "/turmeric/1.jpg",
@@ -211,7 +211,7 @@ export const products: Product[] = [
     originalPrice: 20,
     size: "100 g / 3.53 oz",
     rating: 5,
-    reviewCount: 5,
+    reviewCount: 9,
     images: [
       "/original/originalmain.png",
     //  "/original/1.jpg",
@@ -295,7 +295,7 @@ export const products: Product[] = [
     originalPrice: 20,
     size: "100 g / 3.53 oz",
     rating: 5,
-    reviewCount: 4,
+    reviewCount: 12,
     images: [
       "/mango/mangomain.png",
     //  "/mango/1.png",
@@ -379,7 +379,7 @@ export const products: Product[] = [
     originalPrice: 20,
     size: "100 g / 3.53 oz",
     rating: 4.8,
-    reviewCount: 7,
+    reviewCount: 10,
     images: [
       "/peach/peachmain.png",
     //  "/peach/1.png",
@@ -463,7 +463,7 @@ export const products: Product[] = [
     originalPrice: 20,
     size: "100 g / 3.53 oz",
     rating: 4.8,
-    reviewCount: 6,
+    reviewCount: 8,
     images: [
       "/citrus/citrusmain.png",
     //  "/citrus/1.png",
@@ -584,7 +584,7 @@ export const products: Product[] = [
     originalPrice: 15,
     size: "Lip Mask + Lip Scrub",
     rating: 4.7,
-    reviewCount: 7,
+    reviewCount: 8,
     images: [
       "/strawberry/lipmain1.png",
       "/strawberry/1.png",
