@@ -12,6 +12,7 @@ export type Product = {
   reviewCount?: number;
   images: string[];
   chart?: string,
+  infographics?: string[];
   category?: string;
   benefits?: string[];
   description?: string;
@@ -56,12 +57,20 @@ export const products: Product[] = [
     reviewCount: 6,
     images: [
       "/turmeric/turmericai.png",
+    //  "/turmeric/1.jpg",
+    //  "/turmeric/2.jpg",
+    //  "/turmeric/3.jpg",
       "/turmeric/turmericai1.png",
       "/turmeric/turmericai2.png",
       "/turmeric/turmericai3.png",
       "/turmeric/ingredients.jpg"
     ],
-    chart: "charts/turmeric-set.png",
+    chart: "charts/turmeric-set1.png",
+    infographics: [
+      "/turmeric/1.jpg",
+      "/turmeric/2.jpg",
+      "/turmeric/3.jpg"
+    ],
     category: "skin-care",
     benefits: [
       "Complete 4-step turmeric-powered skincare routine",
@@ -205,12 +214,20 @@ export const products: Product[] = [
     reviewCount: 5,
     images: [
       "/original/originalmain.png",
+    //  "/original/1.jpg",
+    //  "/original/3.jpg",
+    //  "/original/2.jpg",
       "/original/spread.jpg",
       "/original/originalai1.png",
       "/original/originalai2.png",
       "/original/ingredients.jpg"
     ],
     chart: "charts/original-bb.png",
+    infographics: [
+      "/original/1.jpg",
+      "/original/3.jpg",
+      "/original/2.jpg"
+    ],
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -281,12 +298,20 @@ export const products: Product[] = [
     reviewCount: 4,
     images: [
       "/mango/mangomain.png",
+    //  "/mango/1.png",
+    //  "/mango/2.png",
+    //  "/mango/3.png",
       "/mango/spread.jpg",
       "/mango/mangoai1.png",
       "/mango/mangoai2.png",
       "/mango/ingredients.jpg"
     ],
     chart: "charts/mango-bb.png",
+    infographics: [
+      "/mango/1.png",
+      "/mango/2.png",
+      "/mango/3.png"
+    ],
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -357,12 +382,20 @@ export const products: Product[] = [
     reviewCount: 7,
     images: [
       "/peach/peachmain.png",
+    //  "/peach/1.png",
+    //  "/peach/2.png",
+    //  "/peach/3.png",
       "/peach/spread.jpg",
       "/peach/peachai1.png",
       "/peach/peachai2.png",
       "/peach/ingredients.jpg"
     ],
-    chart: "charts/peach-bb.png",
+    chart: "charts/peach-bb1.png",
+    infographics: [
+      "/peach/1.png",
+      "/peach/2.png",
+      "/peach/3.png"
+    ],
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -433,12 +466,20 @@ export const products: Product[] = [
     reviewCount: 6,
     images: [
       "/citrus/citrusmain.png",
+    //  "/citrus/1.png",
+    //  "/citrus/2.png",
+    //  "/citrus/3.png",
       "/citrus/spread.jpg",
       "/citrus/citrusai1.png",
       "/citrus/citrusai2.png",
       "/citrus/ingredients.jpg"
     ],
     chart: "charts/citrus-bb.png",
+    infographics: [
+      "/citrus/1.png",
+      "/citrus/2.png",
+      "/citrus/3.png"
+    ],
     category: "body-butter",
     benefits: [
       "Deeply nourishes dry skin",
@@ -546,12 +587,20 @@ export const products: Product[] = [
     reviewCount: 7,
     images: [
       "/strawberry/lipmain1.png",
+      "/strawberry/1.png",
+      "/strawberry/2.jpg",
+      "/strawberry/3.jpg",
       "/strawberry/lipai01.png",
       "/strawberry/lipai2.png",
       "/strawberry/lipai03.png",
       "/strawberry/ingredients.jpg"
     ],
-    chart: "charts/strawberry-lip.png",
+    chart: "charts/strawberry-lip1.png",
+    infographics: [
+      "/strawberry/1.png",
+      "/strawberry/2.jpg",
+      "/strawberry/3.jpg"
+    ],
     category: "lip-care",
     benefits: [
       "2-in-1 lip combo",

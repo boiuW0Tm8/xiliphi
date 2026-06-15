@@ -37,6 +37,8 @@ export default function ProductClient({ product, from }: { product: any; from: s
   const [selectedButter, setSelectedButter] = useState("");
   const [added, setAdded] = useState(false);
   const [ingredientsOpen, setIngredientsOpen] = useState(false);
+  const [descriptionOpen, setDescriptionOpen] = useState(false);
+  const [howToUseOpen, setHowToUseOpen] = useState(false);
   const [openIngredientSections, setOpenIngredientSections] = useState<Set<string>>(new Set());
 
   // Restore saved state on mount (when returning from almanac)
@@ -464,8 +466,22 @@ export default function ProductClient({ product, from }: { product: any; from: s
             {/* DESCRIPTION */}
             {product.description && (
               <div className="mb-8">
-                <h2 className="text-lg font-medium mb-3">Description</h2>
-                <p className="text-sm leading-relaxed">{product.description}</p>
+                <button
+                  onClick={() => setDescriptionOpen((prev) => !prev)}
+                  className="flex items-center justify-between w-full text-left"
+                >
+                  <h2 className="text-lg font-medium">Description</h2>
+                  <span
+                    className={`text-lg transition-transform duration-300 ${descriptionOpen ? "rotate-45" : ""}`}
+                  >
+                    +
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${descriptionOpen ? "max-h-[3000px] opacity-100 mt-3" : "max-h-0 opacity-0"}`}
+                >
+                  <p className="text-sm leading-relaxed">{product.description}</p>
+                </div>
               </div>
             )}
 
@@ -610,8 +626,22 @@ export default function ProductClient({ product, from }: { product: any; from: s
             {/* HOW TO USE */}
             {product.howToUse && (
               <div>
-                <h2 className="text-lg font-medium mb-3">How to Use</h2>
-                <p className="text-sm leading-relaxed">{product.howToUse}</p>
+                <button
+                  onClick={() => setHowToUseOpen((prev) => !prev)}
+                  className="flex items-center justify-between w-full text-left"
+                >
+                  <h2 className="text-lg font-medium">How to Use</h2>
+                  <span
+                    className={`text-lg transition-transform duration-300 ${howToUseOpen ? "rotate-45" : ""}`}
+                  >
+                    +
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${howToUseOpen ? "max-h-[3000px] opacity-100 mt-3" : "max-h-0 opacity-0"}`}
+                >
+                  <p className="text-sm leading-relaxed">{product.howToUse}</p>
+                </div>
               </div>
             )}
 
@@ -646,103 +676,126 @@ export default function ProductClient({ product, from }: { product: any; from: s
             </div>
           </div>
         )}
+
+        {/* INFOGRAPHICS */}
+        {product.infographics && product.infographics.length > 0 && (
+          <div className="max-w-10xl mx-auto px-6 pb-16">
+            <div className="grid md:grid-cols-3 gap-8">
+              {product.infographics.map((src: string) => (
+                <div key={src} className="relative w-full aspect-square rounded-2xl overflow-hidden">
+                  <Image
+                    src={src}
+                    alt={`${product.name} infographic`}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
-      {/* HERO INGREDIENTS */}
-      {product.heroIngredients && product.heroIngredients.length > 0 && (
-        <section className="bg-white py-32">
+    <div className="bg-gradient-to-b from-[#d0f7e9] to-[#fee4ca]">
+
+        {/* HERO INGREDIENTS */}
+        {product.heroIngredients && product.heroIngredients.length > 0 && (
+          <section className="py-32">
+            <div className="max-w-6xl mx-auto px-6">
+              <h2 className="text-3xl font-medium mb-20 text-center">Hero Ingredients</h2>
+
+              <div className="space-y-32">
+                {product.heroIngredients.map((hero: any, index: number) => {
+                  const ingredient = ingredientMap.get(hero.slug);
+                  if (!ingredient) return null;
+                  const isReversed = index % 2 === 1;
+
+                  return (
+                    <div key={hero.slug} className={`grid md:grid-cols-2 gap-16 items-center`}>
+                      <div className={`${isReversed ? "md:order-2" : ""}`}>
+                        <h3 className="text-2xl font-medium mb-6">
+                          {hero.title || ingredient.common || ingredient.inci}
+                        </h3>
+                        <p className="text-lg text-neutral-700 leading-relaxed">
+                          {hero.description}
+                        </p>
+                        <button
+                          onClick={() => saveStateAndNavigate(`/almanac/${hero.slug}?from=/products/${product.slug}`)}
+                          className="inline-block mt-6 text-base underline hover:opacity-70 transition-opacity duration-300 cursor-pointer"
+                        >
+                          Learn more →
+                        </button>
+                      </div>
+
+                      <div className={`${isReversed ? "md:order-1 flex justify-start" : "flex justify-end"}`}>
+                        {ingredient.image && (
+                          <div className="relative w-full max-w-md aspect-square">
+                            <Image
+                              src={ingredient.image}
+                              alt={ingredient.common || ingredient.inci}
+                              fill
+                              className="object-contain"
+                              sizes="(max-width: 768px) 100vw, 448px"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* REVIEWS */}
+        <section className="py-20">
           <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-medium mb-20 text-center">Hero Ingredients</h2>
-
-            <div className="space-y-32">
-              {product.heroIngredients.map((hero: any, index: number) => {
-                const ingredient = ingredientMap.get(hero.slug);
-                if (!ingredient) return null;
-                const isReversed = index % 2 === 1;
-
-                return (
-                  <div key={hero.slug} className={`grid md:grid-cols-2 gap-16 items-center`}>
-                    <div className={`${isReversed ? "md:order-2" : ""}`}>
-                      <h3 className="text-2xl font-medium mb-6">
-                        {hero.title || ingredient.common || ingredient.inci}
-                      </h3>
-                      <p className="text-lg text-neutral-700 leading-relaxed">
-                        {hero.description}
-                      </p>
-                      <button
-                        onClick={() => saveStateAndNavigate(`/almanac/${hero.slug}?from=/products/${product.slug}`)}
-                        className="inline-block mt-6 text-base underline hover:opacity-70 transition-opacity duration-300 cursor-pointer"
-                      >
-                        Learn more →
-                      </button>
+            <h2 className="text-2xl font-medium mb-10 text-center">
+              Don't take our word for it...
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {productReviews.map((review, i) => (
+                <div
+                  key={i}
+                  className="bg-white border border-neutral-200 rounded-xl p-10 shadow-sm flex flex-col justify-between min-h-[200px]"
+                >
+                  <div>
+                    <div className="text-xl mb-4 text-teal-600">
+                      {"★★★★★".slice(0, review.rating)}
                     </div>
-
-                    <div className={`${isReversed ? "md:order-1 flex justify-start" : "flex justify-end"}`}>
-                      {ingredient.image && (
-                        <div className="relative w-full max-w-md aspect-square">
-                          <Image
-                            src={ingredient.image}
-                            alt={ingredient.common || ingredient.inci}
-                            fill
-                            className="object-contain"
-                            sizes="(max-width: 768px) 100vw, 448px"
-                          />
-                        </div>
-                      )}
-                    </div>
+                    <p className="text-base text-neutral-700 leading-relaxed">{review.text}</p>
                   </div>
-                );
-              })}
+                  <p className="text-sm text-neutral-500 mt-6">— {review.name}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
-      )}
 
-      {/* REVIEWS */}
-      <section className="bg-[#faf8f4] py-20">
-        <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-2xl font-medium mb-10 text-center">
-            Don't take our word for it...
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {productReviews.map((review, i) => (
-              <div
-                key={i}
-                className="bg-white border border-neutral-200 rounded-xl p-10 shadow-sm flex flex-col justify-between min-h-[200px]"
-              >
-                <div>
-                  <div className="text-xl mb-4 text-teal-600">
-                    {"★★★★★".slice(0, review.rating)}
-                  </div>
-                  <p className="text-base text-neutral-700 leading-relaxed">{review.text}</p>
+        {/* FAQ */}
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto px-6">
+            {product.faq && product.faq.length > 0 && (
+              <>
+                <h2 className="text-3xl font-medium mb-12 text-center">
+                  Frequently Asked Questions
+                </h2>
+                <div className="space-y-10">
+                  {product.faq.map((item: any, index: number) => (
+                    <div key={index}>
+                      <p className="text-lg font-medium mb-2">{item.question}</p>
+                      <p className="text-neutral-700 text-base leading-relaxed">{item.answer}</p>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-sm text-neutral-500 mt-6">— {review.name}</p>
-              </div>
-            ))}
+              </>
+            )}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ */}
-      <section className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-6">
-          {product.faq && product.faq.length > 0 && (
-            <>
-              <h2 className="text-3xl font-medium mb-12 text-center">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-10">
-                {product.faq.map((item: any, index: number) => (
-                  <div key={index}>
-                    <p className="text-lg font-medium mb-2">{item.question}</p>
-                    <p className="text-neutral-700 text-base leading-relaxed">{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
+      </div>
     </main>
   );
 }
