@@ -308,7 +308,7 @@ function LayoutInner({ children }: { children: React.ReactNode }) {
       < CartDrawer />
 
       {/* ================= PAGE CONTENT ================= */ }
-      < WelcomePopup />
+    {/* < WelcomePopup /> */}
       <div className="pt-20">{children}</div>
     </>
   );

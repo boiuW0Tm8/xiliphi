@@ -27,7 +27,7 @@ export default function ShippingPage() {
           <ul className="space-y-3 text-neutral-600">
             <li>
               <strong>Standard Shipping — $10</strong><br />
-              Free on orders over $50.
+              Free on orders over $30.
             </li>
             <li>
               <strong>Express Shipping — $15</strong><br />

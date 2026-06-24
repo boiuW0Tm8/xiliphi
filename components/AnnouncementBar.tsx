@@ -2,7 +2,7 @@
 
 export default function AnnouncementBar() {
   const items = [
-    "🚚 FREE SHIPPING OVER $10",
+    "🚚 FREE SHIPPING OVER $30",
     "🎉 UP TO 30% OFF ALL ITEMS",
     "🔥 BOGO 50% OFF BODY BUTTER",
   ];

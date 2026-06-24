@@ -289,7 +289,7 @@ export const products: Product[] = [
     slug: "mango-body-butter",
     shopifyVariantId: "gid://shopify/ProductVariant/42977732984895",
     shopifyProductId: "gid://shopify/Product/8102124748863",
-    name: "Mango Body Butter",
+    name: "Mango Body Butter - New Texture!",
     faq: bodyButterFAQ,
     price: 15,
     originalPrice: 20,
@@ -314,6 +314,7 @@ export const products: Product[] = [
     ],
     category: "body-butter",
     benefits: [
+      "New, slightly thinner texture based on customer feedback! Try Now!",
       "Deeply nourishes dry skin",
       "Rich in unrefined shea butter",
       "Thick, butter-like consistency",
