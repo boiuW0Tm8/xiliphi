@@ -588,9 +588,9 @@ export const products: Product[] = [
     reviewCount: 8,
     images: [
       "/strawberry/lipmain1.png",
-      "/strawberry/1.png",
-      "/strawberry/2.jpg",
-      "/strawberry/3.jpg",
+    //  "/strawberry/1.png",
+    //  "/strawberry/2.jpg",
+    //  "/strawberry/3.jpg",
       "/strawberry/lipai01.png",
       "/strawberry/lipai2.png",
       "/strawberry/lipai03.png",
