@@ -47,7 +47,7 @@ const allProducts = [
   { name: "Original Body Butter", href: "/products/original-body-butter", image: "/original/main.jpg" },
   { name: "Mango Body Butter", href: "/products/mango-body-butter", image: "/mango/main.jpg" },
   { name: "Peach Body Butter", href: "/products/peach-body-butter", image: "/peach/main.png" },
-  { name: "Citrus", href: "/products/citrus-body-butter", image: "/citrus/main.jpg" },
+  { name: "Citrus Body Butter", href: "/products/citrus-body-butter", image: "/citrus/main.jpg" },
   { name: "Turmeric Skincare Set", href: "/products/turmeric-skincare-set", image: "/turmeric/main.jpg" },
   { name: "Strawberry Lip Mask/Scrub 2-in-1", href: "/products/strawberry-lip-care", image: "/strawberry/main.jpg" },
   { name: "Butter Lover Bundle", href: "/products/butter-lover-bundle", image: "/bundles/butterlover.png" },
