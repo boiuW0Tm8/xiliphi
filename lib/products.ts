@@ -579,7 +579,7 @@ export const products: Product[] = [
     slug: "strawberry-lip-care",
     shopifyVariantId: "gid://shopify/ProductVariant/42977754218559",
     shopifyProductId: "gid://shopify/Product/8102135332927",
-    name: "Strawberry Lip Mask/Scrub 2-in-1 - CLEARANCE",
+    name: "Strawberry Lip Mask/Scrub 2-in-1 - CLEARANCE, LAST CALL",
     faq: lipCareFAQ,
     price: 2.5,
     originalPrice: 15,
