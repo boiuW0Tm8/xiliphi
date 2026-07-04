@@ -139,6 +139,26 @@ export default function ReelsSection() {
     const children = Array.from(el.children) as HTMLElement[];
     if (!children.length) return;
 
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const stepSize = children.length > 1 ? children[1].offsetLeft - children[0].offsetLeft : 0;
+    const atStart = el.scrollLeft <= 1;
+    const atEnd = el.scrollLeft >= maxScroll - 1;
+
+    // At the clamped start/end positions, the scroll offset doesn't land exactly
+    // on any card's offsetLeft (we intentionally overshoot to show the "peek +
+    // full cards" layout at the edges). That mismatch was making the nearest-card
+    // lookup below pick the wrong "current" card, causing a step to jump by more
+    // than one card. Handle these boundary cases explicitly with a fixed
+    // one-card-width move instead of relying on nearest-match.
+    if (atEnd && direction === -1) {
+      animateScrollTo(Math.max(maxScroll - stepSize, 0));
+      return;
+    }
+    if (atStart && direction === 1) {
+      animateScrollTo(Math.min(stepSize, maxScroll));
+      return;
+    }
+
     // Find the card whose left edge is closest to the current scroll position,
     // then move one card over from there — keeps clicks landing cleanly on
     // the next/previous card even if the scroll position is mid-card.
@@ -160,7 +180,6 @@ export default function ReelsSection() {
     // Clamp to the true maximum scroll position so the last couple of clicks
     // land flush at the very end (a peek of the prior card + full cards to
     // the edge), instead of leaving a trailing gap after the last card.
-    const maxScroll = el.scrollWidth - el.clientWidth;
     const rawTarget = children[targetIndex].offsetLeft;
     const target = direction === 1 ? Math.min(rawTarget, maxScroll) : Math.max(rawTarget, 0);
 
