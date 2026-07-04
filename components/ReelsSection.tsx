@@ -50,7 +50,7 @@ const REELS: Reel[] = [
   {
     id: "reel-gifty",
     src: "/reels/ugc-gifty.mp4",
-    poster: "/reels/gifty.png",
+    poster: "/reels/gifty.PNG",
     creator: "@giftysaraeldho",
     caption: "Ultimate Set Showcase",
   },
