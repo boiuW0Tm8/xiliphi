@@ -466,7 +466,7 @@ export const products: Product[] = [
     rating: 4.8,
     reviewCount: 8,
     images: [
-      "/citrus/citrusmain.png",
+      "/citrus/citrusmainai.png",
     //  "/citrus/1.png",
     //  "/citrus/2.png",
     //  "/citrus/3.png",
