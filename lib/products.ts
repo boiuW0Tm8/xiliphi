@@ -294,8 +294,8 @@ export const products: Product[] = [
     price: 15,
     originalPrice: 20,
     size: "100 g / 3.53 oz",
-    rating: 5,
-    reviewCount: 12,
+    rating: 4.7,
+    reviewCount: 14,
     images: [
       "/mango/mangomain.png",
     //  "/mango/1.png",
