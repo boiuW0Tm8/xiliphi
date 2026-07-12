@@ -27,12 +27,18 @@ export default function ProductsPage() {
     (product) => product.category === "skin-care"
   );
 
+  // Slugs temporarily hidden from the storefront — remove from this array to bring back
+  const HIDDEN_LIP_CARE_SLUGS = ["strawberry-lip-care"];
+
   const lipCare = products.filter(
-    (product) => product.category === "lip-care"
+    (product) => product.category === "lip-care" && !HIDDEN_LIP_CARE_SLUGS.includes(product.slug)
   );
 
+  // Slugs temporarily hidden from the storefront — remove from this array to bring back
+  const HIDDEN_BUNDLE_SLUGS = ["el-classico-bundle", "tootie-frootie-bundle", "ultimate-set"];
+
   const bundles = products.filter(
-    (product) => product.category === "bundle"
+    (product) => product.category === "bundle" && !HIDDEN_BUNDLE_SLUGS.includes(product.slug)
   );
 
   return (
@@ -163,45 +169,51 @@ export default function ProductsPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
-          {lipCare.map((product, i) => (
-            <Link
-              key={product.slug}
-              href={`/products/${product.slug}`}
-              onClick={saveScroll}
-              className="group block text-center transition-transform duration-300 hover:-translate-y-1"
-            >
-              <div className="relative aspect-square mb-8 max-w-[420px] mx-auto">
-                <Image
-                  src={product.images[0]}
-                  alt={product.name}
-                  fill
-                  priority={i < 2}
-                  sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <p className="text-xl font-medium group-hover:underline">
-                  {product.name}
-                </p>
-
-                <div className="flex items-baseline justify-center gap-3">
-                  <span className="text-xl font-semibold text-black">
-                    ${product.price.toFixed(2)}
-                  </span>
-
-                  {product.originalPrice && (
-                    <span className="text-base text-neutral-400 line-through">
-                      ${product.originalPrice.toFixed(2)}
-                    </span>
-                  )}
+        {lipCare.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+            {lipCare.map((product, i) => (
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}`}
+                onClick={saveScroll}
+                className="group block text-center transition-transform duration-300 hover:-translate-y-1"
+              >
+                <div className="relative aspect-square mb-8 max-w-[420px] mx-auto">
+                  <Image
+                    src={product.images[0]}
+                    alt={product.name}
+                    fill
+                    priority={i < 2}
+                    sizes="(max-width: 768px) 100vw, 420px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105 rounded-2xl"
+                  />
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+
+                <div className="space-y-2">
+                  <p className="text-xl font-medium group-hover:underline">
+                    {product.name}
+                  </p>
+
+                  <div className="flex items-baseline justify-center gap-3">
+                    <span className="text-xl font-semibold text-black">
+                      ${product.price.toFixed(2)}
+                    </span>
+
+                    {product.originalPrice && (
+                      <span className="text-base text-neutral-400 line-through">
+                        ${product.originalPrice.toFixed(2)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-lg text-neutral-500 py-12">
+            Coming Soon
+          </p>
+        )}
       </section>
 
       {/* BUNDLES */}
