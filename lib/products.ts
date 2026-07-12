@@ -806,7 +806,7 @@ export const products: Product[] = [
       "Best savings",
       "Hand-selected",
       "Guaranteed value",
-      "Surprises included!"
+      "Additional surprise goodiess"
     ],
     ingredients: [],
     warning: "For external use only. Avoid contact with eyes. If contact with eyes occurs, rinse thoroughly with water. Discontinue use if irritation or rash occur. Keep out of reach of children. Do not swallow. Test on a patch of skin first.",

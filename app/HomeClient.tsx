@@ -181,21 +181,21 @@ export default function HomeClient() {
             </button>
 
             {/* Product 3 */}
-            <button onClick={() => navigateTo("/products/strawberry-lip-care?from=/")} className="group text-left cursor-pointer">
+            <button onClick={() => navigateTo("/products/mystery-bundle?from=/")} className="group text-left cursor-pointer">
               <div className="relative aspect-square overflow-hidden rounded-2xl bg-rose-50 mb-5">
                 <Image
-                  src="/strawberry/lipmain1.png"
-                  alt="Strawberry Lip Care Duo"
+                  src="/bundles/surpriseai.png"
+                  alt="Mystery Bundle"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
               </div>
               <h3 className="text-xl font-medium mb-1 text-neutral-900 group-hover:text-amber-700 transition">
-                Lip Care Duo
+                Mystery Bundle
               </h3>
               <p className="text-neutral-500 text-sm">
-                Smooth, protect, repeat
+                Test your luck!
               </p>
             </button>
 
