@@ -8,7 +8,7 @@ import Script from 'next/script';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { FaInstagram, FaTiktok, FaYoutube, FaPinterest } from 'react-icons/fa';
 import { Suspense } from 'react';
-import PageViewTracker from "@/components/Pageviewtracker";
+//import PageViewTracker from "@/components/Pageviewtracker";
 
 const xiliphiFont = localFont({
   src: "./fonts/TT Norms Pro Regular.otf",
@@ -54,9 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <Suspense fallback={null}>
-          <PageViewTracker />
-        </Suspense>
         <div className="relative overflow-hidden">
           <NavbarClient>
             {children}

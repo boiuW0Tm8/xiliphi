@@ -7,8 +7,8 @@ import { ingredients } from "@/lib/ingredients";
 import { useCart } from "@/context/CartContext";
 import { reviews } from "@/lib/reviews";
 import { products } from "@/lib/products";
-import { trackEvent } from "@/lib/meta-pixel";
-import { trackTikTokEvent } from "@/lib/tiktok";
+//import { trackEvent } from "@/lib/meta-pixel";
+//import { trackTikTokEvent } from "@/lib/tiktok";
 import Image from "next/image";
 
 const butterOptions = [
@@ -62,19 +62,16 @@ export default function ProductClient({ product, from }: { product: any; from: s
     }
   }, []);
 
-  // Fire ViewContent for Meta + TikTok
+  // Fire ViewContent via dataLayer (GTM web → Stape server → Meta + TikTok CAPI)
   useEffect(() => {
-    trackEvent("ViewContent", {
-      value: product.price,
-      currency: "CAD",
-      content_ids: [product.slug],
-      content_type: "product",
-    });
-
-    trackTikTokEvent("ViewContent", {
-      value: product.price,
-      currency: "CAD",
-      contents: [{ content_id: product.slug, content_name: product.name, price: product.price, quantity: 1 }],
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "view_item",
+      ecommerce: {
+        currency: "CAD",
+        value: product.price,
+        items: [{ item_id: product.slug, item_name: product.name, price: product.price, quantity: 1 }],
+      },
     });
   }, [product.slug]);
 
@@ -161,19 +158,17 @@ export default function ProductClient({ product, from }: { product: any; from: s
       const butterLabel = butterOptions.find(b => b.slug === selectedButter)?.label ?? selectedButter;
       attributes.push({ key: "Butter Selection", value: butterLabel });
     }
+    
     await addToCart(product.shopifyVariantId, quantity, attributes);
 
-    trackEvent("AddToCart", {
-      value: product.price * quantity,
-      currency: "CAD",
-      content_ids: [product.slug],
-      content_type: "product",
-    });
-
-    trackTikTokEvent("AddToCart", {
-      value: product.price * quantity,
-      currency: "CAD",
-      contents: [{ content_id: product.slug, content_name: product.name, price: product.price, quantity }],
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "add_to_cart",
+      ecommerce: {
+        currency: "CAD",
+        value: product.price * quantity,
+        items: [{ item_id: product.slug, item_name: product.name, price: product.price, quantity }],
+      },
     });
 
     setAdded(true);
@@ -697,7 +692,7 @@ export default function ProductClient({ product, from }: { product: any; from: s
         )}
       </section>
 
-    <div className="bg-gradient-to-b from-[#d0f7e9] to-[#fee4ca]">
+      <div className="bg-gradient-to-b from-[#d0f7e9] to-[#fee4ca]">
 
         {/* HERO INGREDIENTS */}
         {product.heroIngredients && product.heroIngredients.length > 0 && (
