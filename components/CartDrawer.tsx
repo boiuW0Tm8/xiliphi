@@ -181,6 +181,25 @@ export default function CartDrawer() {
             {/* Checkout button */}
             <a
               href={cart?.checkoutUrl}
+              onClick={() => {
+                const eventId = crypto.randomUUID();
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ ecommerce: null });
+                window.dataLayer.push({
+                  event: "begin_checkout",
+                  event_id: eventId,
+                  ecommerce: {
+                    currency: total?.currencyCode,
+                    value: parseFloat(total?.amount ?? "0"),
+                    items: lines.map((line) => ({
+                      item_id: line.merchandise.id.split("/").pop(),
+                      item_name: line.merchandise.product.title,
+                      price: parseFloat(line.merchandise.price.amount),
+                      quantity: line.quantity,
+                    })),
+                  },
+                });
+              }}
               className="block w-full bg-black text-white text-center text-sm tracking-wide py-4 rounded-full hover:bg-neutral-800 transition-colors"
             >
               Checkout →
