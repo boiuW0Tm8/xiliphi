@@ -5,7 +5,7 @@ import NavbarClient from "@/components/Navbarclient";
 import "./globals.css";
 import Link from "next/link";
 import Script from 'next/script';
-import { GoogleTagManager } from '@next/third-parties/google';
+//import { GoogleTagManager } from '@next/third-parties/google';
 import { FaInstagram, FaTiktok, FaYoutube, FaPinterest } from 'react-icons/fa';
 import { Suspense } from 'react';
 //import PageViewTracker from "@/components/Pageviewtracker";
@@ -44,11 +44,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-W9G5V85X" />
+      {/* <GoogleTagManager gtmId="GTM-W9G5V85X" /> */}
       <body className={`overflow-x-hidden ${xiliphiFont.className}`}>
+        <Script id="gtm-loader" strategy="afterInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+  j.src="https://link.xiliphi.com/1kjonpzgbv.js?"+i;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','13=HwZaPSQjQj1PJVIsSFs3TABfVVRBSAsESxoOFhkeBwNYAQgX');`}
+        </Script>
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-W9G5V85X"
+            src="https://link.xiliphi.com/ns.html?id=GTM-W9G5V85X"
             height="0"
             width="0"
             style={{ display: 'none', visibility: 'hidden' }}
