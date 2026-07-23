@@ -62,15 +62,23 @@ export default function ProductClient({ product, from }: { product: any; from: s
     }
   }, []);
 
-  // Fire ViewContent via dataLayer (GTM web → Stape server → Meta + TikTok CAPI)
+  // ViewContent — replaces the existing useEffect
   useEffect(() => {
+    const eventId = crypto.randomUUID();
     window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ ecommerce: null });
     window.dataLayer.push({
       event: "view_item",
+      event_id: eventId,
       ecommerce: {
         currency: "CAD",
         value: product.price,
-        items: [{ item_id: product.slug, item_name: product.name, price: product.price, quantity: 1 }],
+        items: [{
+          item_id: product.shopifyVariantId?.split("/").pop(),
+          item_name: product.name,
+          price: product.price,
+          quantity: 1,
+        }],
       },
     });
   }, [product.slug]);
@@ -158,16 +166,25 @@ export default function ProductClient({ product, from }: { product: any; from: s
       const butterLabel = butterOptions.find(b => b.slug === selectedButter)?.label ?? selectedButter;
       attributes.push({ key: "Butter Selection", value: butterLabel });
     }
-    
+
     await addToCart(product.shopifyVariantId, quantity, attributes);
 
+    // AddToCart — replaces the push inside handleAddToCart
+    const eventId = crypto.randomUUID();
     window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ ecommerce: null });
     window.dataLayer.push({
       event: "add_to_cart",
+      event_id: eventId,
       ecommerce: {
         currency: "CAD",
         value: product.price * quantity,
-        items: [{ item_id: product.slug, item_name: product.name, price: product.price, quantity }],
+        items: [{
+          item_id: product.shopifyVariantId?.split("/").pop(),
+          item_name: product.name,
+          price: product.price,
+          quantity,
+        }],
       },
     });
 
